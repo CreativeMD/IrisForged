@@ -38,10 +38,10 @@ public final class GlyphVertexExt {
     private static float uSum;
     private static float vSum;
     
-    private static Vector3f lastNormal = new Vector3f();
+    //private static Vector3f lastNormal = new Vector3f();
     
     public static void write(long ptr, float x, float y, float z, int color, float u, float v, int light) {
-        long i = ptr;
+        //long i = ptr;
         
         vertexCount++;
         uSum += u;
@@ -120,7 +120,7 @@ public final class GlyphVertexExt {
             float nzt = (matNormal.m02() * nx) + (matNormal.m12() * ny) + (matNormal.m22() * nz);
             
             // The packed transformed normal vector
-            var nt = NormI8.pack(nxt, nyt, nzt);
+            //var nt = NormI8.pack(nxt, nyt, nzt);
             
             for (int i = 0; i < 4; i++) {
                 // The position vector

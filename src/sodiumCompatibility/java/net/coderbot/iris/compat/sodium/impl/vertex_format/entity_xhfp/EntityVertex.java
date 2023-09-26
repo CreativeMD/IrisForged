@@ -2,7 +2,6 @@ package net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp;
 
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Vector3f;
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
 
@@ -31,7 +30,7 @@ public final class EntityVertex {
     private static final int OFFSET_NORMAL = 32;
     private static final int OFFSET_TANGENT = 50;
     
-    private static Vector3f lastNormal = new Vector3f();
+    //private static Vector3f lastNormal = new Vector3f();
     
     public static void write(long ptr, float x, float y, float z, int color, float u, float v, float midU, float midV, int light, int overlay, int normal, int tangent) {
         MemoryUtil.memPutFloat(ptr + OFFSET_POSITION + 0, x);

@@ -72,7 +72,7 @@ public class ShaderPackScreen extends Screen implements HudHideable {
     private boolean optionMenuOpen = false;
     
     private boolean dropChanges = false;
-    private static String development = "Development Environment";
+    //private static String development = "Development Environment";
     private MutableComponent developmentComponent;
     private MutableComponent updateComponent;
     

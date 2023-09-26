@@ -197,7 +197,7 @@ public class ProgramUniforms {
                     continue;
                 }
                 
-                int size = sizeBuf.get(0);
+                //int size = sizeBuf.get(0);
                 int type = typeBuf.get(0);
                 
                 UniformType provided = uniformNames.get(name);
@@ -351,11 +351,11 @@ public class ProgramUniforms {
         }
     }
     
-    private static boolean isSampler(int type) {
+    /*private static boolean isSampler(int type) {
         return type == GL20C.GL_SAMPLER_1D || type == GL20C.GL_SAMPLER_2D || type == GL30C.GL_UNSIGNED_INT_SAMPLER_2D || type == GL30C.GL_UNSIGNED_INT_SAMPLER_3D || type == GL20C.GL_SAMPLER_3D || type == GL20C.GL_SAMPLER_1D_SHADOW || type == GL20C.GL_SAMPLER_2D_SHADOW;
     }
     
     private static boolean isImage(int type) {
         return type == ARBShaderImageLoadStore.GL_IMAGE_1D || type == ARBShaderImageLoadStore.GL_IMAGE_2D || type == ARBShaderImageLoadStore.GL_UNSIGNED_INT_IMAGE_1D || type == ARBShaderImageLoadStore.GL_UNSIGNED_INT_IMAGE_2D || type == ARBShaderImageLoadStore.GL_UNSIGNED_INT_IMAGE_3D || type == ARBShaderImageLoadStore.GL_INT_IMAGE_1D || type == ARBShaderImageLoadStore.GL_INT_IMAGE_2D || type == ARBShaderImageLoadStore.GL_INT_IMAGE_3D || type == ARBShaderImageLoadStore.GL_IMAGE_3D || type == ARBShaderImageLoadStore.GL_IMAGE_1D_ARRAY || type == ARBShaderImageLoadStore.GL_IMAGE_2D_ARRAY;
-    }
+    }*/
 }
