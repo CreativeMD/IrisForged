@@ -16,22 +16,22 @@ import net.minecraft.world.level.block.state.BlockState;
 
 @Mixin(BlockMarker.class)
 public class MixinStationaryItemParticle {
-	@Unique
-	private boolean isOpaque;
-
-	@Inject(method = "<init>", at = @At("RETURN"))
-	private void iris$resolveTranslucency(ClientLevel clientLevel, double d, double e, double f, BlockState blockState, CallbackInfo ci) {
-			RenderType type = ItemBlockRenderTypes.getChunkRenderType(blockState);
-
-			if (type == RenderType.solid() || type == RenderType.cutout() || type == RenderType.cutoutMipped()) {
-				isOpaque = true;
-		}
-	}
-
-	@Inject(method = "getRenderType", at = @At("HEAD"), cancellable = true)
-	private void iris$overrideParticleRenderType(CallbackInfoReturnable<ParticleRenderType> cir) {
-		if (isOpaque) {
-			cir.setReturnValue(ParticleRenderType.TERRAIN_SHEET);
-		}
-	}
+    @Unique
+    private boolean isOpaque;
+    
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void iris$resolveTranslucency(ClientLevel clientLevel, double d, double e, double f, BlockState blockState, CallbackInfo ci) {
+        RenderType type = ItemBlockRenderTypes.getChunkRenderType(blockState);
+        
+        if (type == RenderType.solid() || type == RenderType.cutout() || type == RenderType.cutoutMipped()) {
+            isOpaque = true;
+        }
+    }
+    
+    @Inject(method = "getRenderType", at = @At("HEAD"), cancellable = true)
+    private void iris$overrideParticleRenderType(CallbackInfoReturnable<ParticleRenderType> cir) {
+        if (isOpaque) {
+            cir.setReturnValue(ParticleRenderType.TERRAIN_SHEET);
+        }
+    }
 }

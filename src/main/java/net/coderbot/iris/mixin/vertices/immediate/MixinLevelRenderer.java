@@ -17,13 +17,13 @@ import net.minecraft.client.renderer.LightTexture;
 // Uses a priority of 999 to apply before the main Iris mixins to draw entities before deferred runs.
 @Mixin(value = LevelRenderer.class, priority = 999)
 public class MixinLevelRenderer {
-	@Inject(method = "renderLevel", at = @At("HEAD"))
-	private void iris$immediateStateBeginLevelRender(PoseStack poseStack, float f, long l, boolean bl, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, CallbackInfo ci) {
-		ImmediateState.isRenderingLevel = true;
-	}
-
-	@Inject(method = "renderLevel", at = @At("RETURN"))
-	private void iris$immediateStateEndLevelRender(PoseStack poseStack, float f, long l, boolean bl, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, CallbackInfo ci) {
-		ImmediateState.isRenderingLevel = false;
-	}
+    @Inject(method = "renderLevel", at = @At("HEAD"))
+    private void iris$immediateStateBeginLevelRender(PoseStack poseStack, float f, long l, boolean bl, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, CallbackInfo ci) {
+        ImmediateState.isRenderingLevel = true;
+    }
+    
+    @Inject(method = "renderLevel", at = @At("RETURN"))
+    private void iris$immediateStateEndLevelRender(PoseStack poseStack, float f, long l, boolean bl, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, CallbackInfo ci) {
+        ImmediateState.isRenderingLevel = false;
+    }
 }

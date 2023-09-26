@@ -14,12 +14,12 @@ import net.minecraft.client.renderer.ScreenEffectRenderer;
 
 @Mixin(ScreenEffectRenderer.class)
 public abstract class MixinScreenEffectRenderer {
-	@Inject(method = "renderWater", at = @At(value = "HEAD"), cancellable = true)
-	private static void iris$disableUnderWaterOverlayRendering(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {
-		WorldRenderingPipeline pipeline = Iris.getPipelineManager().getPipelineNullable();
-
-		if (pipeline != null && !pipeline.shouldRenderUnderwaterOverlay()) {
-			ci.cancel();
-		}
-	}
+    @Inject(method = "renderWater", at = @At(value = "HEAD"), cancellable = true)
+    private static void iris$disableUnderWaterOverlayRendering(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {
+        WorldRenderingPipeline pipeline = Iris.getPipelineManager().getPipelineNullable();
+        
+        if (pipeline != null && !pipeline.shouldRenderUnderwaterOverlay()) {
+            ci.cancel();
+        }
+    }
 }

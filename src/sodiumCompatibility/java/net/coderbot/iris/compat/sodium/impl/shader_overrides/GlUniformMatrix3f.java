@@ -9,17 +9,17 @@ import org.lwjgl.system.MemoryStack;
 import me.jellysquid.mods.sodium.client.gl.shader.uniform.GlUniform;
 
 public class GlUniformMatrix3f extends GlUniform<Matrix3f> {
-	public GlUniformMatrix3f(int index) {
-		super(index);
-	}
-
-	@Override
-	public void set(Matrix3f value) {
-		try (MemoryStack stack = MemoryStack.stackPush()) {
-			FloatBuffer buf = stack.callocFloat(12);
-			value.get(buf);
-
-			GL30C.glUniformMatrix3fv(this.index, false, buf);
-		}
-	}
+    public GlUniformMatrix3f(int index) {
+        super(index);
+    }
+    
+    @Override
+    public void set(Matrix3f value) {
+        try (MemoryStack stack = MemoryStack.stackPush()) {
+            FloatBuffer buf = stack.callocFloat(12);
+            value.get(buf);
+            
+            GL30C.glUniformMatrix3fv(this.index, false, buf);
+        }
+    }
 }

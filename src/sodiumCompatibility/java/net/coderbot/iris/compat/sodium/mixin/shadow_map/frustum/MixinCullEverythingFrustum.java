@@ -10,15 +10,15 @@ import net.coderbot.iris.shadows.frustum.CullEverythingFrustum;
 
 @Mixin(CullEverythingFrustum.class)
 public class MixinCullEverythingFrustum implements Frustum, ViewportProvider {
-	private static Vector3d EMPTY = new Vector3d();
-
-	@Override
-	public Viewport sodium$createViewport() {
-		return new Viewport(this, EMPTY);
-	}
-
-	@Override
-	public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
-		return false;
-	}
+    private static Vector3d EMPTY = new Vector3d();
+    
+    @Override
+    public Viewport sodium$createViewport() {
+        return new Viewport(this, EMPTY);
+    }
+    
+    @Override
+    public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
+        return false;
+    }
 }

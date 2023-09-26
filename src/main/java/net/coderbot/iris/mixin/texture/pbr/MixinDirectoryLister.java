@@ -16,19 +16,20 @@ import net.minecraft.server.packs.resources.ResourceManager;
 
 @Mixin(DirectoryLister.class)
 public class MixinDirectoryLister {
-	@ModifyArgs(method = "run(Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/client/renderer/texture/atlas/SpriteSource$Output;)V", at = @At(value = "INVOKE", target = "Ljava/util/Map;forEach(Ljava/util/function/BiConsumer;)V", remap = false, ordinal = 0))
-	private void iris$modifyForEachAction(Args args, ResourceManager resourceManager, SpriteSource.Output output) {
-		BiConsumer<? super ResourceLocation, ? super Resource> action = args.get(0);
-		BiConsumer<? super ResourceLocation, ? super Resource> wrappedAction = (location, resource) -> {
-			String basePath = PBRType.removeSuffix(location.getPath());
-			if (basePath != null) {
-				ResourceLocation baseLocation = location.withPath(basePath);
-				if (resourceManager.getResource(baseLocation).isPresent()) {
-					return;
-				}
-			}
-			action.accept(location, resource);
-		};
-		args.set(0, wrappedAction);
-	}
+    @ModifyArgs(method = "run(Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/client/renderer/texture/atlas/SpriteSource$Output;)V", at = @At(value = "INVOKE",
+            target = "Ljava/util/Map;forEach(Ljava/util/function/BiConsumer;)V", remap = false, ordinal = 0))
+    private void iris$modifyForEachAction(Args args, ResourceManager resourceManager, SpriteSource.Output output) {
+        BiConsumer<? super ResourceLocation, ? super Resource> action = args.get(0);
+        BiConsumer<? super ResourceLocation, ? super Resource> wrappedAction = (location, resource) -> {
+            String basePath = PBRType.removeSuffix(location.getPath());
+            if (basePath != null) {
+                ResourceLocation baseLocation = location.withPath(basePath);
+                if (resourceManager.getResource(baseLocation).isPresent()) {
+                    return;
+                }
+            }
+            action.accept(location, resource);
+        };
+        args.set(0, wrappedAction);
+    }
 }

@@ -13,18 +13,18 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 
 @Mixin(SpriteContents.class)
 public abstract class MixinSpriteContents {
-	@Inject(method = "sodium$setActive(Z)V", at = @At("TAIL"), remap = false)
-	private void iris$onTailMarkActive(CallbackInfo ci) {
-		PBRSpriteHolder pbrHolder = ((SpriteContentsExtension) this).getPBRHolder();
-		if (pbrHolder != null) {
-			TextureAtlasSprite normalSprite = pbrHolder.getNormalSprite();
-			TextureAtlasSprite specularSprite = pbrHolder.getSpecularSprite();
-			if (normalSprite != null) {
-				SpriteUtil.markSpriteActive(normalSprite);
-			}
-			if (specularSprite != null) {
-				SpriteUtil.markSpriteActive(specularSprite);
-			}
-		}
-	}
+    @Inject(method = "sodium$setActive(Z)V", at = @At("TAIL"), remap = false)
+    private void iris$onTailMarkActive(CallbackInfo ci) {
+        PBRSpriteHolder pbrHolder = ((SpriteContentsExtension) this).getPBRHolder();
+        if (pbrHolder != null) {
+            TextureAtlasSprite normalSprite = pbrHolder.getNormalSprite();
+            TextureAtlasSprite specularSprite = pbrHolder.getSpecularSprite();
+            if (normalSprite != null) {
+                SpriteUtil.markSpriteActive(normalSprite);
+            }
+            if (specularSprite != null) {
+                SpriteUtil.markSpriteActive(specularSprite);
+            }
+        }
+    }
 }

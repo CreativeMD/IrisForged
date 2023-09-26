@@ -5,5 +5,4 @@ import org.spongepowered.asm.mixin.Mixin;
 import me.jellysquid.mods.sodium.client.render.chunk.terrain.TerrainRenderPass;
 
 @Mixin(TerrainRenderPass.class)
-public class MixinBlockRenderPass {
-}
+public class MixinBlockRenderPass {}

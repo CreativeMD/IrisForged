@@ -9,7 +9,7 @@ import net.coderbot.iris.vertices.IrisVertexFormats;
 public class IrisEntityToTerrainVertexSerializer implements VertexSerializer {
     @Override
     public void serialize(long src, long dst, int vertexCount) {
-        for(int vertexIndex = 0; vertexIndex < vertexCount; ++vertexIndex) {
+        for (int vertexIndex = 0; vertexIndex < vertexCount; ++vertexIndex) {
             MemoryUtil.memPutFloat(dst, MemoryUtil.memGetFloat(src + 0L));
             MemoryUtil.memPutFloat(dst + 4, MemoryUtil.memGetFloat(src + 4L));
             MemoryUtil.memPutFloat(dst + 8, MemoryUtil.memGetFloat(src + 8L));
@@ -22,10 +22,10 @@ public class IrisEntityToTerrainVertexSerializer implements VertexSerializer {
             MemoryUtil.memPutInt(dst + 36, MemoryUtil.memGetInt(src + 36L));
             MemoryUtil.memPutInt(dst + 40, MemoryUtil.memGetInt(src + 40L));
             MemoryUtil.memPutInt(dst + 44, MemoryUtil.memGetInt(src + 44L));
-
+            
             src += EntityVertex.STRIDE;
             dst += IrisVertexFormats.TERRAIN.getVertexSize();
         }
-
+        
     }
 }

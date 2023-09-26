@@ -12,26 +12,26 @@ import net.minecraft.client.renderer.texture.SpriteContents;
 
 @Mixin(SpriteContents.class)
 public class MixinSpriteContents implements SpriteContentsExtension {
-	@Unique
-	private PBRSpriteHolder pbrHolder;
-
-	@Inject(method = "close()V", at = @At("TAIL"), remap = false)
-	private void iris$onTailClose(CallbackInfo ci) {
-		if (pbrHolder != null) {
-			pbrHolder.close();
-		}
-	}
-
-	@Override
-	public PBRSpriteHolder getPBRHolder() {
-		return pbrHolder;
-	}
-
-	@Override
-	public PBRSpriteHolder getOrCreatePBRHolder() {
-		if (pbrHolder == null) {
-			pbrHolder = new PBRSpriteHolder();
-		}
-		return pbrHolder;
-	}
+    @Unique
+    private PBRSpriteHolder pbrHolder;
+    
+    @Inject(method = "close()V", at = @At("TAIL"), remap = false)
+    private void iris$onTailClose(CallbackInfo ci) {
+        if (pbrHolder != null) {
+            pbrHolder.close();
+        }
+    }
+    
+    @Override
+    public PBRSpriteHolder getPBRHolder() {
+        return pbrHolder;
+    }
+    
+    @Override
+    public PBRSpriteHolder getOrCreatePBRHolder() {
+        if (pbrHolder == null) {
+            pbrHolder = new PBRSpriteHolder();
+        }
+        return pbrHolder;
+    }
 }

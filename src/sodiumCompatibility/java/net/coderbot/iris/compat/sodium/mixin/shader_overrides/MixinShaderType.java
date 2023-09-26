@@ -12,18 +12,17 @@ import net.coderbot.iris.compat.sodium.impl.shader_overrides.IrisShaderTypes;
 
 @Mixin(ShaderType.class)
 public class MixinShaderType {
-	@SuppressWarnings("target")
-	@Shadow(remap = false)
-	@Final
-	@Mutable
-	private static ShaderType[] $VALUES;
-
-	static {
-		int baseOrdinal = $VALUES.length;
-
-		IrisShaderTypes.GEOMETRY
-				= ShaderTypeAccessor.createShaderType("GEOMETRY", baseOrdinal, GL32C.GL_GEOMETRY_SHADER);
-
-		$VALUES = ArrayUtils.addAll($VALUES, IrisShaderTypes.GEOMETRY);
-	}
+    @SuppressWarnings("target")
+    @Shadow(remap = false)
+    @Final
+    @Mutable
+    private static ShaderType[] $VALUES;
+    
+    static {
+        int baseOrdinal = $VALUES.length;
+        
+        IrisShaderTypes.GEOMETRY = ShaderTypeAccessor.createShaderType("GEOMETRY", baseOrdinal, GL32C.GL_GEOMETRY_SHADER);
+        
+        $VALUES = ArrayUtils.addAll($VALUES, IrisShaderTypes.GEOMETRY);
+    }
 }

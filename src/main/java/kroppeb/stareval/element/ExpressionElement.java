@@ -1,4 +1,3 @@
 package kroppeb.stareval.element;
 
-public interface ExpressionElement extends Element {
-}
+public interface ExpressionElement extends Element {}

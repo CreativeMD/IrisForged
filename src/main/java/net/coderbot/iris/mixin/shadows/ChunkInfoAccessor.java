@@ -8,6 +8,6 @@ import net.minecraft.client.renderer.chunk.ChunkRenderDispatcher;
 
 @Mixin(LevelRenderer.RenderChunkInfo.class)
 public interface ChunkInfoAccessor {
-	@Accessor("chunk")
-	ChunkRenderDispatcher.RenderChunk getChunk();
+    @Accessor("chunk")
+    ChunkRenderDispatcher.RenderChunk getChunk();
 }

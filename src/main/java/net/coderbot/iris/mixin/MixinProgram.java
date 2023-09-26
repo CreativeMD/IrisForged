@@ -19,22 +19,24 @@ import net.coderbot.iris.gl.shader.ShaderCompileException;
 
 @Mixin(Program.class)
 public class MixinProgram {
-	@Redirect(method = "compileShaderInternal", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/preprocessor/GlslPreprocessor;process(Ljava/lang/String;)Ljava/util/List;"))
-	private static List<String> iris$allowSkippingMojImportDirectives(GlslPreprocessor includeHandler, String shaderSource) {
-		// Mojang's code for handling #moj_import directives uses regexes that can cause StackOverflowErrors.
-		//
-		// Rather than fix the crash, we just don't try to process directives if they don't exist, which is fine
-		// for Iris since we don't allow using moj_import.
-		if (!shaderSource.contains("moj_import")) {
-			return Collections.singletonList(shaderSource);
-		}
-
-		return includeHandler.process(shaderSource);
-	}
-
-	@Inject(method = "compileShaderInternal", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/platform/GlStateManager;glGetShaderInfoLog(II)Ljava/lang/String;"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-	private static void iris$causeException(Program.Type arg, String string, InputStream inputStream, String string2, GlslPreprocessor arg2, CallbackInfoReturnable<Integer> cir, String string3, int i) {
-		cir.cancel();
-		throw new ShaderCompileException(string + arg.getExtension(), GlStateManager.glGetShaderInfoLog(i, 32768));
-	}
+    @Redirect(method = "compileShaderInternal", at = @At(value = "INVOKE",
+            target = "Lcom/mojang/blaze3d/preprocessor/GlslPreprocessor;process(Ljava/lang/String;)Ljava/util/List;"))
+    private static List<String> iris$allowSkippingMojImportDirectives(GlslPreprocessor includeHandler, String shaderSource) {
+        // Mojang's code for handling #moj_import directives uses regexes that can cause StackOverflowErrors.
+        //
+        // Rather than fix the crash, we just don't try to process directives if they don't exist, which is fine
+        // for Iris since we don't allow using moj_import.
+        if (!shaderSource.contains("moj_import")) {
+            return Collections.singletonList(shaderSource);
+        }
+        
+        return includeHandler.process(shaderSource);
+    }
+    
+    @Inject(method = "compileShaderInternal", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/platform/GlStateManager;glGetShaderInfoLog(II)Ljava/lang/String;"),
+            cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+    private static void iris$causeException(Program.Type arg, String string, InputStream inputStream, String string2, GlslPreprocessor arg2, CallbackInfoReturnable<Integer> cir, String string3, int i) {
+        cir.cancel();
+        throw new ShaderCompileException(string + arg.getExtension(), GlStateManager.glGetShaderInfoLog(i, 32768));
+    }
 }

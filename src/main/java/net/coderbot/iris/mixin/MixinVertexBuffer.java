@@ -12,35 +12,35 @@ import net.coderbot.iris.fantastic.VertexBufferHelper;
 
 @Mixin(VertexBuffer.class)
 public class MixinVertexBuffer implements VertexBufferHelper {
-	private static VertexBuffer current;
-	private static VertexBuffer saved;
-
-	@Shadow
-	private void bind() {
-		throw new IllegalStateException("not shadowed");
-	}
-
-	@Inject(method = "bind()V", at = @At("HEAD"))
-	private void bindHelper(CallbackInfo ci) {
-		current = (VertexBuffer) (Object) this;
-	}
-
-	@Inject(method = "unbind()V", at = @At("HEAD"))
-	private static void unbindHelper(CallbackInfo ci) {
-		current = null;
-	}
-
-	@Override
-	public void saveBinding() {
-		saved = current;
-	}
-
-	@Override
-	public void restoreBinding() {
-		if (saved != null) {
-			saved.bind();
-		} else {
-			VertexBuffer.unbind();
-		}
-	}
+    private static VertexBuffer current;
+    private static VertexBuffer saved;
+    
+    @Shadow
+    private void bind() {
+        throw new IllegalStateException("not shadowed");
+    }
+    
+    @Inject(method = "bind()V", at = @At("HEAD"))
+    private void bindHelper(CallbackInfo ci) {
+        current = (VertexBuffer) (Object) this;
+    }
+    
+    @Inject(method = "unbind()V", at = @At("HEAD"))
+    private static void unbindHelper(CallbackInfo ci) {
+        current = null;
+    }
+    
+    @Override
+    public void saveBinding() {
+        saved = current;
+    }
+    
+    @Override
+    public void restoreBinding() {
+        if (saved != null) {
+            saved.bind();
+        } else {
+            VertexBuffer.unbind();
+        }
+    }
 }

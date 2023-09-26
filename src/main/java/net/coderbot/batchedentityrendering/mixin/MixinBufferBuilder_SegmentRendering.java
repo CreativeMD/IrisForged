@@ -19,48 +19,48 @@ import net.coderbot.batchedentityrendering.impl.BufferBuilderExt;
 public class MixinBufferBuilder_SegmentRendering implements BufferBuilderExt {
     @Shadow
     private ByteBuffer buffer;
-
+    
     @Shadow
     private VertexFormat format;
-
+    
     @Shadow
     private int vertices;
-
+    
     @Shadow
-	protected void ensureVertexCapacity() {
+    protected void ensureVertexCapacity() {
         throw new AssertionError("not shadowed");
     }
-
-	@Shadow
-	private int nextElementByte;
-
-	@Override
+    
+    @Shadow
+    private int nextElementByte;
+    
+    @Override
     public void splitStrip() {
         if (vertices == 0) {
             // no strip to split, not building.
             return;
         }
-
+        
         duplicateLastVertex();
         dupeNextVertex = true;
     }
-
+    
     @Unique
     private boolean dupeNextVertex;
-
+    
     private void duplicateLastVertex() {
-		int i = this.format.getVertexSize();
-		this.buffer.put(this.nextElementByte, this.buffer, this.nextElementByte - i, i);
-		this.nextElementByte += i;
-		++this.vertices;
-		this.ensureVertexCapacity();
+        int i = this.format.getVertexSize();
+        this.buffer.put(this.nextElementByte, this.buffer, this.nextElementByte - i, i);
+        this.nextElementByte += i;
+        ++this.vertices;
+        this.ensureVertexCapacity();
     }
-
+    
     @Inject(method = "end", at = @At("RETURN"))
     private void batchedentityrendering$onEnd(CallbackInfoReturnable<BufferBuilder.RenderedBuffer> cir) {
         dupeNextVertex = false;
     }
-
+    
     @Inject(method = "endVertex", at = @At("RETURN"))
     private void batchedentityrendering$onNext(CallbackInfo ci) {
         if (dupeNextVertex) {

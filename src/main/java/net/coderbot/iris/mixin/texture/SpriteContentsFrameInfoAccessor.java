@@ -7,9 +7,9 @@ import net.minecraft.client.renderer.texture.SpriteContents;
 
 @Mixin(SpriteContents.FrameInfo.class)
 public interface SpriteContentsFrameInfoAccessor {
-	@Accessor("index")
-	int getIndex();
-
-	@Accessor("time")
-	int getTime();
+    @Accessor("index")
+    int getIndex();
+    
+    @Accessor("time")
+    int getTime();
 }

@@ -29,5 +29,5 @@ import net.minecraft.client.gui.screens.Screen;
 @FunctionalInterface
 @SuppressWarnings("deprecation")
 public interface ConfigScreenFactory<S extends Screen> extends io.github.prospector.modmenu.api.ConfigScreenFactory<S> {
-	S create(Screen parent);
+    S create(Screen parent);
 }

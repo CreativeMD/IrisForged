@@ -7,6 +7,6 @@ import net.minecraft.client.renderer.texture.SpriteContents;
 
 @Mixin(SpriteContents.class)
 public interface SpriteContentsAccessor {
-	@Accessor("animatedTexture")
-	SpriteContents.AnimatedTexture getAnimatedTexture();
+    @Accessor("animatedTexture")
+    SpriteContents.AnimatedTexture getAnimatedTexture();
 }

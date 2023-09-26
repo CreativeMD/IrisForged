@@ -19,30 +19,30 @@ import net.minecraft.world.entity.Entity;
 
 @Mixin(LevelRenderer.class)
 public interface LevelRendererAccessor {
-	@Accessor("entityRenderDispatcher")
-	EntityRenderDispatcher getEntityRenderDispatcher();
-
-	@Invoker("renderChunkLayer")
-	void invokeRenderChunkLayer(RenderType terrainLayer, PoseStack modelView, double cameraX, double cameraY, double cameraZ, Matrix4f projectionMatrix);
-
-	@Invoker("setupRender")
-	void invokeSetupRender(Camera camera, Frustum frustum, boolean hasForcedFrustum, boolean spectator);
-
-	@Invoker("renderEntity")
-	void invokeRenderEntity(Entity entity, double cameraX, double cameraY, double cameraZ, float tickDelta, PoseStack poseStack, MultiBufferSource bufferSource);
-
-	@Accessor("level")
-	ClientLevel getLevel();
-
-	@Accessor("renderBuffers")
-	RenderBuffers getRenderBuffers();
-
-	@Accessor("renderBuffers")
-	void setRenderBuffers(RenderBuffers buffers);
-
-	@Accessor("generateClouds")
-	boolean shouldRegenerateClouds();
-
-	@Accessor("generateClouds")
-	void setShouldRegenerateClouds(boolean shouldRegenerate);
+    @Accessor("entityRenderDispatcher")
+    EntityRenderDispatcher getEntityRenderDispatcher();
+    
+    @Invoker("renderChunkLayer")
+    void invokeRenderChunkLayer(RenderType terrainLayer, PoseStack modelView, double cameraX, double cameraY, double cameraZ, Matrix4f projectionMatrix);
+    
+    @Invoker("setupRender")
+    void invokeSetupRender(Camera camera, Frustum frustum, boolean hasForcedFrustum, boolean spectator);
+    
+    @Invoker("renderEntity")
+    void invokeRenderEntity(Entity entity, double cameraX, double cameraY, double cameraZ, float tickDelta, PoseStack poseStack, MultiBufferSource bufferSource);
+    
+    @Accessor("level")
+    ClientLevel getLevel();
+    
+    @Accessor("renderBuffers")
+    RenderBuffers getRenderBuffers();
+    
+    @Accessor("renderBuffers")
+    void setRenderBuffers(RenderBuffers buffers);
+    
+    @Accessor("generateClouds")
+    boolean shouldRegenerateClouds();
+    
+    @Accessor("generateClouds")
+    void setShouldRegenerateClouds(boolean shouldRegenerate);
 }

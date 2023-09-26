@@ -12,14 +12,15 @@ import net.minecraft.world.entity.Entity;
 
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin<T extends Entity> {
-    @Inject(method = "shouldRender", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/culling/Frustum;isVisible(Lnet/minecraft/world/phys/AABB;)Z", shift = At.Shift.AFTER), cancellable = true)
+    @Inject(method = "shouldRender", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/culling/Frustum;isVisible(Lnet/minecraft/world/phys/AABB;)Z",
+            shift = At.Shift.AFTER), cancellable = true)
     private void preShouldRender(T entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
         var renderer = SodiumWorldRenderer.instanceNullable();
-
+        
         if (renderer == null) {
             return;
         }
-
+        
         // If the entity isn't culled already by other means, try to perform a second pass
         if (cir.getReturnValue() && !renderer.isEntityVisible(entity)) {
             cir.setReturnValue(false);

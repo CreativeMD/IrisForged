@@ -15,17 +15,11 @@
  */
 package de.odysseus.ithaka.digraph.util.fas;
 
-/**
- * Minimization policy
- */
+/** Minimization policy */
 public enum FeedbackArcSetPolicy {
-	/**
-	 * minimize number of feedback arcs
-	 */
-	MIN_SIZE,
-
-	/**
-	 * minimize weight of feedback arcs
-	 */
-	MIN_WEIGHT
+    /** minimize number of feedback arcs */
+    MIN_SIZE,
+    
+    /** minimize weight of feedback arcs */
+    MIN_WEIGHT
 }

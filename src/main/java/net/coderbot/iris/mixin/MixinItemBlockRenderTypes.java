@@ -15,14 +15,14 @@ import net.minecraft.world.level.block.state.BlockState;
 
 @Mixin(ItemBlockRenderTypes.class)
 public class MixinItemBlockRenderTypes {
-	@Inject(method = "getChunkRenderType", at = @At("HEAD"), cancellable = true)
-	private static void iris$setCustomRenderType(BlockState arg, CallbackInfoReturnable<RenderType> cir) {
-		Map<Block, RenderType> idMap = BlockRenderingSettings.INSTANCE.getBlockTypeIds();
-		if (idMap != null) {
-			RenderType type = idMap.get(arg.getBlock());
-			if (type != null) {
-				cir.setReturnValue(type);
-			}
-		}
-	}
+    @Inject(method = "getChunkRenderType", at = @At("HEAD"), cancellable = true)
+    private static void iris$setCustomRenderType(BlockState arg, CallbackInfoReturnable<RenderType> cir) {
+        Map<Block, RenderType> idMap = BlockRenderingSettings.INSTANCE.getBlockTypeIds();
+        if (idMap != null) {
+            RenderType type = idMap.get(arg.getBlock());
+            if (type != null) {
+                cir.setReturnValue(type);
+            }
+        }
+    }
 }

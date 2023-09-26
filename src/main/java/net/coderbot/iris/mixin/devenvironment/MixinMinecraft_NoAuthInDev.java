@@ -14,22 +14,23 @@ import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.GameConfig;
 
-/**
- * Suppresses Minecraft's authentication check in development environments. It's unnecessary log spam, and there's no
+/** Suppresses Minecraft's authentication check in development environments. It's unnecessary log spam, and there's no
  * need to send off a network request to Microsoft telling them that we're using Fabric/Quilt every time we launch the
  * game in the development environment.
  *
- * <p>This also disables telemetry as a side-effect.</p>
+ * <p>
+ * This also disables telemetry as a side-effect.
+ * </p>
  */
 @Mixin(Minecraft.class)
 public class MixinMinecraft_NoAuthInDev {
-	@Shadow
-	@Final
-	private static Logger LOGGER;
-
-	@Inject(method = "createUserApiService", at = @At("HEAD"), cancellable = true)
-	private void iris$noSocialInteractionsInDevelopment(YggdrasilAuthenticationService yggdrasilAuthenticationService, GameConfig arg, CallbackInfoReturnable<UserApiService> cir) {
-		LOGGER.info("[Iris] Suppressing Yggdrasil authentication check because this is a development environment");
-		cir.setReturnValue(UserApiService.OFFLINE);
-	}
+    @Shadow
+    @Final
+    private static Logger LOGGER;
+    
+    @Inject(method = "createUserApiService", at = @At("HEAD"), cancellable = true)
+    private void iris$noSocialInteractionsInDevelopment(YggdrasilAuthenticationService yggdrasilAuthenticationService, GameConfig arg, CallbackInfoReturnable<UserApiService> cir) {
+        LOGGER.info("[Iris] Suppressing Yggdrasil authentication check because this is a development environment");
+        cir.setReturnValue(UserApiService.OFFLINE);
+    }
 }

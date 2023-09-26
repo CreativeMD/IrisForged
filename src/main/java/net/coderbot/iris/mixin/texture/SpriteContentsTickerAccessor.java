@@ -8,18 +8,18 @@ import net.minecraft.client.renderer.texture.SpriteContents.AnimatedTexture;
 
 @Mixin(SpriteContents.Ticker.class)
 public interface SpriteContentsTickerAccessor {
-	@Accessor("frame")
-	int getFrame();
-
-	@Accessor("frame")
-	void setFrame(int frame);
-
-	@Accessor("subFrame")
-	int getSubFrame();
-
-	@Accessor("subFrame")
-	void setSubFrame(int subFrame);
-
-	@Accessor("animationInfo")
-	AnimatedTexture getAnimationInfo();
+    @Accessor("frame")
+    int getFrame();
+    
+    @Accessor("frame")
+    void setFrame(int frame);
+    
+    @Accessor("subFrame")
+    int getSubFrame();
+    
+    @Accessor("subFrame")
+    void setSubFrame(int subFrame);
+    
+    @Accessor("animationInfo")
+    AnimatedTexture getAnimationInfo();
 }

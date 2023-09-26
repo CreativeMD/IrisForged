@@ -13,18 +13,17 @@ import net.coderbot.iris.pipeline.newshader.IrisProgramTypes;
 
 @Mixin(Program.Type.class)
 public class MixinProgramType {
-	@SuppressWarnings("target")
+    @SuppressWarnings("target")
     @Shadow
     @Final
     @Mutable
     private static Program.Type[] $VALUES;
-
+    
     static {
         int baseOrdinal = $VALUES.length;
-
-        IrisProgramTypes.GEOMETRY
-                = ProgramTypeAccessor.createProgramType("GEOMETRY", baseOrdinal, "geometry", ".gsh", GL32C.GL_GEOMETRY_SHADER);
-
+        
+        IrisProgramTypes.GEOMETRY = ProgramTypeAccessor.createProgramType("GEOMETRY", baseOrdinal, "geometry", ".gsh", GL32C.GL_GEOMETRY_SHADER);
+        
         $VALUES = ArrayUtils.addAll($VALUES, IrisProgramTypes.GEOMETRY);
     }
 }

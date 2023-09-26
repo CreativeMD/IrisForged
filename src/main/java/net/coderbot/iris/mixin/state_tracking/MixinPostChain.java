@@ -10,13 +10,13 @@ import net.minecraft.client.renderer.PostChain;
 
 @Mixin(PostChain.class)
 public class MixinPostChain {
-	@Inject(method = "process(F)V", at = @At("HEAD"))
-	private void iris$beforeProcess(float f, CallbackInfo ci) {
-		Iris.getPipelineManager().getPipeline().ifPresent(pipeline -> pipeline.getRenderTargetStateListener().beginPostChain());
-	}
-
-	@Inject(method = "process(F)V", at = @At("RETURN"))
-	private void iris$afterProcess(float f, CallbackInfo ci) {
-		Iris.getPipelineManager().getPipeline().ifPresent(pipeline -> pipeline.getRenderTargetStateListener().endPostChain());
-	}
+    @Inject(method = "process(F)V", at = @At("HEAD"))
+    private void iris$beforeProcess(float f, CallbackInfo ci) {
+        Iris.getPipelineManager().getPipeline().ifPresent(pipeline -> pipeline.getRenderTargetStateListener().beginPostChain());
+    }
+    
+    @Inject(method = "process(F)V", at = @At("RETURN"))
+    private void iris$afterProcess(float f, CallbackInfo ci) {
+        Iris.getPipelineManager().getPipeline().ifPresent(pipeline -> pipeline.getRenderTargetStateListener().endPostChain());
+    }
 }

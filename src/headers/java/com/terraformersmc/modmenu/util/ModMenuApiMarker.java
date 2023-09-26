@@ -24,5 +24,4 @@
 
 package com.terraformersmc.modmenu.util;
 
-public interface ModMenuApiMarker {
-}
+public interface ModMenuApiMarker {}

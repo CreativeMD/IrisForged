@@ -17,14 +17,14 @@ import net.minecraft.world.item.ItemStack;
 
 @Mixin(ItemInHandRenderer.class)
 public class MixinItemInHandRenderer {
-	@Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
-	private void iris$skipTranslucentHands(AbstractClientPlayer abstractClientPlayer, float f, float g, InteractionHand interactionHand, float h, ItemStack itemStack, float i, PoseStack poseStack, MultiBufferSource multiBufferSource, int j, CallbackInfo ci) {
-		if (IrisApi.getInstance().isShaderPackInUse()) {
-			if (HandRenderer.INSTANCE.isRenderingSolid() && HandRenderer.INSTANCE.isHandTranslucent(interactionHand)) {
-				ci.cancel();
-			} else if (!HandRenderer.INSTANCE.isRenderingSolid() && !HandRenderer.INSTANCE.isHandTranslucent(interactionHand)) {
-				ci.cancel();
-			}
-		}
-	}
+    @Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
+    private void iris$skipTranslucentHands(AbstractClientPlayer abstractClientPlayer, float f, float g, InteractionHand interactionHand, float h, ItemStack itemStack, float i, PoseStack poseStack, MultiBufferSource multiBufferSource, int j, CallbackInfo ci) {
+        if (IrisApi.getInstance().isShaderPackInUse()) {
+            if (HandRenderer.INSTANCE.isRenderingSolid() && HandRenderer.INSTANCE.isHandTranslucent(interactionHand)) {
+                ci.cancel();
+            } else if (!HandRenderer.INSTANCE.isRenderingSolid() && !HandRenderer.INSTANCE.isHandTranslucent(interactionHand)) {
+                ci.cancel();
+            }
+        }
+    }
 }

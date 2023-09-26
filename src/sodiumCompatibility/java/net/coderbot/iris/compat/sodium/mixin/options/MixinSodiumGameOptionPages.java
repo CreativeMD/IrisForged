@@ -17,60 +17,38 @@ import net.coderbot.iris.compat.sodium.impl.options.IrisSodiumOptions;
 
 // TODO: Port this Mixin
 
-/**
- * Adds the Iris-specific options / option changes to the Sodium game options pages.
- */
+/** Adds the Iris-specific options / option changes to the Sodium game options pages. */
 @Mixin(SodiumGameOptionPages.class)
 public class MixinSodiumGameOptionPages {
     @Shadow(remap = false)
     @Final
     private static MinecraftOptionsStorage vanillaOpts;
-
-    @Redirect(method = "general", remap = false,
-            slice = @Slice(
-                    from = @At(value = "CONSTANT", args = "stringValue=options.renderDistance"),
-                    to = @At(value = "CONSTANT", args = "stringValue=options.simulationDistance")
-            ),
-            at = @At(value = "INVOKE", remap = false,
-                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" +
-                            "Lme/jellysquid/mods/sodium/client/gui/options/Option;" +
-                            ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
+    
+    @Redirect(method = "general", remap = false, slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=options.renderDistance"), to = @At(value = "CONSTANT",
+            args = "stringValue=options.simulationDistance")), at = @At(value = "INVOKE", remap = false,
+                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" + "Lme/jellysquid/mods/sodium/client/gui/options/Option;" + ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
             allow = 1)
-    private static OptionGroup.Builder iris$addMaxShadowDistanceOption(OptionGroup.Builder builder,
-                                                                       Option<?> candidate) {
+    private static OptionGroup.Builder iris$addMaxShadowDistanceOption(OptionGroup.Builder builder, Option<?> candidate) {
         builder.add(candidate);
         builder.add(IrisSodiumOptions.createMaxShadowDistanceSlider(vanillaOpts));
-
+        
         return builder;
     }
-
-    @Redirect(method = "quality", remap = false,
-            slice = @Slice(
-                    from = @At(value = "CONSTANT", args = "stringValue=options.graphics"),
-                    to = @At(value = "CONSTANT", args = "stringValue=options.renderClouds")
-            ),
-            at = @At(value = "INVOKE", remap = false,
-                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" +
-                            "Lme/jellysquid/mods/sodium/client/gui/options/Option;" +
-                            ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
+    
+    @Redirect(method = "quality", remap = false, slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=options.graphics"), to = @At(value = "CONSTANT",
+            args = "stringValue=options.renderClouds")), at = @At(value = "INVOKE", remap = false,
+                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" + "Lme/jellysquid/mods/sodium/client/gui/options/Option;" + ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
             allow = 1)
-    private static OptionGroup.Builder iris$addColorSpaceOption(OptionGroup.Builder builder,
-                                                                       Option<?> candidate) {
+    private static OptionGroup.Builder iris$addColorSpaceOption(OptionGroup.Builder builder, Option<?> candidate) {
         builder.add(candidate);
-		builder.add(IrisSodiumOptions.createColorSpaceButton(vanillaOpts));
-
+        builder.add(IrisSodiumOptions.createColorSpaceButton(vanillaOpts));
+        
         return builder;
     }
-
-    @ModifyArg(method = "quality", remap = false,
-            slice = @Slice(
-                    from = @At(value = "CONSTANT", args = "stringValue=options.graphics"),
-                    to = @At(value = "CONSTANT", args = "stringValue=options.renderClouds")
-            ),
-            at = @At(value = "INVOKE", remap = false,
-                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" +
-                                "Lme/jellysquid/mods/sodium/client/gui/options/Option;" +
-                            ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
+    
+    @ModifyArg(method = "quality", remap = false, slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=options.graphics"), to = @At(value = "CONSTANT",
+            args = "stringValue=options.renderClouds")), at = @At(value = "INVOKE", remap = false,
+                    target = "me/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder.add (" + "Lme/jellysquid/mods/sodium/client/gui/options/Option;" + ")Lme/jellysquid/mods/sodium/client/gui/options/OptionGroup$Builder;"),
             allow = 1)
     private static Option<?> iris$replaceGraphicsQualityButton(Option<?> candidate) {
         if (!Iris.getIrisConfig().areShadersEnabled()) {

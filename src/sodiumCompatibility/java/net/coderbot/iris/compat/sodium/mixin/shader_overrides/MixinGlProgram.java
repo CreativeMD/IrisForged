@@ -15,22 +15,22 @@ import net.coderbot.iris.gl.IrisRenderSystem;
 
 @Mixin(GlProgram.class)
 public class MixinGlProgram extends GlObject implements ShaderBindingContextExt {
-	public <U extends GlUniform<?>> U bindUniformIfPresent(String name, IntFunction<U> factory) {
-		int index = GlStateManager._glGetUniformLocation(this.handle(), name);
-		if (index < 0) {
-			return null;
-		} else {
-			return factory.apply(index);
-		}
-	}
-
-	public GlUniformBlock bindUniformBlockIfPresent(String name, int bindingPoint) {
-		int index = IrisRenderSystem.getUniformBlockIndex(this.handle(), name);
-		if (index < 0) {
-			return null;
-		} else {
-			IrisRenderSystem.uniformBlockBinding(this.handle(), index, bindingPoint);
-			return new GlUniformBlock(bindingPoint);
-		}
-	}
+    public <U extends GlUniform<?>> U bindUniformIfPresent(String name, IntFunction<U> factory) {
+        int index = GlStateManager._glGetUniformLocation(this.handle(), name);
+        if (index < 0) {
+            return null;
+        } else {
+            return factory.apply(index);
+        }
+    }
+    
+    public GlUniformBlock bindUniformBlockIfPresent(String name, int bindingPoint) {
+        int index = IrisRenderSystem.getUniformBlockIndex(this.handle(), name);
+        if (index < 0) {
+            return null;
+        } else {
+            IrisRenderSystem.uniformBlockBinding(this.handle(), index, bindingPoint);
+            return new GlUniformBlock(bindingPoint);
+        }
+    }
 }

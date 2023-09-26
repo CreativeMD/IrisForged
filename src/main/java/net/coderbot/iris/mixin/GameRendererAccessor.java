@@ -11,18 +11,18 @@ import net.minecraft.client.renderer.GameRenderer;
 
 @Mixin(GameRenderer.class)
 public interface GameRendererAccessor {
-	@Accessor
-	boolean getRenderHand();
-
-	@Accessor
-	boolean getPanoramicMode();
-
-	@Invoker
-	void invokeBobView(PoseStack poseStack, float tickDelta);
-
-	@Invoker
-	void invokeBobHurt(PoseStack poseStack, float tickDelta);
-
-	@Invoker
+    @Accessor
+    boolean getRenderHand();
+    
+    @Accessor
+    boolean getPanoramicMode();
+    
+    @Invoker
+    void invokeBobView(PoseStack poseStack, float tickDelta);
+    
+    @Invoker
+    void invokeBobHurt(PoseStack poseStack, float tickDelta);
+    
+    @Invoker
     double invokeGetFov(Camera camera, float tickDelta, boolean b);
 }

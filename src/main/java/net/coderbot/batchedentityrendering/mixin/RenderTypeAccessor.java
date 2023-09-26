@@ -7,6 +7,6 @@ import net.minecraft.client.renderer.RenderType;
 
 @Mixin(RenderType.class)
 public interface RenderTypeAccessor {
-	@Accessor("sortOnUpload")
-	boolean shouldSortOnUpload();
+    @Accessor("sortOnUpload")
+    boolean shouldSortOnUpload();
 }

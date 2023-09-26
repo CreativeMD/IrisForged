@@ -8,6 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 
 @Mixin(SimpleTexture.class)
 public interface SimpleTextureAccessor {
-	@Accessor("location")
-	ResourceLocation getLocation();
+    @Accessor("location")
+    ResourceLocation getLocation();
 }

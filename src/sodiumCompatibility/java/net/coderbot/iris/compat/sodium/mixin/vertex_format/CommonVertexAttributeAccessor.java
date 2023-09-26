@@ -9,8 +9,8 @@ import net.caffeinemc.mods.sodium.api.vertex.attributes.CommonVertexAttribute;
 
 @Mixin(CommonVertexAttribute.class)
 public interface CommonVertexAttributeAccessor {
-	@Invoker(value = "<init>")
-	static CommonVertexAttribute createCommonVertexElement(String name, int ordinal, VertexFormatElement element) {
-		throw new AssertionError();
-	}
+    @Invoker(value = "<init>")
+    static CommonVertexAttribute createCommonVertexElement(String name, int ordinal, VertexFormatElement element) {
+        throw new AssertionError();
+    }
 }

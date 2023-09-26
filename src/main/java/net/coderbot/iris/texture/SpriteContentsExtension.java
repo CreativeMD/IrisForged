@@ -5,6 +5,6 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.client.renderer.texture.SpriteContents;
 
 public interface SpriteContentsExtension {
-	@Nullable
-	SpriteContents.Ticker getCreatedTicker();
+    @Nullable
+    SpriteContents.Ticker getCreatedTicker();
 }

@@ -7,8 +7,8 @@ import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttributeFormat;
 
 @Mixin(GlVertexAttributeFormat.class)
 public interface GlVertexAttributeFormatAccessor {
-	@Invoker(value = "<init>")
-	static GlVertexAttributeFormat createGlVertexAttributeFormat(int glId, int size) {
-		throw new AssertionError("accessor failure");
-	}
+    @Invoker(value = "<init>")
+    static GlVertexAttributeFormat createGlVertexAttributeFormat(int glId, int size) {
+        throw new AssertionError("accessor failure");
+    }
 }

@@ -14,32 +14,32 @@ import net.coderbot.iris.shadows.frustum.advanced.AdvancedShadowCullingFrustum;
 
 @Mixin(AdvancedShadowCullingFrustum.class)
 public abstract class MixinAdvancedShadowCullingFrustum implements ViewportProvider, Frustum {
-	@Shadow(remap = false)
-	protected abstract int checkCornerVisibility(float minX, float minY, float minZ, float maxX, float maxY, float maxZ);
-
-	@Shadow
-	public double x;
-
-	@Shadow
-	public double y;
-
-	@Shadow
-	public double z;
-
-	@Shadow
-	@Final
-	protected BoxCuller boxCuller;
-
-	@Override
-	public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
-		return (boxCuller == null || !boxCuller.isCulledSodium(minX, minY, minZ, maxX, maxY, maxZ)) && this.checkCornerVisibility(minX, minY, minZ, maxX, maxY, maxZ) > 0;
-	}
-
-	@Unique
-	private Vector3d position = new Vector3d();
-
-	@Override
-	public Viewport sodium$createViewport() {
-		return new Viewport(this, position.set(x, y, z));
-	}
+    @Shadow(remap = false)
+    protected abstract int checkCornerVisibility(float minX, float minY, float minZ, float maxX, float maxY, float maxZ);
+    
+    @Shadow
+    public double x;
+    
+    @Shadow
+    public double y;
+    
+    @Shadow
+    public double z;
+    
+    @Shadow
+    @Final
+    protected BoxCuller boxCuller;
+    
+    @Override
+    public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
+        return (boxCuller == null || !boxCuller.isCulledSodium(minX, minY, minZ, maxX, maxY, maxZ)) && this.checkCornerVisibility(minX, minY, minZ, maxX, maxY, maxZ) > 0;
+    }
+    
+    @Unique
+    private Vector3d position = new Vector3d();
+    
+    @Override
+    public Viewport sodium$createViewport() {
+        return new Viewport(this, position.set(x, y, z));
+    }
 }

@@ -15,26 +15,19 @@
  */
 package de.odysseus.ithaka.digraph;
 
-/**
- * Digraph holding its reverse graph and granting access to incoming edges.
- */
+/** Digraph holding its reverse graph and granting access to incoming edges. */
 public interface DoubledDigraph<V> extends Digraph<V> {
-	/**
-	 * @return number of edges ending at <code>vertex</code>
-	 */
-	int getInDegree(V vertex);
-
-	/**
-	 * Iterate over edge sources for given target vertex.
-	 *
-	 * @param target target vertex
-	 * @return edge sources of edges ending at <code>target</code>
-	 */
-	Iterable<V> sources(V target);
-
-	/**
-	 * Restrict result type.
-	 */
-	@Override
-	DoubledDigraph<V> reverse();
+    /** @return number of edges ending at <code>vertex</code> */
+    int getInDegree(V vertex);
+    
+    /** Iterate over edge sources for given target vertex.
+     *
+     * @param target
+     *            target vertex
+     * @return edge sources of edges ending at <code>target</code> */
+    Iterable<V> sources(V target);
+    
+    /** Restrict result type. */
+    @Override
+    DoubledDigraph<V> reverse();
 }

@@ -10,9 +10,9 @@ import net.minecraft.client.renderer.texture.SpriteContents;
 
 @Mixin(SpriteContents.AnimatedTexture.class)
 public interface SpriteContentsAnimatedTextureAccessor {
-	@Accessor("frames")
-	List<SpriteContents.FrameInfo> getFrames();
-
-	@Invoker("uploadFrame")
-	void invokeUploadFrame(int x, int y, int frameIndex);
+    @Accessor("frames")
+    List<SpriteContents.FrameInfo> getFrames();
+    
+    @Invoker("uploadFrame")
+    void invokeUploadFrame(int x, int y, int frameIndex);
 }

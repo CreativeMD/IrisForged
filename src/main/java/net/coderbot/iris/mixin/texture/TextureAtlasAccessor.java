@@ -12,15 +12,15 @@ import net.minecraft.resources.ResourceLocation;
 
 @Mixin(TextureAtlas.class)
 public interface TextureAtlasAccessor {
-	@Accessor("texturesByName")
-	Map<ResourceLocation, TextureAtlasSprite> getTexturesByName();
-
-	@Accessor("mipLevel")
-	int getMipLevel();
-
-	@Invoker("getWidth")
-	int callGetWidth();
-
-	@Invoker("getHeight")
-	int callGetHeight();
+    @Accessor("texturesByName")
+    Map<ResourceLocation, TextureAtlasSprite> getTexturesByName();
+    
+    @Accessor("mipLevel")
+    int getMipLevel();
+    
+    @Invoker("getWidth")
+    int callGetWidth();
+    
+    @Invoker("getHeight")
+    int callGetHeight();
 }

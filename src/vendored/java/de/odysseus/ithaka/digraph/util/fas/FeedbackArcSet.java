@@ -19,45 +19,38 @@ import de.odysseus.ithaka.digraph.Digraph;
 import de.odysseus.ithaka.digraph.Digraphs;
 import de.odysseus.ithaka.digraph.UnmodifiableDigraph;
 
-/**
- * Feedback arc set.
+/** Feedback arc set.
  *
- * @param <V> vertex type
- */
+ * @param <V>
+ *            vertex type */
 public class FeedbackArcSet<V> extends UnmodifiableDigraph<V> {
-	private final FeedbackArcSetPolicy policy;
-	private final boolean exact;
-	private final int weight;
-
-	public FeedbackArcSet(Digraph<V> feedback, int weight, FeedbackArcSetPolicy policy, boolean exact) {
-		super(feedback);
-		this.weight = weight;
-		this.policy = policy;
-		this.exact = exact;
-	}
-
-	public static <V> FeedbackArcSet<V> empty(FeedbackArcSetPolicy policy) {
-		return new FeedbackArcSet<>(Digraphs.emptyDigraph(), 0, policy, true);
-	}
-
-	/**
-	 * @return <code>true</code> if this FAS is known to be of minimal
-	 */
-	public boolean isExact() {
-		return exact;
-	}
-
-	/**
-	 * @return total weight
-	 */
-	public int getWeight() {
-		return weight;
-	}
-
-	/**
-	 * @return minimization policy (weight/#arcs)
-	 */
-	public FeedbackArcSetPolicy getPolicy() {
-		return policy;
-	}
+    private final FeedbackArcSetPolicy policy;
+    private final boolean exact;
+    private final int weight;
+    
+    public FeedbackArcSet(Digraph<V> feedback, int weight, FeedbackArcSetPolicy policy, boolean exact) {
+        super(feedback);
+        this.weight = weight;
+        this.policy = policy;
+        this.exact = exact;
+    }
+    
+    public static <V> FeedbackArcSet<V> empty(FeedbackArcSetPolicy policy) {
+        return new FeedbackArcSet<>(Digraphs.emptyDigraph(), 0, policy, true);
+    }
+    
+    /** @return <code>true</code> if this FAS is known to be of minimal */
+    public boolean isExact() {
+        return exact;
+    }
+    
+    /** @return total weight */
+    public int getWeight() {
+        return weight;
+    }
+    
+    /** @return minimization policy (weight/#arcs) */
+    public FeedbackArcSetPolicy getPolicy() {
+        return policy;
+    }
 }

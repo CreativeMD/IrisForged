@@ -15,16 +15,13 @@
  */
 package de.odysseus.ithaka.digraph;
 
-/**
- * Digraph factory interface.
+/** Digraph factory interface.
  *
- * @param <G> de.odysseus.ithaka.digraph type
- */
+ * @param <G>
+ *            de.odysseus.ithaka.digraph type */
 public interface DigraphFactory<G extends Digraph<?>> {
-	/**
-	 * Create a de.odysseus.ithaka.digraph.
-	 *
-	 * @return de.odysseus.ithaka.digraph
-	 */
-	G create();
+    /** Create a de.odysseus.ithaka.digraph.
+     *
+     * @return de.odysseus.ithaka.digraph */
+    G create();
 }

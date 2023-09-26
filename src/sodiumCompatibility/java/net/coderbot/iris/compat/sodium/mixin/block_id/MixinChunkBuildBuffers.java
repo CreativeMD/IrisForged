@@ -24,49 +24,49 @@ import net.minecraft.world.level.block.state.BlockState;
  * data to {@link ContextAwareVertexWriter}. */
 @Mixin(ChunkBuildBuffers.class)
 public class MixinChunkBuildBuffers implements ChunkBuildBuffersExt {
-	@Shadow
-	@Final
-	private Reference2ReferenceOpenHashMap<TerrainRenderPass, BakedChunkModelBuilder> builders;
-	@Unique
-	private BlockContextHolder contextHolder;
-	
-	@Inject(method = "<init>", at = @At("RETURN"), remap = false)
-	private void iris$onConstruct(ChunkVertexType vertexType, CallbackInfo ci) {
-		Object2IntMap<BlockState> blockStateIds = BlockRenderingSettings.INSTANCE.getBlockStateIds();
-		
-		if (blockStateIds != null) {
-			this.contextHolder = new BlockContextHolder(blockStateIds);
-		} else {
-			this.contextHolder = new BlockContextHolder();
-		}
-	}
-	
-	@Inject(method = "<init>", remap = false, at = @At(value = "TAIL", remap = false))
-	private void iris$redirectWriterCreation(ChunkVertexType vertexType, CallbackInfo ci) {
-		for (BakedChunkModelBuilder builder : this.builders.values()) {
-			if (builder instanceof ContextAwareVertexWriter) {
-				((ContextAwareVertexWriter) builder).iris$setContextHolder(contextHolder);
-			}
-		}
-	}
-	
-	@Override
-	public void iris$setLocalPos(int localPosX, int localPosY, int localPosZ) {
-		this.contextHolder.setLocalPos(localPosX, localPosY, localPosZ);
-	}
-	
-	@Override
-	public void iris$setMaterialId(BlockState state, short renderType) {
-		this.contextHolder.set(state, renderType);
-	}
-	
-	@Override
-	public void iris$resetBlockContext() {
-		this.contextHolder.reset();
-	}
-	
-	@Override
-	public void iris$ignoreMidBlock(boolean state) {
-		this.contextHolder.ignoreMidBlock = state;
-	}
+    @Shadow
+    @Final
+    private Reference2ReferenceOpenHashMap<TerrainRenderPass, BakedChunkModelBuilder> builders;
+    @Unique
+    private BlockContextHolder contextHolder;
+    
+    @Inject(method = "<init>", at = @At("RETURN"), remap = false)
+    private void iris$onConstruct(ChunkVertexType vertexType, CallbackInfo ci) {
+        Object2IntMap<BlockState> blockStateIds = BlockRenderingSettings.INSTANCE.getBlockStateIds();
+        
+        if (blockStateIds != null) {
+            this.contextHolder = new BlockContextHolder(blockStateIds);
+        } else {
+            this.contextHolder = new BlockContextHolder();
+        }
+    }
+    
+    @Inject(method = "<init>", remap = false, at = @At(value = "TAIL", remap = false))
+    private void iris$redirectWriterCreation(ChunkVertexType vertexType, CallbackInfo ci) {
+        for (BakedChunkModelBuilder builder : this.builders.values()) {
+            if (builder instanceof ContextAwareVertexWriter) {
+                ((ContextAwareVertexWriter) builder).iris$setContextHolder(contextHolder);
+            }
+        }
+    }
+    
+    @Override
+    public void iris$setLocalPos(int localPosX, int localPosY, int localPosZ) {
+        this.contextHolder.setLocalPos(localPosX, localPosY, localPosZ);
+    }
+    
+    @Override
+    public void iris$setMaterialId(BlockState state, short renderType) {
+        this.contextHolder.set(state, renderType);
+    }
+    
+    @Override
+    public void iris$resetBlockContext() {
+        this.contextHolder.reset();
+    }
+    
+    @Override
+    public void iris$ignoreMidBlock(boolean state) {
+        this.contextHolder.ignoreMidBlock = state;
+    }
 }

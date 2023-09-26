@@ -12,10 +12,10 @@ import net.minecraft.core.Direction;
 
 @Mixin(SmoothLightPipeline.class)
 public class MixinSmoothLightPipeline {
-	@Inject(method = "applySidedBrightness", at = @At("HEAD"), cancellable = true)
-	private void iris$disableDirectionalShading(QuadLightData out, Direction face, boolean shade, CallbackInfo ci) {
-		if (BlockRenderingSettings.INSTANCE.shouldDisableDirectionalShading()) {
-			ci.cancel();
-		}
-	}
+    @Inject(method = "applySidedBrightness", at = @At("HEAD"), cancellable = true)
+    private void iris$disableDirectionalShading(QuadLightData out, Direction face, boolean shade, CallbackInfo ci) {
+        if (BlockRenderingSettings.INSTANCE.shouldDisableDirectionalShading()) {
+            ci.cancel();
+        }
+    }
 }

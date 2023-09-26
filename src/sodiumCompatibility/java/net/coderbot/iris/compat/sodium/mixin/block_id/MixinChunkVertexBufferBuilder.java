@@ -11,21 +11,21 @@ import net.coderbot.iris.compat.sodium.impl.block_context.ContextAwareVertexWrit
 
 @Mixin(ChunkMeshBufferBuilder.class)
 public class MixinChunkVertexBufferBuilder implements ContextAwareVertexWriter {
-	@Shadow
-	@Final
-	private ChunkVertexEncoder encoder;
-
-	@Override
-	public void iris$setContextHolder(BlockContextHolder holder) {
-		if (encoder instanceof ContextAwareVertexWriter) {
-			((ContextAwareVertexWriter) encoder).iris$setContextHolder(holder);
-		}
-	}
-
-	@Override
-	public void flipUpcomingQuadNormal() {
-		if (encoder instanceof ContextAwareVertexWriter) {
-			((ContextAwareVertexWriter) encoder).flipUpcomingQuadNormal();
-		}
-	}
+    @Shadow
+    @Final
+    private ChunkVertexEncoder encoder;
+    
+    @Override
+    public void iris$setContextHolder(BlockContextHolder holder) {
+        if (encoder instanceof ContextAwareVertexWriter) {
+            ((ContextAwareVertexWriter) encoder).iris$setContextHolder(holder);
+        }
+    }
+    
+    @Override
+    public void flipUpcomingQuadNormal() {
+        if (encoder instanceof ContextAwareVertexWriter) {
+            ((ContextAwareVertexWriter) encoder).flipUpcomingQuadNormal();
+        }
+    }
 }

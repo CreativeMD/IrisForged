@@ -15,18 +15,17 @@
  */
 package de.odysseus.ithaka.digraph;
 
-/**
- * Digraph provider interface.
+/** Digraph provider interface.
  *
- * @param <T> de.odysseus.ithaka.digraph sub-type
- * @param <G> de.odysseus.ithaka.digraph type
- */
+ * @param <T>
+ *            de.odysseus.ithaka.digraph sub-type
+ * @param <G>
+ *            de.odysseus.ithaka.digraph type */
 public interface DigraphProvider<T, G extends Digraph<?>> {
-	/**
-	 * Get a de.odysseus.ithaka.digraph.
-	 *
-	 * @param value value associated with a de.odysseus.ithaka.digraph
-	 * @return de.odysseus.ithaka.digraph
-	 */
-	G get(T value);
+    /** Get a de.odysseus.ithaka.digraph.
+     *
+     * @param value
+     *            value associated with a de.odysseus.ithaka.digraph
+     * @return de.odysseus.ithaka.digraph */
+    G get(T value);
 }

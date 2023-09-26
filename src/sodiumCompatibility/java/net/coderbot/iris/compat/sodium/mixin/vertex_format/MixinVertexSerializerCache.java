@@ -22,20 +22,24 @@ import net.coderbot.iris.vertices.IrisVertexFormats;
 
 @Mixin(value = VertexSerializerRegistryImpl.class, remap = false)
 public abstract class MixinVertexSerializerCache {
-	@Shadow
-	@Final
-	private Long2ReferenceMap<VertexSerializer> cache;
-
-	@Shadow
-	protected static long createKey(VertexFormatDescription a, VertexFormatDescription b) {
-		return 0;
-	}
-
-	@Inject(method = "<init>", at = @At("TAIL"))
-	private void putSerializerIris(CallbackInfo ci) {
-		cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.NEW_ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY)), new ModelToEntityVertexSerializer());
-		cache.put(createKey(VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.TERRAIN)), new IrisEntityToTerrainVertexSerializer());
-		cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.NEW_ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.TERRAIN)), new EntityToTerrainVertexSerializer());
-		cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP), VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY)), new GlyphToTerrainVertexSerializer());
-	}
+    @Shadow
+    @Final
+    private Long2ReferenceMap<VertexSerializer> cache;
+    
+    @Shadow
+    protected static long createKey(VertexFormatDescription a, VertexFormatDescription b) {
+        return 0;
+    }
+    
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void putSerializerIris(CallbackInfo ci) {
+        cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.NEW_ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY)),
+            new ModelToEntityVertexSerializer());
+        cache.put(createKey(VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.TERRAIN)),
+            new IrisEntityToTerrainVertexSerializer());
+        cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.NEW_ENTITY), VertexFormatRegistry.instance().get(IrisVertexFormats.TERRAIN)),
+            new EntityToTerrainVertexSerializer());
+        cache.put(createKey(VertexFormatRegistry.instance().get(DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP), VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY)),
+            new GlyphToTerrainVertexSerializer());
+    }
 }

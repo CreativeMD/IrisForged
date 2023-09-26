@@ -11,33 +11,32 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.coderbot.iris.Iris;
 import net.minecraft.SystemReport;
 
-/**
- * Adds the current shaderpack and number of changed options to crash reports
- */
+/** Adds the current shaderpack and number of changed options to crash reports */
 @Mixin(SystemReport.class)
 public abstract class MixinSystemReport {
-	@Shadow
-	public abstract void setDetail(String string, Supplier<String> supplier);
-
-	@Inject(at = @At("RETURN"), method = "<init>")
+    @Shadow
+    public abstract void setDetail(String string, Supplier<String> supplier);
+    
+    @Inject(at = @At("RETURN"), method = "<init>")
     private void fillSystemDetails(CallbackInfo ci) {
-        if (Iris.getCurrentPackName() == null) return; // this also gets called at startup for some reason
-
+        if (Iris.getCurrentPackName() == null)
+            return; // this also gets called at startup for some reason
+            
         this.setDetail("Loaded Shaderpack", () -> {
-			StringBuilder sb = new StringBuilder(Iris.getCurrentPackName() + (Iris.isFallback() ? " (fallback)" : ""));
+            StringBuilder sb = new StringBuilder(Iris.getCurrentPackName() + (Iris.isFallback() ? " (fallback)" : ""));
             Iris.getCurrentPack().ifPresent(pack -> {
                 sb.append("\n\t\t");
                 sb.append(pack.getProfileInfo());
             });
             return sb.toString();
         });
-
-		this.setDetail("NEC status", () -> {
-			if (Iris.hasNotEnoughCrashes()) {
-				return "Has NEC: INVALID";
-			} else {
-				return "No NEC detected";
-			}
-		});
+        
+        this.setDetail("NEC status", () -> {
+            if (Iris.hasNotEnoughCrashes()) {
+                return "Has NEC: INVALID";
+            } else {
+                return "No NEC detected";
+            }
+        });
     }
 }

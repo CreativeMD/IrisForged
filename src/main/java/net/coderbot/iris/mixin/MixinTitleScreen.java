@@ -16,72 +16,70 @@ import net.minecraft.network.chat.Component;
 
 @Mixin(TitleScreen.class)
 public class MixinTitleScreen extends Screen {
-	private static boolean iris$hasFirstInit;
-
-	protected MixinTitleScreen(Component arg) {
-		super(arg);
-	}
-
-	@Inject(method = "init", at = @At("RETURN"))
-	public void iris$showSodiumIncompatScreen(CallbackInfo ci) {
-		if (iris$hasFirstInit) return;
-
-		String reason;
-
-		if (!Iris.isSodiumInstalled() && !FabricLoader.getInstance().isDevelopmentEnvironment()) {
-			reason = "iris.sodium.failure.reason.notFound";
-		} else if (Iris.isSodiumInvalid()) {
-			reason = "iris.sodium.failure.reason.incompatible";
-		} else if (Iris.hasNotEnoughCrashes()) {
-			Minecraft.getInstance().setScreen(new ConfirmScreen(
-				bool -> {
-					if (bool) {
-						if (!iris$hasFirstInit) {
-							Iris.onLoadingComplete();
-						}
-
-						iris$hasFirstInit = true;
-
-						Minecraft.getInstance().setScreen(this);
-					} else {
-						Minecraft.getInstance().stop();
-					}
-				},
-				Component.translatable("iris.nec.failure.title", Iris.MODNAME).withStyle(ChatFormatting.BOLD, ChatFormatting.RED),
-				Component.translatable("iris.nec.failure.description"),
-				Component.translatable("options.graphics.warning.accept").withStyle(ChatFormatting.RED),
-				Component.translatable("menu.quit").withStyle(ChatFormatting.BOLD)));
-			return;
-		} else {
-			if (!iris$hasFirstInit) {
-				Iris.onLoadingComplete();
-			}
-
-			iris$hasFirstInit = true;
-
-			return;
-		}
-		iris$hasFirstInit = true;
-
-		/*Minecraft.getInstance().setScreen(new ConfirmScreen(
-				(boolean accepted) -> {
-					if (accepted) {
-						try {
-							Util.getPlatform().openUri(new URI(SodiumVersionCheck.getDownloadLink()));
-						} catch (URISyntaxException e) {
-							throw new IllegalStateException(e);
-						}
-					} else {
-						if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-							Minecraft.getInstance().setScreen(this);
-						} else {
-							Minecraft.getInstance().stop();
-						}
-					}
-				},
-				Component.translatable("iris.sodium.failure.title").withStyle(ChatFormatting.RED),
-				Component.translatable(reason),
-				Component.translatable("iris.sodium.failure.download"),
-				FabricLoader.getInstance().isDevelopmentEnvironment() ? Component.literal("Continue (Development)") : Component.translatable("menu.quit")));*/
-	}
+    private static boolean iris$hasFirstInit;
+    
+    protected MixinTitleScreen(Component arg) {
+        super(arg);
+    }
+    
+    @Inject(method = "init", at = @At("RETURN"))
+    public void iris$showSodiumIncompatScreen(CallbackInfo ci) {
+        if (iris$hasFirstInit)
+            return;
+        
+        String reason;
+        
+        if (!Iris.isSodiumInstalled() && !FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            reason = "iris.sodium.failure.reason.notFound";
+        } else if (Iris.isSodiumInvalid()) {
+            reason = "iris.sodium.failure.reason.incompatible";
+        } else if (Iris.hasNotEnoughCrashes()) {
+            Minecraft.getInstance().setScreen(new ConfirmScreen(bool -> {
+                if (bool) {
+                    if (!iris$hasFirstInit) {
+                        Iris.onLoadingComplete();
+                    }
+                    
+                    iris$hasFirstInit = true;
+                    
+                    Minecraft.getInstance().setScreen(this);
+                } else {
+                    Minecraft.getInstance().stop();
+                }
+            }, Component.translatable("iris.nec.failure.title", Iris.MODNAME).withStyle(ChatFormatting.BOLD, ChatFormatting.RED), Component.translatable(
+                "iris.nec.failure.description"), Component.translatable("options.graphics.warning.accept").withStyle(ChatFormatting.RED), Component.translatable("menu.quit")
+                        .withStyle(ChatFormatting.BOLD)));
+            return;
+        } else {
+            if (!iris$hasFirstInit) {
+                Iris.onLoadingComplete();
+            }
+            
+            iris$hasFirstInit = true;
+            
+            return;
+        }
+        iris$hasFirstInit = true;
+        
+        /*Minecraft.getInstance().setScreen(new ConfirmScreen(
+        		(boolean accepted) -> {
+        			if (accepted) {
+        				try {
+        					Util.getPlatform().openUri(new URI(SodiumVersionCheck.getDownloadLink()));
+        				} catch (URISyntaxException e) {
+        					throw new IllegalStateException(e);
+        				}
+        			} else {
+        				if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+        					Minecraft.getInstance().setScreen(this);
+        				} else {
+        					Minecraft.getInstance().stop();
+        				}
+        			}
+        		},
+        		Component.translatable("iris.sodium.failure.title").withStyle(ChatFormatting.RED),
+        		Component.translatable(reason),
+        		Component.translatable("iris.sodium.failure.download"),
+        		FabricLoader.getInstance().isDevelopmentEnvironment() ? Component.literal("Continue (Development)") : Component.translatable("menu.quit")));*/
+    }
 }

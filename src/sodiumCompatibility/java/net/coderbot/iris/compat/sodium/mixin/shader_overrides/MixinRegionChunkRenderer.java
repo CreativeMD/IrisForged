@@ -10,16 +10,14 @@ import net.coderbot.iris.compat.sodium.impl.shader_overrides.ShaderChunkRenderer
 
 @Mixin(DefaultChunkRenderer.class)
 public abstract class MixinRegionChunkRenderer implements ShaderChunkRendererExt {
-	@Redirect(method = "render", remap = false,
-			at = @At(value = "INVOKE",
-					target = "me/jellysquid/mods/sodium/client/gl/shader/GlProgram.getInterface ()Ljava/lang/Object;"))
-	private Object iris$getInterface(GlProgram<?> program) {
-		if (program == null) {
-			// Iris sentinel null
-			return iris$getOverride().getInterface();
-		} else {
-			return program.getInterface();
-		}
-	}
-
+    @Redirect(method = "render", remap = false, at = @At(value = "INVOKE", target = "me/jellysquid/mods/sodium/client/gl/shader/GlProgram.getInterface ()Ljava/lang/Object;"))
+    private Object iris$getInterface(GlProgram<?> program) {
+        if (program == null) {
+            // Iris sentinel null
+            return iris$getOverride().getInterface();
+        } else {
+            return program.getInterface();
+        }
+    }
+    
 }

@@ -12,22 +12,22 @@ import net.coderbot.batchedentityrendering.impl.MemoryTrackingBuffer;
 
 @Mixin(BufferBuilder.class)
 public class MixinBufferBuilder implements MemoryTrackingBuffer {
-	@Shadow
-	private ByteBuffer buffer;
-
-	@Override
-	public int getAllocatedSize() {
-		return buffer.capacity();
-	}
-
-	@Override
-	public int getUsedSize() {
-		return buffer.position();
-	}
-
-	@Override
-	public void freeAndDeleteBuffer() {
-		MemoryUtil.memFree(buffer);
-		buffer = null;
-	}
+    @Shadow
+    private ByteBuffer buffer;
+    
+    @Override
+    public int getAllocatedSize() {
+        return buffer.capacity();
+    }
+    
+    @Override
+    public int getUsedSize() {
+        return buffer.position();
+    }
+    
+    @Override
+    public void freeAndDeleteBuffer() {
+        MemoryUtil.memFree(buffer);
+        buffer = null;
+    }
 }

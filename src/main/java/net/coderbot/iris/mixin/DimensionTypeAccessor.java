@@ -9,10 +9,10 @@ import net.minecraft.world.level.dimension.DimensionType;
 
 @Mixin(DimensionType.class)
 public interface DimensionTypeAccessor {
-	@Accessor
-	OptionalLong getFixedTime();
-
-	@Accessor
-	float getAmbientLight();
-
+    @Accessor
+    OptionalLong getFixedTime();
+    
+    @Accessor
+    float getAmbientLight();
+    
 }

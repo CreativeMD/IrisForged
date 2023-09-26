@@ -19,37 +19,38 @@ import net.minecraft.client.renderer.texture.SpriteTicker;
 
 @Mixin(SpriteContents.class)
 public class MixinSpriteContents implements SpriteContentsExtension {
-	@Unique
-	@Nullable
-	private SpriteContents.Ticker createdTicker;
-
-	@Redirect(method = "increaseMipLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/texture/MipmapGenerator;generateMipLevels([Lcom/mojang/blaze3d/platform/NativeImage;I)[Lcom/mojang/blaze3d/platform/NativeImage;"))
-	private NativeImage[] iris$redirectMipmapGeneration(NativeImage[] nativeImages, int mipLevel) {
-		if (this instanceof CustomMipmapGenerator.Provider) {
-			CustomMipmapGenerator.Provider provider = (CustomMipmapGenerator.Provider) this;
-			CustomMipmapGenerator generator = provider.getMipmapGenerator();
-			if (generator != null) {
-				try {
-					return generator.generateMipLevels(nativeImages, mipLevel);
-				} catch (Exception e) {
-					Iris.logger.error("ERROR MIPMAPPING", e);
-				}
-			}
-		}
-		return MipmapGenerator.generateMipLevels(nativeImages, mipLevel);
-	}
-
-	@Inject(method = "createTicker()Lnet/minecraft/client/renderer/texture/SpriteTicker;", at = @At("RETURN"))
-	private void onReturnCreateTicker(CallbackInfoReturnable<SpriteTicker> cir) {
-		SpriteTicker ticker = cir.getReturnValue();
-		if (ticker instanceof SpriteContents.Ticker innerTicker) {
-			createdTicker = innerTicker;
-		}
-	}
-
-	@Override
-	@Nullable
-	public SpriteContents.Ticker getCreatedTicker() {
-		return createdTicker;
-	}
+    @Unique
+    @Nullable
+    private SpriteContents.Ticker createdTicker;
+    
+    @Redirect(method = "increaseMipLevel", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/client/renderer/texture/MipmapGenerator;generateMipLevels([Lcom/mojang/blaze3d/platform/NativeImage;I)[Lcom/mojang/blaze3d/platform/NativeImage;"))
+    private NativeImage[] iris$redirectMipmapGeneration(NativeImage[] nativeImages, int mipLevel) {
+        if (this instanceof CustomMipmapGenerator.Provider) {
+            CustomMipmapGenerator.Provider provider = (CustomMipmapGenerator.Provider) this;
+            CustomMipmapGenerator generator = provider.getMipmapGenerator();
+            if (generator != null) {
+                try {
+                    return generator.generateMipLevels(nativeImages, mipLevel);
+                } catch (Exception e) {
+                    Iris.logger.error("ERROR MIPMAPPING", e);
+                }
+            }
+        }
+        return MipmapGenerator.generateMipLevels(nativeImages, mipLevel);
+    }
+    
+    @Inject(method = "createTicker()Lnet/minecraft/client/renderer/texture/SpriteTicker;", at = @At("RETURN"))
+    private void onReturnCreateTicker(CallbackInfoReturnable<SpriteTicker> cir) {
+        SpriteTicker ticker = cir.getReturnValue();
+        if (ticker instanceof SpriteContents.Ticker innerTicker) {
+            createdTicker = innerTicker;
+        }
+    }
+    
+    @Override
+    @Nullable
+    public SpriteContents.Ticker getCreatedTicker() {
+        return createdTicker;
+    }
 }

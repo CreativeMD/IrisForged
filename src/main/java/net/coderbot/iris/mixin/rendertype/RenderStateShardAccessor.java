@@ -7,11 +7,11 @@ import net.minecraft.client.renderer.RenderStateShard;
 
 @Mixin(RenderStateShard.class)
 public interface RenderStateShardAccessor {
-	@Accessor("name")
-	String getName();
-
-	@Accessor("TRANSLUCENT_TRANSPARENCY")
-	static RenderStateShard.TransparencyStateShard getTranslucentTransparency() {
-		throw new AssertionError();
-	}
+    @Accessor("name")
+    String getName();
+    
+    @Accessor("TRANSLUCENT_TRANSPARENCY")
+    static RenderStateShard.TransparencyStateShard getTranslucentTransparency() {
+        throw new AssertionError();
+    }
 }

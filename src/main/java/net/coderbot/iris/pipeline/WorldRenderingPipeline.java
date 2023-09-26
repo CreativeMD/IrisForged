@@ -18,50 +18,73 @@ import net.minecraft.client.Camera;
 
 public interface WorldRenderingPipeline {
     void onShadowBufferChange();
-
+    
     void beginLevelRendering();
-	void renderShadows(LevelRendererAccessor worldRenderer, Camera camera);
-	void addDebugText(List<String> messages);
-	OptionalInt getForcedShadowRenderDistanceChunksForDisplay();
-
+    
+    void renderShadows(LevelRendererAccessor worldRenderer, Camera camera);
+    
+    void addDebugText(List<String> messages);
+    
+    OptionalInt getForcedShadowRenderDistanceChunksForDisplay();
+    
     Object2ObjectMap<Tri<String, TextureType, TextureStage>, String> getTextureMap();
-
+    
     WorldRenderingPhase getPhase();
-
-	void beginSodiumTerrainRendering();
-	void endSodiumTerrainRendering();
-	void setOverridePhase(WorldRenderingPhase phase);
-	void setPhase(WorldRenderingPhase phase);
-	void setSpecialCondition(SpecialCondition special);
-	RenderTargetStateListener getRenderTargetStateListener();
-
-	int getCurrentNormalTexture();
-	int getCurrentSpecularTexture();
-
-	void onSetShaderTexture(int id);
-
-	void beginHand();
-
-	void beginTranslucents();
-	void finalizeLevelRendering();
-	void destroy();
-
-	SodiumTerrainPipeline getSodiumTerrainPipeline();
-	FrameUpdateNotifier getFrameUpdateNotifier();
-
-	boolean shouldDisableVanillaEntityShadows();
-	boolean shouldDisableDirectionalShading();
-	boolean shouldDisableFrustumCulling();
-	CloudSetting getCloudSetting();
-	boolean shouldRenderUnderwaterOverlay();
-	boolean shouldRenderVignette();
-	boolean shouldRenderSun();
-	boolean shouldRenderMoon();
-	boolean shouldWriteRainAndSnowToDepthBuffer();
-	ParticleRenderingSettings getParticleRenderingSettings();
-	boolean allowConcurrentCompute();
-	boolean hasFeature(FeatureFlags flags);
-
-	float getSunPathRotation();
-
+    
+    void beginSodiumTerrainRendering();
+    
+    void endSodiumTerrainRendering();
+    
+    void setOverridePhase(WorldRenderingPhase phase);
+    
+    void setPhase(WorldRenderingPhase phase);
+    
+    void setSpecialCondition(SpecialCondition special);
+    
+    RenderTargetStateListener getRenderTargetStateListener();
+    
+    int getCurrentNormalTexture();
+    
+    int getCurrentSpecularTexture();
+    
+    void onSetShaderTexture(int id);
+    
+    void beginHand();
+    
+    void beginTranslucents();
+    
+    void finalizeLevelRendering();
+    
+    void destroy();
+    
+    SodiumTerrainPipeline getSodiumTerrainPipeline();
+    
+    FrameUpdateNotifier getFrameUpdateNotifier();
+    
+    boolean shouldDisableVanillaEntityShadows();
+    
+    boolean shouldDisableDirectionalShading();
+    
+    boolean shouldDisableFrustumCulling();
+    
+    CloudSetting getCloudSetting();
+    
+    boolean shouldRenderUnderwaterOverlay();
+    
+    boolean shouldRenderVignette();
+    
+    boolean shouldRenderSun();
+    
+    boolean shouldRenderMoon();
+    
+    boolean shouldWriteRainAndSnowToDepthBuffer();
+    
+    ParticleRenderingSettings getParticleRenderingSettings();
+    
+    boolean allowConcurrentCompute();
+    
+    boolean hasFeature(FeatureFlags flags);
+    
+    float getSunPathRotation();
+    
 }

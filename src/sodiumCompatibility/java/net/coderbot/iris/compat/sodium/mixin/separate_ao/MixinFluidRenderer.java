@@ -11,16 +11,14 @@ import me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRende
 import me.jellysquid.mods.sodium.client.render.chunk.terrain.material.Material;
 import net.minecraft.core.BlockPos;
 
-/**
- * Basically the same as {@link MixinBlockRenderer}, but for fluid rendering.
- */
+/** Basically the same as {@link MixinBlockRenderer}, but for fluid rendering. */
 @Mixin(FluidRenderer.class)
 public abstract class MixinFluidRenderer {
-	private boolean flipNormal;
-
-	@Shadow
-	protected abstract void writeQuad(ChunkModelBuilder builder, Material material, BlockPos offset, ModelQuadView quad, ModelQuadFacing facing, boolean flip);
-
-	@Unique
+    private boolean flipNormal;
+    
+    @Shadow
+    protected abstract void writeQuad(ChunkModelBuilder builder, Material material, BlockPos offset, ModelQuadView quad, ModelQuadFacing facing, boolean flip);
+    
+    @Unique
     private boolean useSeparateAo;
 }

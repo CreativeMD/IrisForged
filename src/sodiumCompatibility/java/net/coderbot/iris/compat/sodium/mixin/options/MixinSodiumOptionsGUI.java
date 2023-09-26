@@ -18,30 +18,28 @@ import net.coderbot.iris.gui.screen.ShaderPackScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/**
- * Adds our Shader Packs button to the Sodium options GUI.
- */
+/** Adds our Shader Packs button to the Sodium options GUI. */
 @Mixin(SodiumOptionsGUI.class)
 public class MixinSodiumOptionsGUI extends Screen {
     @Shadow(remap = false)
     @Final
     private List<OptionPage> pages;
-
+    
     @Unique
     private OptionPage shaderPacks;
-
+    
     // make compiler happy
     protected MixinSodiumOptionsGUI(Component title) {
         super(title);
     }
-
+    
     @Inject(method = "<init>", at = @At("RETURN"))
     private void iris$onInit(Screen prevScreen, CallbackInfo ci) {
         Component shaderPacksTranslated = Component.translatable("options.iris.shaderPackSelection");
         shaderPacks = new OptionPage(shaderPacksTranslated, ImmutableList.of());
         pages.add(shaderPacks);
     }
-
+    
     @Inject(method = "setPage", at = @At("HEAD"), remap = false, cancellable = true)
     private void iris$onSetPage(OptionPage page, CallbackInfo ci) {
         if (page == shaderPacks) {

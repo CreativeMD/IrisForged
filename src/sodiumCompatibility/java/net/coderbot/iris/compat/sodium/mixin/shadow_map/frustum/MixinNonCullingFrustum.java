@@ -11,14 +11,16 @@ import net.minecraft.client.Minecraft;
 
 @Mixin(NonCullingFrustum.class)
 public class MixinNonCullingFrustum implements Frustum, ViewportProvider {
-	private Vector3d pos = new Vector3d();
-	@Override
-	public Viewport sodium$createViewport() {
-		return new Viewport(this, pos.set(Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().x, Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().y, Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().z));
-	}
-
-	@Override
-	public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
-		return true;
-	}
+    private Vector3d pos = new Vector3d();
+    
+    @Override
+    public Viewport sodium$createViewport() {
+        return new Viewport(this, pos.set(Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().x, Minecraft.getInstance().gameRenderer.getMainCamera()
+                .getPosition().y, Minecraft.getInstance().gameRenderer.getMainCamera().getPosition().z));
+    }
+    
+    @Override
+    public boolean testAab(float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
+        return true;
+    }
 }

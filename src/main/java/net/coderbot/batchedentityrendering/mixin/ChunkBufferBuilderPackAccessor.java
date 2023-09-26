@@ -12,6 +12,6 @@ import net.minecraft.client.renderer.RenderType;
 
 @Mixin(ChunkBufferBuilderPack.class)
 public interface ChunkBufferBuilderPackAccessor {
-	@Accessor
-	Map<RenderType, BufferBuilder> getBuilders();
+    @Accessor
+    Map<RenderType, BufferBuilder> getBuilders();
 }

@@ -8,17 +8,17 @@ import net.minecraft.client.resources.metadata.animation.AnimationMetadataSectio
 
 @Mixin(AnimationMetadataSection.class)
 public interface AnimationMetadataSectionAccessor {
-	@Accessor("frameWidth")
-	int getFrameWidth();
-
-	@Mutable
-	@Accessor("frameWidth")
-	void setFrameWidth(int frameWidth);
-
-	@Accessor("frameHeight")
-	int getFrameHeight();
-
-	@Mutable
-	@Accessor("frameHeight")
-	void setFrameHeight(int frameHeight);
+    @Accessor("frameWidth")
+    int getFrameWidth();
+    
+    @Mutable
+    @Accessor("frameWidth")
+    void setFrameWidth(int frameWidth);
+    
+    @Accessor("frameHeight")
+    int getFrameHeight();
+    
+    @Mutable
+    @Accessor("frameHeight")
+    void setFrameHeight(int frameHeight);
 }

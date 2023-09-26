@@ -19,33 +19,34 @@ import net.minecraft.world.level.material.FogType;
 
 @Mixin(FogRenderer.class)
 public class MixinFogRenderer {
-	@Shadow private static float fogRed, fogGreen, fogBlue;
-
-	@Inject(method = "setupFog", at = @At("HEAD"))
-	private static void iris$setupLegacyWaterFog(Camera camera, FogRenderer.FogMode $$1, float $$2, boolean $$3, float $$4, CallbackInfo ci) {
-		if (camera.getFluidInCamera() == FogType.WATER) {
-			Entity entity = camera.getEntity();
-
-			float density = 0.05F;
-
-			if (entity instanceof LocalPlayer) {
-				LocalPlayer localPlayer = (LocalPlayer)entity;
-				density -= localPlayer.getWaterVision() * localPlayer.getWaterVision() * 0.03F;
-				Holder<Biome> biome = localPlayer.level().getBiome(localPlayer.blockPosition());
-
-				if (biome.is(BiomeTags.HAS_CLOSER_WATER_FOG)) {
-					density += 0.005F;
-				}
-			}
-
-			CapturedRenderingState.INSTANCE.setFogDensity(density);
-		} else {
-			CapturedRenderingState.INSTANCE.setFogDensity(-1.0F);
-		}
-	}
-
-	@Inject(method = "setupColor", at = @At("TAIL"))
-	private static void render(Camera camera, float tickDelta, ClientLevel level, int i, float f, CallbackInfo ci) {
-		CapturedRenderingState.INSTANCE.setFogColor(fogRed, fogGreen, fogBlue);
-	}
+    @Shadow
+    private static float fogRed, fogGreen, fogBlue;
+    
+    @Inject(method = "setupFog", at = @At("HEAD"))
+    private static void iris$setupLegacyWaterFog(Camera camera, FogRenderer.FogMode $$1, float $$2, boolean $$3, float $$4, CallbackInfo ci) {
+        if (camera.getFluidInCamera() == FogType.WATER) {
+            Entity entity = camera.getEntity();
+            
+            float density = 0.05F;
+            
+            if (entity instanceof LocalPlayer) {
+                LocalPlayer localPlayer = (LocalPlayer) entity;
+                density -= localPlayer.getWaterVision() * localPlayer.getWaterVision() * 0.03F;
+                Holder<Biome> biome = localPlayer.level().getBiome(localPlayer.blockPosition());
+                
+                if (biome.is(BiomeTags.HAS_CLOSER_WATER_FOG)) {
+                    density += 0.005F;
+                }
+            }
+            
+            CapturedRenderingState.INSTANCE.setFogDensity(density);
+        } else {
+            CapturedRenderingState.INSTANCE.setFogDensity(-1.0F);
+        }
+    }
+    
+    @Inject(method = "setupColor", at = @At("TAIL"))
+    private static void render(Camera camera, float tickDelta, ClientLevel level, int i, float f, CallbackInfo ci) {
+        CapturedRenderingState.INSTANCE.setFogColor(fogRed, fogGreen, fogBlue);
+    }
 }

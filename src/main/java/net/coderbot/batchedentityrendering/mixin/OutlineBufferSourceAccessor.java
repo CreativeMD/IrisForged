@@ -8,6 +8,6 @@ import net.minecraft.client.renderer.OutlineBufferSource;
 
 @Mixin(OutlineBufferSource.class)
 public interface OutlineBufferSourceAccessor {
-	@Accessor
-	MultiBufferSource.BufferSource getOutlineBufferSource();
+    @Accessor
+    MultiBufferSource.BufferSource getOutlineBufferSource();
 }

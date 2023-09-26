@@ -7,8 +7,8 @@ import me.jellysquid.mods.sodium.client.gl.shader.ShaderType;
 
 @Mixin(ShaderType.class)
 public interface ShaderTypeAccessor {
-	@Invoker(value = "<init>")
-	static ShaderType createShaderType(String name, int ordinal, int glId) {
-		throw new AssertionError();
-	}
+    @Invoker(value = "<init>")
+    static ShaderType createShaderType(String name, int ordinal, int glId) {
+        throw new AssertionError();
+    }
 }

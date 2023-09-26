@@ -12,10 +12,10 @@ import net.coderbot.iris.pipeline.newshader.ExtendedShader;
 
 @Mixin(ProgramManager.class)
 public class MixinProgramManager {
-	@Inject(method = "releaseProgram", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;assertOnRenderThread()V"))
-	private static void iris$releaseGeometry(Shader shader, CallbackInfo ci) {
-		if (shader instanceof ExtendedShader && ((ExtendedShader) shader).getGeometry() != null) {
-			((ExtendedShader) shader).getGeometry().close();
-		}
-	}
+    @Inject(method = "releaseProgram", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;assertOnRenderThread()V"))
+    private static void iris$releaseGeometry(Shader shader, CallbackInfo ci) {
+        if (shader instanceof ExtendedShader && ((ExtendedShader) shader).getGeometry() != null) {
+            ((ExtendedShader) shader).getGeometry().close();
+        }
+    }
 }

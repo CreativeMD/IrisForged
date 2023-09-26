@@ -8,6 +8,6 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 
 @Mixin(LightTexture.class)
 public interface LightTextureAccessor {
-	@Accessor("lightTexture")
-	DynamicTexture getLightTexture();
+    @Accessor("lightTexture")
+    DynamicTexture getLightTexture();
 }

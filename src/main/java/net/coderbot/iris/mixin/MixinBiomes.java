@@ -12,10 +12,10 @@ import net.minecraft.world.level.biome.Biomes;
 
 @Mixin(Biomes.class)
 public class MixinBiomes {
-	private static int currentId = 0;
-
-	@Inject(method = "register", at = @At("TAIL"))
-	private static void iris$registerBiome(String string, CallbackInfoReturnable<ResourceKey<Biome>> cir) {
-		BiomeParameters.getBiomeMap().put(cir.getReturnValue(), currentId++);
-	}
+    private static int currentId = 0;
+    
+    @Inject(method = "register", at = @At("TAIL"))
+    private static void iris$registerBiome(String string, CallbackInfoReturnable<ResourceKey<Biome>> cir) {
+        BiomeParameters.getBiomeMap().put(cir.getReturnValue(), currentId++);
+    }
 }
