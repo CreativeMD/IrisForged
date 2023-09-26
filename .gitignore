@@ -1,46 +1,29 @@
-# custom sodium versions
-custom_sodium/
+*.class
 
-# gradle
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Gradlew #
 .gradle/
 build/
-out/
-classes/
-
-# brachyura
-.brachyura
-*.jfr
-
-# custom sodium
-/custom_sodium/
-
-# idea
-
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# vscode
-
-.settings/
-.vscode/
-bin/
-.classpath
-.project
-
-# eclipse
-
 *.launch
-
-# fabric
-
+*.classpath
+*.project
+*.factorypath
+bin/
 run/
-/logs/latest.log
+.settings/
+/.apt_generated/
+/.apt_generated_tests/
+/Users/
 
-# macOS
-
-.DS_Store
-.AppleDouble
-.LSOverride
+!/gradle/wrapper/gradle-wrapper.jar
+/Modding/

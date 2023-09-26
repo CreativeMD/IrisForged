@@ -1,0 +1,139 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.neoforged.gradle' version '[6.0.13, 6.2)'
+    id 'com.diffplug.eclipse.apt'
+    id 'org.spongepowered.mixin'
+}
+
+repositories {
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+group = "net.coderbot"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+project.evaluationDependsOn(":SodiumForged")
+
+java.sourceSets {
+    main {
+        java {
+            srcDirs = ["src/main/java", "src/headers/java", "src/sodiumCompatibility/java", "src/vendored/java"]
+        }
+        resources {
+            srcDirs = ["src/main/resources", "src/sodiumCompatibility/resources"]
+        }
+    }
+}
+
+minecraft {
+    mappings channel: 'official', version: "${project.property 'minecraft_version'}"
+    
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    
+    copyIdeResources = true
+    
+    runs {
+        client {
+            taskName "irisforged_client"
+            workingDirectory project.file('run')
+            
+      			property 'forge.logging.console.level', 'debug'
+      			arg '--mixin.config'
+            arg 'sodium.mixins.json'
+
+            mods {
+                sodiumforged {
+                    source project(':SodiumForged').sourceSets.main
+                }
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    minecraft "net.neoforged:forge:${project.property 'minecraft_version'}-${project.property 'forge_version'}"
+    
+    implementation project(':SodiumForged')
+    
+    implementation "io.github.douira:glsl-transformer:2.0+"
+    
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+        mod_authors: mod_authors, mod_description: mod_description, mod_display_url: mod_display_url,
+        creativecore_version: creativecore_version, github_project: github_project,
+        resource_pack_format: resource_pack_format, data_pack_format: data_pack_format
+]
+processResources {
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    archiveFileName.set(project.mod_name + "_" + project.mod_release_suffix + "_v" + project.mod_version + "_mc" + project.minecraft_version + ".jar")
+    manifest {
+        attributes([
+            "Specification-Title": project.mod_name,
+            "Specification-Vendor": "CreativeMD",
+            "Specification-Version": project.mod_version,
+            "Implementation-Title": project.mod_name,
+            "Implementation-Version"  : project.mod_version,
+            "Implementation-Vendor": "CreativeMD",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+mixin {
+    add sourceSets.main, 'mixins.iris.refmap.json'
+        
+    config "mixins.iris.json"
+    config "iris-batched-entity-rendering.mixins.json"
+    config "mixins.iris.fantastic.json"
+    config "mixins.iris.vertexformat.json"
+    config "mixins.iris.bettermipmaps.json"
+    config "mixins.iris.compat.sodium.json"
+    config "mixins.iris.fixes.maxfpscrash.json"
+    config "mixins.iris.devenvironment.json"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
