@@ -1,13 +1,13 @@
 package net.coderbot.iris.parsing;
 
+import java.util.Collection;
+
 import kroppeb.stareval.expression.Expression;
 import kroppeb.stareval.expression.VariableExpression;
 import kroppeb.stareval.function.FunctionContext;
 import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.Type;
 import kroppeb.stareval.function.TypedFunction;
-
-import java.util.Collection;
 
 public class BooleanVectorizedFunction implements TypedFunction {
 	final TypedFunction inner;

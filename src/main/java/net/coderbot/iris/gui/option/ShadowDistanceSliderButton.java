@@ -1,8 +1,5 @@
 package net.coderbot.iris.gui.option;
 
-import java.util.List;
-import net.minecraft.util.FormattedCharSequence;
-
 public class ShadowDistanceSliderButton { //extends AbstractWidget {
 	/*
 	public ShadowDistanceSliderButton(Options gameOptions, int x, int y, int width, int height, ProgressOption option, Option.TooltipSupplier<Double> orderedTooltip) {

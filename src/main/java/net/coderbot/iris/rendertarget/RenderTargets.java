@@ -1,21 +1,23 @@
 package net.coderbot.iris.rendertarget;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.joml.Vector2i;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL30C;
+
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.framebuffer.GlFramebuffer;
 import net.coderbot.iris.gl.texture.DepthBufferFormat;
 import net.coderbot.iris.gl.texture.DepthCopyStrategy;
 import net.coderbot.iris.shaderpack.PackDirectives;
 import net.coderbot.iris.shaderpack.PackRenderTargetDirectives;
-import org.joml.Vector2i;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 public class RenderTargets {
 	private final RenderTarget[] targets;

@@ -1,9 +1,8 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format;
 
-import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+
+import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
 
 /**
  * A ridiculous solution to an impossible problem

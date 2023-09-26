@@ -1,14 +1,20 @@
 package net.coderbot.iris.parsing;
 
-import kroppeb.stareval.function.FunctionReturn;
-import kroppeb.stareval.function.Type;
-import org.joml.*;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
+import org.joml.Vector4f;
+import org.joml.Vector4i;
+
+import kroppeb.stareval.function.FunctionReturn;
+import kroppeb.stareval.function.Type;
 
 abstract public class VectorType extends Type.ObjectType {
 	public static class ArrayVector extends VectorType {

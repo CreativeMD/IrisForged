@@ -1,5 +1,7 @@
 package net.coderbot.iris.pipeline.transform.transformer;
 
+import static net.coderbot.iris.pipeline.transform.transformer.CommonTransformer.addIfNotExists;
+
 import io.github.douira.glsl_transformer.ast.node.Identifier;
 import io.github.douira.glsl_transformer.ast.node.TranslationUnit;
 import io.github.douira.glsl_transformer.ast.node.declaration.TypeAndInitDeclaration;
@@ -11,14 +13,8 @@ import io.github.douira.glsl_transformer.ast.transform.ASTInjectionPoint;
 import io.github.douira.glsl_transformer.ast.transform.ASTParser;
 import io.github.douira.glsl_transformer.util.Type;
 import net.coderbot.iris.block_rendering.BlockRenderingSettings;
-import net.coderbot.iris.gl.blending.AlphaTest;
 import net.coderbot.iris.gl.shader.ShaderType;
-import net.coderbot.iris.pipeline.newshader.AlphaTests;
 import net.coderbot.iris.pipeline.transform.parameter.SodiumParameters;
-
-import java.util.Set;
-
-import static net.coderbot.iris.pipeline.transform.transformer.CommonTransformer.addIfNotExists;
 
 public class SodiumTransformer {
 	public static void transform(

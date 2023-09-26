@@ -1,7 +1,15 @@
 package net.coderbot.iris.compat.sodium.mixin.sky;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import org.joml.Matrix4f;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.coderbot.iris.Iris;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
@@ -13,12 +21,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 // This is a modified version of a mixin in Sodium, with a check for if a shader pack is active.
 @Mixin(LevelRenderer.class)

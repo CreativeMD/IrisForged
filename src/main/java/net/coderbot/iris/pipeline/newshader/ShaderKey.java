@@ -1,12 +1,13 @@
 package net.coderbot.iris.pipeline.newshader;
 
+import java.util.Locale;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import net.coderbot.iris.gl.blending.AlphaTest;
 import net.coderbot.iris.shaderpack.loading.ProgramId;
 import net.coderbot.iris.vertices.IrisVertexFormats;
-
-import java.util.Locale;
 
 public enum ShaderKey {
 	// if you auto-format this and destroy all the manual indentation, I'll steal your kneecaps

@@ -1,16 +1,17 @@
 package net.coderbot.iris.compat.sodium.impl.vertex_format.terrain_xhfp;
 
+import static net.coderbot.iris.compat.sodium.impl.vertex_format.terrain_xhfp.XHFPModelVertexType.STRIDE;
+
+import org.joml.Vector3f;
+import org.lwjgl.system.MemoryUtil;
+
 import me.jellysquid.mods.sodium.client.render.chunk.terrain.material.Material;
 import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexEncoder;
 import net.coderbot.iris.compat.sodium.impl.block_context.BlockContextHolder;
 import net.coderbot.iris.compat.sodium.impl.block_context.ContextAwareVertexWriter;
-import net.coderbot.iris.vertices.NormI8;
-import org.joml.Vector3f;
 import net.coderbot.iris.vertices.ExtendedDataHelper;
+import net.coderbot.iris.vertices.NormI8;
 import net.coderbot.iris.vertices.NormalHelper;
-import org.lwjgl.system.MemoryUtil;
-
-import static net.coderbot.iris.compat.sodium.impl.vertex_format.terrain_xhfp.XHFPModelVertexType.STRIDE;
 
 public class XHFPTerrainVertex implements ChunkVertexEncoder, ContextAwareVertexWriter {
 	private final QuadViewTerrain.QuadViewTerrainUnsafe quad = new QuadViewTerrain.QuadViewTerrainUnsafe();

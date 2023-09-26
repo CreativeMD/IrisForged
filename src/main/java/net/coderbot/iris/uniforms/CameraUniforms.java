@@ -1,12 +1,13 @@
 package net.coderbot.iris.uniforms;
 
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
+
+import org.joml.Vector3d;
+
 import net.coderbot.iris.JomlConversions;
 import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.minecraft.client.Minecraft;
-import org.joml.Vector3d;
-
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
 
 /**
  * @see <a href="https://github.com/IrisShaders/ShaderDoc/blob/master/uniforms.md#camera">Uniforms: Camera</a>

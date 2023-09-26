@@ -2,7 +2,6 @@ package net.coderbot.iris.shaderpack.preprocessor;
 
 import org.anarres.cpp.DefaultPreprocessorListener;
 import org.anarres.cpp.LexerException;
-import org.anarres.cpp.Source;
 
 public class PropertiesCommentListener extends DefaultPreprocessorListener {
 	private static final String UNKNOWN_PREPROCESSOR_DIRECTIVE = "Unknown preprocessor directive";

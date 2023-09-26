@@ -1,18 +1,19 @@
 package net.coderbot.iris.gl.texture;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.GlResource;
-import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.shaderpack.texture.TextureFilteringData;
+import java.nio.ByteBuffer;
+import java.util.function.IntSupplier;
+
 import org.lwjgl.opengl.GL11C;
 import org.lwjgl.opengl.GL13C;
 import org.lwjgl.opengl.GL20C;
 import org.lwjgl.opengl.GL30C;
 import org.lwjgl.system.MemoryUtil;
 
-import java.nio.ByteBuffer;
-import java.util.function.IntSupplier;
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import net.coderbot.iris.gl.GlResource;
+import net.coderbot.iris.gl.IrisRenderSystem;
+import net.coderbot.iris.shaderpack.texture.TextureFilteringData;
 
 public class GlTexture extends GlResource implements TextureAccess {
 	private final TextureType target;

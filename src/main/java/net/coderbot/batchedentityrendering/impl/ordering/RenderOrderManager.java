@@ -1,9 +1,9 @@
 package net.coderbot.batchedentityrendering.impl.ordering;
 
+import java.util.List;
+
 import net.coderbot.batchedentityrendering.impl.TransparencyType;
 import net.minecraft.client.renderer.RenderType;
-
-import java.util.List;
 
 public interface RenderOrderManager {
     void begin(RenderType type);

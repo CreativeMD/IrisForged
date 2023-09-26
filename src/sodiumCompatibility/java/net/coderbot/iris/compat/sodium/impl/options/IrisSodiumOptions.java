@@ -1,5 +1,7 @@
 package net.coderbot.iris.compat.sodium.impl.options;
 
+import java.io.IOException;
+
 import me.jellysquid.mods.sodium.client.gui.options.OptionFlag;
 import me.jellysquid.mods.sodium.client.gui.options.OptionImpact;
 import me.jellysquid.mods.sodium.client.gui.options.OptionImpl;
@@ -12,10 +14,6 @@ import net.coderbot.iris.colorspace.ColorSpace;
 import net.coderbot.iris.gui.option.IrisVideoSettings;
 import net.minecraft.client.Options;
 import net.minecraft.network.chat.Component;
-
-
-
-import java.io.IOException;
 
 public class IrisSodiumOptions {
     public static OptionImpl<Options, Integer> createMaxShadowDistanceSlider(MinecraftOptionsStorage vanillaOpts) {

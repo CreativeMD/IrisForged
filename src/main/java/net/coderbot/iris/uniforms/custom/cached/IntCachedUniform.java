@@ -1,11 +1,12 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
+import java.util.function.IntSupplier;
+
+import org.lwjgl.opengl.GL21;
+
 import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.Type;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import org.lwjgl.opengl.GL21;
-
-import java.util.function.IntSupplier;
 
 public class IntCachedUniform extends CachedUniform {
 	

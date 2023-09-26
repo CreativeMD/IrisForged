@@ -1,5 +1,9 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
+import org.joml.Vector2f;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+
 import kroppeb.stareval.expression.Expression;
 import kroppeb.stareval.expression.VariableExpression;
 import kroppeb.stareval.function.FunctionContext;
@@ -7,9 +11,6 @@ import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.Type;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.parsing.VectorType;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 
 public abstract class CachedUniform implements VariableExpression {
 	private final String name;

@@ -1,13 +1,14 @@
 package net.coderbot.iris.mixin.texture.pbr;
 
-import net.coderbot.iris.texture.pbr.PBRSpriteHolder;
-import net.coderbot.iris.texture.pbr.SpriteContentsExtension;
-import net.minecraft.client.renderer.texture.SpriteContents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import net.coderbot.iris.texture.pbr.PBRSpriteHolder;
+import net.coderbot.iris.texture.pbr.SpriteContentsExtension;
+import net.minecraft.client.renderer.texture.SpriteContents;
 
 @Mixin(SpriteContents.class)
 public class MixinSpriteContents implements SpriteContentsExtension {

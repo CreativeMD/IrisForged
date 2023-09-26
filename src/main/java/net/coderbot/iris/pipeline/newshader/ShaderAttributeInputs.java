@@ -2,6 +2,7 @@ package net.coderbot.iris.pipeline.newshader;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import net.coderbot.iris.gbuffer_overrides.matching.InputAvailability;
 
 public class ShaderAttributeInputs {

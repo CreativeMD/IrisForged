@@ -1,11 +1,10 @@
 package net.coderbot.iris.gl.uniform;
 
-import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.gl.state.ValueUpdateNotifier;
-import org.joml.Vector4f;
-
 import java.util.Arrays;
 import java.util.function.Supplier;
+
+import net.coderbot.iris.gl.IrisRenderSystem;
+import net.coderbot.iris.gl.state.ValueUpdateNotifier;
 
 public class Vector4ArrayUniform extends Uniform {
 	private float[] cachedValue;

@@ -1,10 +1,11 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
+import org.lwjgl.opengl.GL21;
+
 import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.Type;
 import net.coderbot.iris.gl.uniform.FloatSupplier;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import org.lwjgl.opengl.GL21;
 
 public class FloatCachedUniform extends CachedUniform {
 	

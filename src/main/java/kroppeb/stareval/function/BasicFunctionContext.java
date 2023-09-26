@@ -1,10 +1,10 @@
 package kroppeb.stareval.function;
 
+import java.util.Map;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import kroppeb.stareval.expression.Expression;
 import kroppeb.stareval.expression.VariableExpression;
-
-import java.util.Map;
 
 public class BasicFunctionContext implements FunctionContext {
 	final private Map<String, Expression> variables = new Object2ObjectOpenHashMap<>();

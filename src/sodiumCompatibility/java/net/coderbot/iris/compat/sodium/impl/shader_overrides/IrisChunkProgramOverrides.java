@@ -1,11 +1,18 @@
 package net.coderbot.iris.compat.sodium.impl.shader_overrides;
 
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+
+import org.jetbrains.annotations.Nullable;
+
 import me.jellysquid.mods.sodium.client.gl.GlObject;
-import me.jellysquid.mods.sodium.client.gl.shader.*;
+import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
+import me.jellysquid.mods.sodium.client.gl.shader.GlShader;
+import me.jellysquid.mods.sodium.client.gl.shader.ShaderType;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkFogMode;
-import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderBindingPoints;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderOptions;
-import me.jellysquid.mods.sodium.client.render.chunk.terrain.DefaultTerrainRenderPasses;
 import me.jellysquid.mods.sodium.client.render.chunk.terrain.TerrainRenderPass;
 import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
 import net.coderbot.iris.Iris;
@@ -20,12 +27,6 @@ import net.coderbot.iris.pipeline.newshader.AlphaTests;
 import net.coderbot.iris.shadows.ShadowRenderingState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
 
 public class IrisChunkProgramOverrides {
 	private boolean shadersCreated = false;

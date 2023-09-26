@@ -1,29 +1,27 @@
 package net.coderbot.iris.compat.sodium.mixin.shadow_map;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectMaps;
-import me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer;
-import me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager;
-import me.jellysquid.mods.sodium.client.render.viewport.Viewport;
-import net.coderbot.iris.shadows.ShadowRenderingState;
-import net.minecraft.client.Camera;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderBuffers;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.server.level.BlockDestructionProgress;
-import net.minecraft.world.entity.Entity;
+import java.util.SortedSet;
+
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.SortedSet;
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectMaps;
+import me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer;
+import me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager;
+import net.coderbot.iris.shadows.ShadowRenderingState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderBuffers;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.server.level.BlockDestructionProgress;
+import net.minecraft.world.entity.Entity;
 
 /**
  * Ensures that the state of the chunk render visibility graph gets properly swapped when in the shadow map pass,

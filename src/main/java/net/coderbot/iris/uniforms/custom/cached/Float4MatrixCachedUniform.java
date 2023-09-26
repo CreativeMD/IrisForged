@@ -1,11 +1,12 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
-import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import net.coderbot.iris.parsing.MatrixType;
+import java.util.function.Supplier;
+
 import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL21;
 
-import java.util.function.Supplier;
+import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
+import net.coderbot.iris.parsing.MatrixType;
 
 public class Float4MatrixCachedUniform extends VectorCachedUniform<Matrix4f> {
 	final private float[] buffer = new float[16];

@@ -1,8 +1,9 @@
 package net.coderbot.iris.mixin;
 
-import com.mojang.blaze3d.shaders.Program;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
+
+import com.mojang.blaze3d.shaders.Program;
 
 @Mixin(Program.Type.class)
 public interface ProgramTypeAccessor {

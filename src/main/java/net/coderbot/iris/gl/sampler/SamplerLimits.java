@@ -1,9 +1,11 @@
 package net.coderbot.iris.gl.sampler;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.gl.IrisRenderSystem;
 import org.lwjgl.opengl.GL20C;
 import org.lwjgl.opengl.GL45C;
+
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import net.coderbot.iris.gl.IrisRenderSystem;
 
 public class SamplerLimits {
 	private final int maxTextureUnits;

@@ -1,22 +1,22 @@
 package net.coderbot.iris.colorspace;
 
-import com.google.common.collect.ImmutableSet;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.gl.program.ComputeProgram;
-import net.coderbot.iris.gl.program.Program;
-import net.coderbot.iris.gl.program.ProgramBuilder;
-import net.coderbot.iris.gl.texture.InternalTextureFormat;
-import net.coderbot.iris.shaderpack.StringPair;
-import net.coderbot.iris.shaderpack.preprocessor.JcppProcessor;
-import org.apache.commons.io.IOUtils;
-import org.lwjgl.opengl.GL43C;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import org.apache.commons.io.IOUtils;
+import org.lwjgl.opengl.GL43C;
+
+import com.google.common.collect.ImmutableSet;
+
+import net.coderbot.iris.gl.IrisRenderSystem;
+import net.coderbot.iris.gl.program.ComputeProgram;
+import net.coderbot.iris.gl.program.ProgramBuilder;
+import net.coderbot.iris.gl.texture.InternalTextureFormat;
+import net.coderbot.iris.shaderpack.StringPair;
+import net.coderbot.iris.shaderpack.preprocessor.JcppProcessor;
 
 public class ColorSpaceComputeConverter implements ColorSpaceConverter {
 	private int width;

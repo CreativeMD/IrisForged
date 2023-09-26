@@ -1,12 +1,14 @@
 package net.coderbot.iris.gl.buffer;
 
+import java.util.Collections;
+
+import org.lwjgl.opengl.GL43C;
+
 import com.mojang.blaze3d.platform.GlStateManager;
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.sampler.SamplerLimits;
-import org.lwjgl.opengl.GL43C;
-
-import java.util.Collections;
 
 public class ShaderStorageBufferHolder {
 	private int cachedWidth;

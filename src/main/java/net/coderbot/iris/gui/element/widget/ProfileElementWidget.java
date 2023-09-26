@@ -1,6 +1,7 @@
 package net.coderbot.iris.gui.element.widget;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.Optional;
+
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.gui.GuiUtil;
 import net.coderbot.iris.gui.NavigationController;
@@ -15,10 +16,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-
-
-
-import java.util.Optional;
 
 public class ProfileElementWidget extends BaseOptionElementWidget<OptionMenuProfileElement> {
 	private static final MutableComponent PROFILE_LABEL = Component.translatable("options.iris.profile");

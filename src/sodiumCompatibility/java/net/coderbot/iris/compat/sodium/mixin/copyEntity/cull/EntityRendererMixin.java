@@ -1,13 +1,14 @@
 package net.coderbot.iris.compat.sodium.mixin.copyEntity.cull;
 
-import me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer;
-import net.minecraft.client.renderer.culling.Frustum;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer;
+import net.minecraft.client.renderer.culling.Frustum;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.world.entity.Entity;
 
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin<T extends Entity> {

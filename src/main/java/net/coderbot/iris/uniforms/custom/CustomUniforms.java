@@ -1,7 +1,21 @@
 package net.coderbot.iris.uniforms.custom;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.OptionalInt;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
 import com.google.common.collect.ImmutableMap;
-import it.unimi.dsi.fastutil.objects.*;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import kroppeb.stareval.element.ExpressionElement;
 import kroppeb.stareval.expression.Expression;
 import kroppeb.stareval.expression.VariableExpression;
@@ -17,10 +31,6 @@ import net.coderbot.iris.parsing.IrisFunctions;
 import net.coderbot.iris.parsing.IrisOptions;
 import net.coderbot.iris.parsing.VectorType;
 import net.coderbot.iris.uniforms.custom.cached.CachedUniform;
-
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 
 public class CustomUniforms implements FunctionContext {

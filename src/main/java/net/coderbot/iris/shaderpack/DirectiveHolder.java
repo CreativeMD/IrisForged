@@ -1,13 +1,14 @@
 package net.coderbot.iris.shaderpack;
 
-import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import it.unimi.dsi.fastutil.floats.FloatConsumer;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
+
 import org.joml.Vector2f;
 import org.joml.Vector3i;
 import org.joml.Vector4f;
 
-import java.util.function.Consumer;
-import java.util.function.IntConsumer;
+import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import it.unimi.dsi.fastutil.floats.FloatConsumer;
 
 public interface DirectiveHolder {
 	void acceptUniformDirective(String name, Runnable onDetected);

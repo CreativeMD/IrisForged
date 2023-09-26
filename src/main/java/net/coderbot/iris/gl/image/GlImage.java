@@ -1,17 +1,19 @@
 package net.coderbot.iris.gl.image;
 
+import org.lwjgl.opengl.ARBClearTexture;
+import org.lwjgl.opengl.GL11C;
+import org.lwjgl.opengl.GL13C;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL30C;
+
 import com.mojang.blaze3d.platform.GlStateManager;
+
 import net.coderbot.iris.gl.GlResource;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.gl.texture.PixelFormat;
 import net.coderbot.iris.gl.texture.PixelType;
 import net.coderbot.iris.gl.texture.TextureType;
-import org.lwjgl.opengl.ARBClearTexture;
-import org.lwjgl.opengl.GL11C;
-import org.lwjgl.opengl.GL13C;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
 
 public class GlImage extends GlResource {
 	protected final String name;

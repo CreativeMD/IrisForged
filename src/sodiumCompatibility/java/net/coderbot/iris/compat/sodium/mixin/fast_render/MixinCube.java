@@ -1,16 +1,17 @@
 package net.coderbot.iris.compat.sodium.mixin.fast_render;
 
-import me.jellysquid.mods.sodium.client.model.ModelCuboidAccessor;
-import me.jellysquid.mods.sodium.client.render.immediate.model.ModelCuboid;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.core.Direction;
+import java.util.Set;
+
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Set;
+import me.jellysquid.mods.sodium.client.model.ModelCuboidAccessor;
+import me.jellysquid.mods.sodium.client.render.immediate.model.ModelCuboid;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.core.Direction;
 
 @Mixin(ModelPart.Cube.class)
 public class MixinCube implements ModelCuboidAccessor {

@@ -1,7 +1,14 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format.entity;
 
+import org.joml.Matrix4f;
+import org.lwjgl.system.MemoryStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Unique;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+
 import net.caffeinemc.mods.sodium.api.math.MatrixHelper;
 import net.caffeinemc.mods.sodium.api.util.ColorABGR;
 import net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter;
@@ -13,11 +20,6 @@ import net.irisshaders.iris.api.v0.IrisApi;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import org.joml.Matrix4f;
-import org.lwjgl.system.MemoryStack;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(value = EntityRenderDispatcher.class, priority = 1010)
 public class MixinEntityRenderDispatcher {

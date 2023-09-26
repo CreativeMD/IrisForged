@@ -1,15 +1,17 @@
 package net.coderbot.iris.uniforms;
 
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
+
+import org.joml.Vector3f;
+import org.lwjgl.opengl.GL11;
+
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.coderbot.iris.gl.state.StateUpdateNotifiers;
 import net.coderbot.iris.gl.uniform.DynamicUniformHolder;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.pipeline.newshader.FogMode;
-import org.joml.Vector3f;
-import org.lwjgl.opengl.GL11;
-
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
 
 public class FogUniforms {
 	private FogUniforms() {

@@ -1,19 +1,10 @@
 package net.coderbot.iris.compat.sodium.mixin.separate_ao;
 
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.DefaultedVertexConsumer;
-import com.mojang.blaze3d.vertex.PoseStack;
-import me.jellysquid.mods.sodium.client.model.quad.ModelQuadView;
-import net.coderbot.iris.block_rendering.BlockRenderingSettings;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-
-import java.util.Arrays;
 
 @Mixin(value = BufferBuilder.class, priority = 1010)
 public abstract class MixinBufferBuilder_IntrinsicSeparateAo extends DefaultedVertexConsumer {

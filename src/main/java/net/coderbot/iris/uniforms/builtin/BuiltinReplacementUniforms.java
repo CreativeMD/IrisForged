@@ -1,7 +1,7 @@
 package net.coderbot.iris.uniforms.builtin;
 
 import org.joml.Matrix4f;
-import net.coderbot.iris.Iris;
+
 import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 

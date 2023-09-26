@@ -1,19 +1,21 @@
 package net.coderbot.iris.mixin;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.gl.shader.ShaderCompileException;
+import java.io.InputStream;
+import java.util.Collections;
+import java.util.List;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import com.mojang.blaze3d.preprocessor.GlslPreprocessor;
-import com.mojang.blaze3d.shaders.Program;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.List;
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.preprocessor.GlslPreprocessor;
+import com.mojang.blaze3d.shaders.Program;
+
+import net.coderbot.iris.gl.shader.ShaderCompileException;
 
 @Mixin(Program.class)
 public class MixinProgram {

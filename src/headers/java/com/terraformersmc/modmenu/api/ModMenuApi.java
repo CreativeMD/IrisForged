@@ -24,11 +24,12 @@
 
 package com.terraformersmc.modmenu.api;
 
+import java.util.Map;
+
 import com.terraformersmc.modmenu.util.ModMenuApiMarker;
+
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-
-import java.util.Map;
 
 public interface ModMenuApi extends ModMenuApiMarker {
 	/**

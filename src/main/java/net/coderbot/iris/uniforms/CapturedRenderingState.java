@@ -1,9 +1,9 @@
 package net.coderbot.iris.uniforms;
 
-import net.coderbot.iris.gl.state.ValueUpdateNotifier;
-import net.minecraft.client.Minecraft;
 import org.joml.Matrix4f;
 import org.joml.Vector3d;
+
+import net.minecraft.client.Minecraft;
 
 public class CapturedRenderingState {
 	public static final CapturedRenderingState INSTANCE = new CapturedRenderingState();

@@ -1,7 +1,6 @@
 package net.coderbot.iris.helpers;
 
 
-import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.util.FastColor;
 
 /**

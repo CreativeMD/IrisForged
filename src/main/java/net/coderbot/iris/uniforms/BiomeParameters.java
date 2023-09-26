@@ -1,5 +1,12 @@
 package net.coderbot.iris.uniforms;
 
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_TICK;
+
+import java.util.Locale;
+import java.util.function.IntSupplier;
+import java.util.function.ToIntFunction;
+
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.coderbot.iris.gl.uniform.FloatSupplier;
@@ -12,13 +19,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
-
-import java.util.Locale;
-import java.util.function.IntSupplier;
-import java.util.function.ToIntFunction;
-
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_TICK;
 
 public class BiomeParameters {
 	private static final Object2IntMap<ResourceKey<Biome>> biomeMap = new Object2IntOpenHashMap<>();

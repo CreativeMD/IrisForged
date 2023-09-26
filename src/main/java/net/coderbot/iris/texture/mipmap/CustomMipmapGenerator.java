@@ -1,9 +1,8 @@
 package net.coderbot.iris.texture.mipmap;
 
-import com.mojang.blaze3d.platform.NativeImage;
-import net.minecraft.client.renderer.texture.SpriteContents;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import org.jetbrains.annotations.Nullable;
+
+import com.mojang.blaze3d.platform.NativeImage;
 
 public interface CustomMipmapGenerator {
 	NativeImage[] generateMipLevels(NativeImage[] image, int mipLevel);

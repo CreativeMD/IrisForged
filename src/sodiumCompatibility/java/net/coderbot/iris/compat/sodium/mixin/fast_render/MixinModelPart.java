@@ -1,7 +1,18 @@
 package net.coderbot.iris.compat.sodium.mixin.fast_render;
 
+import java.util.List;
+import java.util.Map;
+
+import org.lwjgl.system.MemoryStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+
 import me.jellysquid.mods.sodium.client.model.ModelCuboidAccessor;
 import me.jellysquid.mods.sodium.client.render.immediate.model.ModelCuboid;
 import net.caffeinemc.mods.sodium.api.util.ColorABGR;
@@ -12,15 +23,6 @@ import net.coderbot.iris.vertices.ImmediateState;
 import net.coderbot.iris.vertices.NormI8;
 import net.irisshaders.iris.api.v0.IrisApi;
 import net.minecraft.client.model.geom.ModelPart;
-import org.lwjgl.system.MemoryStack;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
-import java.util.Map;
 
 @Mixin(ModelPart.class)
 public class MixinModelPart {

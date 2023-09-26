@@ -1,13 +1,5 @@
 package net.coderbot.iris.compat.sodium.mixin.font;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.caffeinemc.mods.sodium.api.util.ColorABGR;
-import net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter;
-import net.caffeinemc.mods.sodium.api.vertex.format.common.GlyphVertex;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp.GlyphVertexExt;
-import net.coderbot.iris.vertices.ImmediateState;
-import net.irisshaders.iris.api.v0.IrisApi;
-import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 import org.joml.Math;
 import org.joml.Matrix4f;
 import org.lwjgl.system.MemoryStack;
@@ -15,6 +7,16 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+
+import com.mojang.blaze3d.vertex.VertexConsumer;
+
+import net.caffeinemc.mods.sodium.api.util.ColorABGR;
+import net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter;
+import net.caffeinemc.mods.sodium.api.vertex.format.common.GlyphVertex;
+import net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp.GlyphVertexExt;
+import net.coderbot.iris.vertices.ImmediateState;
+import net.irisshaders.iris.api.v0.IrisApi;
+import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 
 @Mixin(BakedGlyph.class)
 public class MixinGlyphRenderer {

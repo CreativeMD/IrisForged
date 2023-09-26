@@ -1,19 +1,20 @@
 package net.coderbot.iris.pipeline;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.block_rendering.BlockRenderingSettings;
-import net.coderbot.iris.shaderpack.DimensionId;
-import net.coderbot.iris.shaderpack.materialmap.NamespacedId;
-import net.coderbot.iris.uniforms.SystemTimeUniforms;
-import net.minecraft.client.Minecraft;
-import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL20C;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
+
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.opengl.GL20C;
+
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.block_rendering.BlockRenderingSettings;
+import net.coderbot.iris.shaderpack.materialmap.NamespacedId;
+import net.coderbot.iris.uniforms.SystemTimeUniforms;
+import net.minecraft.client.Minecraft;
 
 public class PipelineManager {
 	private static PipelineManager instance;

@@ -1,11 +1,12 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
-import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import net.coderbot.iris.parsing.VectorType;
+import java.util.function.Supplier;
+
 import org.joml.Vector3f;
 import org.lwjgl.opengl.GL21;
 
-import java.util.function.Supplier;
+import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
+import net.coderbot.iris.parsing.VectorType;
 
 public class Float3VectorCachedUniform extends VectorCachedUniform<Vector3f> {
 

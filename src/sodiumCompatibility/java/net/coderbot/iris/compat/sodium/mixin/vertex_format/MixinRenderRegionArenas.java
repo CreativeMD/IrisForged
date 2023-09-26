@@ -1,13 +1,14 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format;
 
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
 import me.jellysquid.mods.sodium.client.render.chunk.region.RenderRegion;
 import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkMeshFormats;
 import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
 import net.coderbot.iris.block_rendering.BlockRenderingSettings;
 import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisModelVertexFormats;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(RenderRegion.DeviceResources.class)
 public class MixinRenderRegionArenas {

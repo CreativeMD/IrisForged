@@ -1,21 +1,5 @@
 package net.coderbot.iris.mixin;
 
-import com.google.common.collect.ImmutableSet;
-import com.mojang.blaze3d.shaders.Uniform;
-import com.mojang.blaze3d.vertex.VertexFormat;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.gl.blending.DepthColorStorage;
-import net.coderbot.iris.pipeline.WorldRenderingPipeline;
-import net.coderbot.iris.pipeline.newshader.CoreWorldRenderingPipeline;
-import net.coderbot.iris.pipeline.newshader.ExtendedShader;
-import net.coderbot.iris.pipeline.newshader.ShaderInstanceInterface;
-import net.coderbot.iris.pipeline.newshader.fallback.FallbackShader;
-import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.server.packs.resources.ResourceProvider;
-import org.lwjgl.opengl.ARBTextureSwizzle;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,9 +8,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.Objects;
+import com.google.common.collect.ImmutableSet;
+import com.mojang.blaze3d.shaders.Uniform;
+import com.mojang.blaze3d.vertex.VertexFormat;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gl.blending.DepthColorStorage;
+import net.coderbot.iris.pipeline.WorldRenderingPipeline;
+import net.coderbot.iris.pipeline.newshader.CoreWorldRenderingPipeline;
+import net.coderbot.iris.pipeline.newshader.ExtendedShader;
+import net.coderbot.iris.pipeline.newshader.ShaderInstanceInterface;
+import net.coderbot.iris.pipeline.newshader.fallback.FallbackShader;
+import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.server.packs.resources.ResourceProvider;
 
 @Mixin(ShaderInstance.class)
 public abstract class MixinShaderInstance implements ShaderInstanceInterface {

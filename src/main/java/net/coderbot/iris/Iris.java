@@ -1,8 +1,30 @@
 package net.coderbot.iris;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystemNotFoundException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.stream.Stream;
+import java.util.zip.ZipError;
+import java.util.zip.ZipException;
+
+import org.jetbrains.annotations.NotNull;
+import org.lwjgl.glfw.GLFW;
+
 import com.google.common.base.Throwables;
 import com.mojang.blaze3d.platform.GlDebug;
 import com.mojang.blaze3d.platform.InputConstants;
+
 import net.coderbot.iris.config.IrisConfig;
 import net.coderbot.iris.gl.GLDebug;
 import net.coderbot.iris.gl.shader.ShaderCompileException;
@@ -26,39 +48,14 @@ import net.coderbot.iris.shaderpack.option.values.OptionValues;
 import net.coderbot.iris.texture.pbr.PBRTextureManager;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.Version;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
-import net.minecraft.world.level.dimension.DimensionType;
-import org.jetbrains.annotations.NotNull;
-import org.lwjgl.glfw.GLFW;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystemNotFoundException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.InvalidPathException;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Properties;
-import java.util.stream.Stream;
-import java.util.zip.ZipError;
-import java.util.zip.ZipException;
+import net.minecraftforge.fml.ModContainer;
 
 public class Iris {
 	public static final String MODID = "iris";

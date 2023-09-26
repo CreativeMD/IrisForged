@@ -1,7 +1,12 @@
 package net.coderbot.iris.gl.program;
 
+import java.util.function.IntSupplier;
+
+import org.jetbrains.annotations.Nullable;
+
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.image.ImageHolder;
 import net.coderbot.iris.gl.sampler.GlSampler;
@@ -10,12 +15,9 @@ import net.coderbot.iris.gl.shader.GlShader;
 import net.coderbot.iris.gl.shader.ProgramCreator;
 import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.coderbot.iris.gl.shader.ShaderType;
-import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.gl.state.ValueUpdateNotifier;
+import net.coderbot.iris.gl.texture.InternalTextureFormat;
 import net.coderbot.iris.gl.texture.TextureType;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.function.IntSupplier;
 
 public class ProgramBuilder extends ProgramUniforms.Builder implements SamplerHolder, ImageHolder {
 	private final int program;

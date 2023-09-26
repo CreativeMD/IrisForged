@@ -1,11 +1,9 @@
 package net.coderbot.iris.shadows;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
 import org.joml.Matrix4f;
 
-
-import java.nio.FloatBuffer;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 
 public class ShadowMatrices {
 	private static final float NEAR = 0.05f;

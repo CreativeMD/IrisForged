@@ -1,12 +1,13 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
-import kroppeb.stareval.function.FunctionReturn;
-import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import net.coderbot.iris.parsing.VectorType;
+import java.util.function.Supplier;
+
 import org.joml.Vector2i;
 import org.lwjgl.opengl.GL21;
 
-import java.util.function.Supplier;
+import kroppeb.stareval.function.FunctionReturn;
+import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
+import net.coderbot.iris.parsing.VectorType;
 
 public class Int2VectorCachedUniform extends VectorCachedUniform<Vector2i> {
 

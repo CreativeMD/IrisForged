@@ -1,16 +1,17 @@
 package net.coderbot.iris.uniforms;
 
-import com.mojang.math.Axis;
-import org.joml.Matrix4f;
-import net.coderbot.iris.JomlConversions;
-import net.coderbot.iris.gl.uniform.UniformHolder;
-import org.joml.Vector4f;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
 
 import java.util.Objects;
 
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
+import org.joml.Matrix4f;
+import org.joml.Vector4f;
+
+import com.mojang.math.Axis;
+
+import net.coderbot.iris.gl.uniform.UniformHolder;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 
 /**
  * @see <a href="https://github.com/IrisShaders/ShaderDoc/blob/master/uniforms.md#celestial-bodies">Uniforms: Celestial bodies</a>

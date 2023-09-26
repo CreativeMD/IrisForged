@@ -1,12 +1,14 @@
 package net.coderbot.iris.gl.uniform;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import org.joml.Matrix4f;
-import net.coderbot.iris.gl.state.ValueUpdateNotifier;
-import org.lwjgl.BufferUtils;
-
 import java.nio.FloatBuffer;
 import java.util.function.Supplier;
+
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+
+import net.coderbot.iris.gl.state.ValueUpdateNotifier;
 
 public class MatrixUniform extends Uniform {
 	private final FloatBuffer buffer = BufferUtils.createFloatBuffer(16);

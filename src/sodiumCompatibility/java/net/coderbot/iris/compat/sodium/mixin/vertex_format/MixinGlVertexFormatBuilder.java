@@ -1,9 +1,7 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format;
 
-import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttribute;
-import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttributeFormat;
-import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexFormat;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisChunkMeshAttributes;
+import java.util.EnumMap;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -11,7 +9,9 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import java.util.EnumMap;
+import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttribute;
+import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexAttributeFormat;
+import me.jellysquid.mods.sodium.client.gl.attribute.GlVertexFormat;
 
 @Mixin(GlVertexFormat.Builder.class)
 public class MixinGlVertexFormatBuilder<T extends Enum<T>> {

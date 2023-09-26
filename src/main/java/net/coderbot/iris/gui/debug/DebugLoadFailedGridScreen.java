@@ -1,8 +1,10 @@
 package net.coderbot.iris.gui.debug;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import java.io.IOException;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import net.coderbot.iris.Iris;
-import net.fabricmc.loader.impl.util.ExceptionUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -11,9 +13,6 @@ import net.minecraft.client.gui.layouts.GridLayout;
 import net.minecraft.client.gui.layouts.LayoutSettings;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import org.apache.commons.lang3.exception.ExceptionUtils;
-
-import java.io.IOException;
 
 public class DebugLoadFailedGridScreen extends Screen {
 	private final Exception exception;

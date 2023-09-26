@@ -1,6 +1,7 @@
 package net.coderbot.iris.gui.element.widget;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import org.lwjgl.glfw.GLFW;
+
 import net.coderbot.iris.gui.GuiUtil;
 import net.coderbot.iris.shaderpack.option.menu.OptionMenuStringOptionElement;
 import net.minecraft.client.Minecraft;
@@ -10,7 +11,6 @@ import net.minecraft.client.gui.navigation.ScreenAxis;
 import net.minecraft.client.gui.navigation.ScreenDirection;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.util.Mth;
-import org.lwjgl.glfw.GLFW;
 
 public class SliderElementWidget extends StringElementWidget {
 	private static final int PREVIEW_SLIDER_WIDTH = 4;

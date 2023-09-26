@@ -1,6 +1,16 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format.entity;
 
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.lwjgl.system.MemoryStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import com.mojang.blaze3d.vertex.PoseStack;
+
 import me.jellysquid.mods.sodium.client.model.quad.ModelQuadView;
 import me.jellysquid.mods.sodium.client.render.immediate.model.BakedModelEncoder;
 import net.caffeinemc.mods.sodium.api.math.MatrixHelper;
@@ -11,16 +21,6 @@ import net.caffeinemc.mods.sodium.api.vertex.format.common.ModelVertex;
 import net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp.EntityVertex;
 import net.coderbot.iris.vertices.ImmediateState;
 import net.irisshaders.iris.api.v0.IrisApi;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
-import org.lwjgl.system.MemoryStack;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BakedModelEncoder.class)
 public class MixinModelVertex {

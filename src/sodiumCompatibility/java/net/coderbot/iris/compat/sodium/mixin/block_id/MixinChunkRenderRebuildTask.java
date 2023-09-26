@@ -1,13 +1,18 @@
 package net.coderbot.iris.compat.sodium.mixin.block_id;
 
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
 import me.jellysquid.mods.sodium.client.model.quad.properties.ModelQuadFacing;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.ChunkBuildBuffers;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.ChunkBuildContext;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.ChunkBuildOutput;
+import me.jellysquid.mods.sodium.client.render.chunk.compile.buffers.ChunkModelBuilder;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockRenderCache;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockRenderContext;
-import me.jellysquid.mods.sodium.client.render.chunk.compile.buffers.ChunkModelBuilder;
-import me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.FluidRenderer;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask;
 import me.jellysquid.mods.sodium.client.render.chunk.data.BuiltSectionInfo;
 import me.jellysquid.mods.sodium.client.render.chunk.terrain.material.DefaultMaterials;
@@ -17,19 +22,11 @@ import me.jellysquid.mods.sodium.client.world.WorldSlice;
 import net.coderbot.iris.block_rendering.BlockRenderingSettings;
 import net.coderbot.iris.compat.sodium.impl.block_context.ChunkBuildBuffersExt;
 import net.coderbot.iris.vertices.ExtendedDataHelper;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.block.BlockModelShaper;
 import net.minecraft.client.renderer.chunk.VisGraph;
-import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.LightBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * Passes additional information indirectly to the vertex writer to support the mc_Entity and at_midBlock parts of the vertex format.

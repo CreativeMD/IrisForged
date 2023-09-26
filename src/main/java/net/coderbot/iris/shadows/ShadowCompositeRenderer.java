@@ -1,16 +1,25 @@
 package net.coderbot.iris.shadows;
 
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.lwjgl.opengl.GL15C;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL30C;
+import org.lwjgl.opengl.GL43C;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.image.GlImage;
 import net.coderbot.iris.features.FeatureFlags;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.framebuffer.GlFramebuffer;
+import net.coderbot.iris.gl.image.GlImage;
 import net.coderbot.iris.gl.program.ComputeProgram;
 import net.coderbot.iris.gl.program.Program;
 import net.coderbot.iris.gl.program.ProgramBuilder;
@@ -36,15 +45,6 @@ import net.coderbot.iris.uniforms.CommonUniforms;
 import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 import net.coderbot.iris.uniforms.custom.CustomUniforms;
 import net.minecraft.client.Minecraft;
-import org.lwjgl.opengl.GL15C;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
-import org.lwjgl.opengl.GL43C;
-
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 public class ShadowCompositeRenderer {
 	private final ShadowRenderTargets renderTargets;

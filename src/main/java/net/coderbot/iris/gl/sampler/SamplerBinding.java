@@ -1,13 +1,10 @@
 package net.coderbot.iris.gl.sampler;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+import java.util.function.IntSupplier;
+
 import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.gl.program.GlUniform1iCall;
 import net.coderbot.iris.gl.state.ValueUpdateNotifier;
 import net.coderbot.iris.gl.texture.TextureType;
-import org.lwjgl.opengl.GL20C;
-
-import java.util.function.IntSupplier;
 
 public class SamplerBinding {
 	private final int textureUnit;

@@ -1,16 +1,24 @@
 package net.coderbot.iris.pipeline;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Optional;
+
+import org.apache.commons.io.FilenameUtils;
+
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.coderbot.iris.Iris;
-import net.coderbot.iris.mixin.GlStateManagerAccessor;
 import net.coderbot.iris.gl.texture.GlTexture;
 import net.coderbot.iris.gl.texture.TextureAccess;
 import net.coderbot.iris.gl.texture.TextureType;
 import net.coderbot.iris.gl.texture.TextureWrapper;
+import net.coderbot.iris.mixin.GlStateManagerAccessor;
 import net.coderbot.iris.mixin.LightTextureAccessor;
 import net.coderbot.iris.rendertarget.NativeImageBackedCustomTexture;
 import net.coderbot.iris.rendertarget.NativeImageBackedNoiseTexture;
@@ -28,13 +36,6 @@ import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.resources.ResourceLocation;
-import org.apache.commons.io.FilenameUtils;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Optional;
 
 public class CustomTextureManager {
 	private final EnumMap<TextureStage, Object2ObjectMap<String, TextureAccess>> customTextureIdMap = new EnumMap<>(TextureStage.class);

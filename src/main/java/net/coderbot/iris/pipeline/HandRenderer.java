@@ -1,7 +1,9 @@
 package net.coderbot.iris.pipeline;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import org.joml.Matrix4f;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.coderbot.batchedentityrendering.impl.FullyBufferedMultiBufferSource;
 import net.coderbot.iris.mixin.GameRendererAccessor;
 import net.coderbot.iris.uniforms.CapturedRenderingState;

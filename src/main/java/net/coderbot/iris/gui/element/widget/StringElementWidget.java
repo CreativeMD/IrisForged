@@ -1,6 +1,7 @@
 package net.coderbot.iris.gui.element.widget;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.List;
+
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.gui.GuiUtil;
 import net.coderbot.iris.gui.NavigationController;
@@ -9,14 +10,10 @@ import net.coderbot.iris.shaderpack.option.StringOption;
 import net.coderbot.iris.shaderpack.option.menu.OptionMenuStringOptionElement;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.navigation.ScreenDirection;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
-
-
-import java.util.List;
 
 public class StringElementWidget extends BaseOptionElementWidget<OptionMenuStringOptionElement> {
 	protected final StringOption option;

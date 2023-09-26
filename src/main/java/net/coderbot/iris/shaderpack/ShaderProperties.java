@@ -1,35 +1,5 @@
 package net.coderbot.iris.shaderpack;
 
-import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
-import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
-import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
-import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
-import it.unimi.dsi.fastutil.objects.Object2FloatMap;
-import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.IrisRenderSystem;
-import net.coderbot.iris.gl.blending.AlphaTest;
-import net.coderbot.iris.gl.blending.AlphaTestFunction;
-import net.coderbot.iris.gl.blending.BlendMode;
-import net.coderbot.iris.gl.blending.BlendModeFunction;
-import net.coderbot.iris.gl.blending.BlendModeOverride;
-import net.coderbot.iris.gl.buffer.ShaderStorageInfo;
-import net.coderbot.iris.gl.texture.InternalTextureFormat;
-import net.coderbot.iris.gl.texture.PixelFormat;
-import net.coderbot.iris.gl.texture.PixelType;
-import net.coderbot.iris.gl.texture.TextureDefinition;
-import net.coderbot.iris.gl.texture.TextureScaleOverride;
-import net.coderbot.iris.gl.blending.BufferBlendInformation;
-import net.coderbot.iris.gl.texture.TextureType;
-import net.coderbot.iris.helpers.Tri;
-import net.coderbot.iris.shaderpack.option.ShaderPackOptions;
-import net.coderbot.iris.shaderpack.preprocessor.PropertiesPreprocessor;
-import net.coderbot.iris.shaderpack.texture.TextureStage;
-import net.coderbot.iris.uniforms.custom.CustomUniforms;
-
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -44,6 +14,35 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+
+import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
+import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2FloatMap;
+import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gl.IrisRenderSystem;
+import net.coderbot.iris.gl.blending.AlphaTest;
+import net.coderbot.iris.gl.blending.AlphaTestFunction;
+import net.coderbot.iris.gl.blending.BlendMode;
+import net.coderbot.iris.gl.blending.BlendModeFunction;
+import net.coderbot.iris.gl.blending.BlendModeOverride;
+import net.coderbot.iris.gl.blending.BufferBlendInformation;
+import net.coderbot.iris.gl.buffer.ShaderStorageInfo;
+import net.coderbot.iris.gl.texture.InternalTextureFormat;
+import net.coderbot.iris.gl.texture.PixelFormat;
+import net.coderbot.iris.gl.texture.PixelType;
+import net.coderbot.iris.gl.texture.TextureDefinition;
+import net.coderbot.iris.gl.texture.TextureScaleOverride;
+import net.coderbot.iris.gl.texture.TextureType;
+import net.coderbot.iris.helpers.Tri;
+import net.coderbot.iris.shaderpack.option.ShaderPackOptions;
+import net.coderbot.iris.shaderpack.preprocessor.PropertiesPreprocessor;
+import net.coderbot.iris.shaderpack.texture.TextureStage;
+import net.coderbot.iris.uniforms.custom.CustomUniforms;
 
 /**
  * The parsed representation of the shaders.properties file. This class is not meant to be stored permanently, rather

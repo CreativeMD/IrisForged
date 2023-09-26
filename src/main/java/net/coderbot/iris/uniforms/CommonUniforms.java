@@ -1,7 +1,19 @@
 package net.coderbot.iris.uniforms;
 
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_TICK;
+
+import org.joml.Math;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3d;
+import org.joml.Vector4f;
+import org.joml.Vector4i;
+
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.coderbot.iris.JomlConversions;
 import net.coderbot.iris.gl.state.StateUpdateNotifiers;
 import net.coderbot.iris.gl.uniform.DynamicUniformHolder;
@@ -31,16 +43,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Math;
-import org.joml.Vector2f;
-import org.joml.Vector2i;
-import org.joml.Vector3d;
-import org.joml.Vector4f;
-import org.joml.Vector4i;
-
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.ONCE;
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_TICK;
 
 public final class CommonUniforms {
 	private static final Minecraft client = Minecraft.getInstance();

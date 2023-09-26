@@ -1,16 +1,14 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format;
 
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.VertexFormatElement;
-import net.caffeinemc.mods.sodium.api.vertex.attributes.CommonVertexAttribute;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisCommonVertexAttributes;
-import net.coderbot.iris.vertices.IrisVertexFormats;
 import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+
+import net.caffeinemc.mods.sodium.api.vertex.attributes.CommonVertexAttribute;
+import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisCommonVertexAttributes;
+import net.coderbot.iris.vertices.IrisVertexFormats;
 
 /**
  * Uses some rather hacky shenanigans to add a few new enum values to {@link CommonVertexAttribute} corresponding to our

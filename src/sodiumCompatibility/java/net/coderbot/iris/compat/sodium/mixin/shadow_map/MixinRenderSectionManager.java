@@ -1,10 +1,5 @@
 package net.coderbot.iris.compat.sodium.mixin.shadow_map;
 
-import me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager;
-import me.jellysquid.mods.sodium.client.render.chunk.lists.SortedRenderLists;
-import me.jellysquid.mods.sodium.client.render.viewport.Viewport;
-import net.coderbot.iris.shadows.ShadowRenderingState;
-import net.minecraft.client.Camera;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,6 +8,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager;
+import me.jellysquid.mods.sodium.client.render.chunk.lists.SortedRenderLists;
+import me.jellysquid.mods.sodium.client.render.viewport.Viewport;
+import net.coderbot.iris.shadows.ShadowRenderingState;
+import net.minecraft.client.Camera;
 
 @Mixin(RenderSectionManager.class)
 public class MixinRenderSectionManager {

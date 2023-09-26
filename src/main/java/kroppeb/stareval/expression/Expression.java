@@ -1,9 +1,9 @@
 package kroppeb.stareval.expression;
 
+import java.util.Collection;
+
 import kroppeb.stareval.function.FunctionContext;
 import kroppeb.stareval.function.FunctionReturn;
-
-import java.util.Collection;
 
 public interface Expression {
 	void evaluateTo(FunctionContext context, FunctionReturn functionReturn);

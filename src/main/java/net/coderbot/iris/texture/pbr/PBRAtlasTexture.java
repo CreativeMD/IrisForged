@@ -1,6 +1,19 @@
 package net.coderbot.iris.texture.pbr;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.jetbrains.annotations.Nullable;
+
 import com.mojang.blaze3d.platform.TextureUtil;
+
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.mixin.texture.SpriteContentsAnimatedTextureAccessor;
 import net.coderbot.iris.mixin.texture.SpriteContentsFrameInfoAccessor;
@@ -17,17 +30,6 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
-import org.jetbrains.annotations.Nullable;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 public class PBRAtlasTexture extends AbstractTexture implements PBRDumpable {
 	protected final TextureAtlas atlasTexture;

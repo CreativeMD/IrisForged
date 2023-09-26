@@ -1,8 +1,8 @@
 package net.coderbot.iris.shaderpack;
 
-import net.coderbot.iris.Iris;
-
 import java.util.Optional;
+
+import net.coderbot.iris.Iris;
 
 public enum ParticleRenderingSettings {
 	BEFORE,

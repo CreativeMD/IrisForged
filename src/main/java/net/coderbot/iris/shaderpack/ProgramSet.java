@@ -1,18 +1,16 @@
 package net.coderbot.iris.shaderpack;
 
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.blending.BlendMode;
-import net.coderbot.iris.gl.blending.BlendModeFunction;
-import net.coderbot.iris.gl.blending.BlendModeOverride;
-import net.coderbot.iris.shaderpack.include.AbsolutePackPath;
-import net.coderbot.iris.shaderpack.loading.ProgramId;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gl.blending.BlendModeOverride;
+import net.coderbot.iris.shaderpack.include.AbsolutePackPath;
+import net.coderbot.iris.shaderpack.loading.ProgramId;
 
 public class ProgramSet implements ProgramSetInterface {
 	private final PackDirectives packDirectives;

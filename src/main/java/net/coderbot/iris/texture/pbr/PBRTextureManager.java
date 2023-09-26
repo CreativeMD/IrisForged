@@ -1,6 +1,12 @@
 package net.coderbot.iris.texture.pbr;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
+import org.jetbrains.annotations.NotNull;
+
 import com.mojang.blaze3d.platform.GlStateManager;
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.coderbot.iris.Iris;
@@ -15,10 +21,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.client.renderer.texture.Dumpable;
 import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
-import java.nio.file.Path;
 
 public class PBRTextureManager {
 	public static final PBRTextureManager INSTANCE = new PBRTextureManager();

@@ -1,5 +1,8 @@
 package net.coderbot.iris.pipeline;
 
+import java.util.List;
+import java.util.OptionalInt;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.coderbot.iris.features.FeatureFlags;
 import net.coderbot.iris.gbuffer_overrides.matching.SpecialCondition;
@@ -12,9 +15,6 @@ import net.coderbot.iris.shaderpack.ParticleRenderingSettings;
 import net.coderbot.iris.shaderpack.texture.TextureStage;
 import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 import net.minecraft.client.Camera;
-
-import java.util.List;
-import java.util.OptionalInt;
 
 public interface WorldRenderingPipeline {
     void onShadowBufferChange();

@@ -1,15 +1,17 @@
 package net.coderbot.iris.compat.sodium.mixin.shader_overrides;
 
+import java.util.function.IntFunction;
+
+import org.spongepowered.asm.mixin.Mixin;
+
 import com.mojang.blaze3d.platform.GlStateManager;
+
 import me.jellysquid.mods.sodium.client.gl.GlObject;
 import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
 import me.jellysquid.mods.sodium.client.gl.shader.uniform.GlUniform;
 import me.jellysquid.mods.sodium.client.gl.shader.uniform.GlUniformBlock;
 import net.coderbot.iris.compat.sodium.impl.shader_overrides.ShaderBindingContextExt;
 import net.coderbot.iris.gl.IrisRenderSystem;
-import org.spongepowered.asm.mixin.Mixin;
-
-import java.util.function.IntFunction;
 
 @Mixin(GlProgram.class)
 public class MixinGlProgram extends GlObject implements ShaderBindingContextExt {

@@ -1,38 +1,27 @@
 package net.coderbot.iris.compat.sodium.mixin.shader_overrides;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import me.jellysquid.mods.sodium.client.gl.device.RenderDevice;
-import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
-import me.jellysquid.mods.sodium.client.gl.shader.GlShader;
-import me.jellysquid.mods.sodium.client.gl.shader.ShaderConstants;
-import me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader;
-import me.jellysquid.mods.sodium.client.gl.shader.ShaderParser;
-import me.jellysquid.mods.sodium.client.gl.shader.ShaderType;
-import me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer;
-import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderInterface;
-import me.jellysquid.mods.sodium.client.render.chunk.terrain.TerrainRenderPass;
-import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.compat.sodium.impl.shader_overrides.IrisChunkShaderInterface;
-import net.coderbot.iris.compat.sodium.impl.shader_overrides.ShaderChunkRendererExt;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisModelVertexFormats;
-import net.coderbot.iris.gl.program.ProgramSamplers;
-import net.coderbot.iris.gl.program.ProgramUniforms;
-import net.coderbot.iris.shaderpack.transform.StringTransformations;
-import net.coderbot.iris.shaderpack.transform.Transformations;
-import net.coderbot.iris.shadows.ShadowRenderingState;
-import net.coderbot.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides;
-import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.List;
+import com.mojang.blaze3d.systems.RenderSystem;
+
+import me.jellysquid.mods.sodium.client.gl.device.RenderDevice;
+import me.jellysquid.mods.sodium.client.gl.shader.GlProgram;
+import me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer;
+import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderInterface;
+import me.jellysquid.mods.sodium.client.render.chunk.terrain.TerrainRenderPass;
+import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
+import net.coderbot.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides;
+import net.coderbot.iris.compat.sodium.impl.shader_overrides.IrisChunkShaderInterface;
+import net.coderbot.iris.compat.sodium.impl.shader_overrides.ShaderChunkRendererExt;
+import net.coderbot.iris.gl.program.ProgramSamplers;
+import net.coderbot.iris.gl.program.ProgramUniforms;
+import net.coderbot.iris.shadows.ShadowRenderingState;
 
 /**
  * Overrides shaders in {@link ShaderChunkRenderer} with our own as needed.

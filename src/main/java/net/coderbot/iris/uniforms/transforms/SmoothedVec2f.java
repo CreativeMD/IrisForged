@@ -1,10 +1,11 @@
 package net.coderbot.iris.uniforms.transforms;
 
-import net.coderbot.iris.uniforms.FrameUpdateNotifier;
+import java.util.function.Supplier;
+
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 
-import java.util.function.Supplier;
+import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 
 public class SmoothedVec2f implements Supplier<Vector2f> {
 	private final SmoothedFloat x;

@@ -1,16 +1,17 @@
 package net.coderbot.batchedentityrendering.mixin;
 
-import net.coderbot.batchedentityrendering.impl.BatchingDebugMessageHelper;
-import net.coderbot.batchedentityrendering.impl.DrawCallTrackingRenderBuffers;
-import net.coderbot.iris.Iris;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.DebugScreenOverlay;
+import java.util.List;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.List;
+import net.coderbot.batchedentityrendering.impl.BatchingDebugMessageHelper;
+import net.coderbot.batchedentityrendering.impl.DrawCallTrackingRenderBuffers;
+import net.coderbot.iris.Iris;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.DebugScreenOverlay;
 
 /**
  * Adds entity batching debug information to the debug screen. Uses a priority of 1010

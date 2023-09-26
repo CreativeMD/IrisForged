@@ -1,13 +1,14 @@
 package net.coderbot.iris.mixin;
 
-import net.coderbot.iris.uniforms.BiomeParameters;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import net.coderbot.iris.uniforms.BiomeParameters;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 @Mixin(Biomes.class)
 public class MixinBiomes {

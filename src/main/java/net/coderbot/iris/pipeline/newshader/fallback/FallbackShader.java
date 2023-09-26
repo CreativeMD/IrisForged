@@ -1,10 +1,16 @@
 package net.coderbot.iris.pipeline.newshader.fallback;
 
+import java.io.IOException;
+import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
+
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.shaders.ProgramManager;
 import com.mojang.blaze3d.shaders.Uniform;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.blending.BlendModeOverride;
 import net.coderbot.iris.gl.framebuffer.GlFramebuffer;
@@ -15,10 +21,6 @@ import net.coderbot.iris.uniforms.CapturedRenderingState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.server.packs.resources.ResourceProvider;
-import org.jetbrains.annotations.Nullable;
-
-import java.io.IOException;
-import java.util.List;
 
 public class FallbackShader extends ShaderInstance {
 	private final NewWorldRenderingPipeline parent;

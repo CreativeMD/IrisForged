@@ -1,7 +1,8 @@
 package net.coderbot.iris.texture;
 
-import net.minecraft.client.renderer.texture.SpriteContents;
 import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.client.renderer.texture.SpriteContents;
 
 public interface SpriteContentsExtension {
 	@Nullable

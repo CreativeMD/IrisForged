@@ -1,7 +1,16 @@
 package net.coderbot.iris.compat.sodium.impl.shader_overrides;
 
+import java.util.List;
+import java.util.function.IntFunction;
+
+import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
+import org.lwjgl.opengl.GL32C;
+
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
+
 import me.jellysquid.mods.sodium.client.gl.buffer.GlMutableBuffer;
 import me.jellysquid.mods.sodium.client.gl.shader.uniform.GlUniform;
 import me.jellysquid.mods.sodium.client.gl.shader.uniform.GlUniformBlock;
@@ -11,7 +20,6 @@ import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderInterface
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ChunkShaderOptions;
 import me.jellysquid.mods.sodium.client.render.chunk.shader.ShaderBindingContext;
 import me.jellysquid.mods.sodium.client.util.TextureUtil;
-import net.coderbot.iris.Iris;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.blending.BlendModeOverride;
 import net.coderbot.iris.gl.blending.BufferBlendOverride;
@@ -23,14 +31,6 @@ import net.coderbot.iris.pipeline.SodiumTerrainPipeline;
 import net.coderbot.iris.samplers.IrisSamplers;
 import net.coderbot.iris.uniforms.CapturedRenderingState;
 import net.coderbot.iris.uniforms.custom.CustomUniforms;
-import org.jetbrains.annotations.Nullable;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
-import org.joml.Matrix4fc;
-import org.lwjgl.opengl.GL32C;
-
-import java.util.List;
-import java.util.function.IntFunction;
 
 public class IrisChunkShaderInterface extends ChunkShaderInterface {
 	@Nullable

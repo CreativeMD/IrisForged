@@ -1,12 +1,5 @@
 package net.coderbot.iris.mixin.texture;
 
-import com.mojang.blaze3d.platform.NativeImage;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.texture.SpriteContentsExtension;
-import net.coderbot.iris.texture.mipmap.CustomMipmapGenerator;
-import net.minecraft.client.renderer.texture.MipmapGenerator;
-import net.minecraft.client.renderer.texture.SpriteContents;
-import net.minecraft.client.renderer.texture.SpriteTicker;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -14,6 +7,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import com.mojang.blaze3d.platform.NativeImage;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.texture.SpriteContentsExtension;
+import net.coderbot.iris.texture.mipmap.CustomMipmapGenerator;
+import net.minecraft.client.renderer.texture.MipmapGenerator;
+import net.minecraft.client.renderer.texture.SpriteContents;
+import net.minecraft.client.renderer.texture.SpriteTicker;
 
 @Mixin(SpriteContents.class)
 public class MixinSpriteContents implements SpriteContentsExtension {

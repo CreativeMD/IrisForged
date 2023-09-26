@@ -1,8 +1,8 @@
 package kroppeb.stareval.expression;
 
-import kroppeb.stareval.function.Type;
-
 import java.util.Collection;
+
+import kroppeb.stareval.function.Type;
 
 public abstract class ConstantExpression implements Expression {
 	private final Type type;

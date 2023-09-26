@@ -1,10 +1,10 @@
 package net.coderbot.iris.uniforms;
 
+import org.joml.Math;
+
 import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import net.coderbot.iris.mixin.DimensionTypeAccessor;
 import net.coderbot.iris.uniforms.transforms.SmoothedFloat;
-import org.joml.Math;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;

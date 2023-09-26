@@ -1,19 +1,21 @@
 package net.coderbot.iris.mixin;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.GLDebug;
-import net.coderbot.iris.samplers.IrisSamplers;
-import net.coderbot.iris.texture.TextureTracker;
-import net.minecraft.client.renderer.texture.AbstractTexture;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.resources.ResourceLocation;
-import net.coderbot.iris.gl.IrisRenderSystem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gl.GLDebug;
+import net.coderbot.iris.gl.IrisRenderSystem;
+import net.coderbot.iris.samplers.IrisSamplers;
+import net.coderbot.iris.texture.TextureTracker;
+import net.minecraft.client.renderer.texture.AbstractTexture;
+import net.minecraft.client.renderer.texture.TextureManager;
+import net.minecraft.resources.ResourceLocation;
 
 @Mixin(RenderSystem.class)
 public class MixinRenderSystem {

@@ -1,7 +1,12 @@
 package net.coderbot.iris.shaderpack;
 
+import java.util.Optional;
+import java.util.Set;
+
+import org.joml.Vector2i;
+
 import com.google.common.collect.ImmutableMap;
-import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
 import it.unimi.dsi.fastutil.objects.Object2BooleanMaps;
@@ -13,10 +18,6 @@ import net.coderbot.iris.gl.texture.TextureScaleOverride;
 import net.coderbot.iris.gl.texture.TextureType;
 import net.coderbot.iris.helpers.Tri;
 import net.coderbot.iris.shaderpack.texture.TextureStage;
-import org.joml.Vector2i;
-
-import java.util.Optional;
-import java.util.Set;
 
 public class PackDirectives {
 	private boolean supportsColorCorrection;

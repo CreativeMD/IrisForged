@@ -1,8 +1,8 @@
 package net.coderbot.iris.pipeline.newshader;
 
-import net.minecraft.client.renderer.ShaderInstance;
-
 import java.util.function.Function;
+
+import net.minecraft.client.renderer.ShaderInstance;
 
 /**
  * A specialized map mapping {@link ShaderKey} to {@link ShaderInstance}.

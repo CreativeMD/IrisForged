@@ -1,14 +1,17 @@
 package net.coderbot.iris.samplers;
 
+import java.util.Set;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.coderbot.iris.gbuffer_overrides.matching.InputAvailability;
-import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.image.GlImage;
 import net.coderbot.iris.gl.sampler.GlSampler;
 import net.coderbot.iris.gl.sampler.SamplerHolder;
-import net.coderbot.iris.gl.sampler.SamplerLimits;
 import net.coderbot.iris.gl.state.StateUpdateNotifiers;
 import net.coderbot.iris.gl.texture.TextureAccess;
 import net.coderbot.iris.gl.texture.TextureType;
@@ -19,11 +22,6 @@ import net.coderbot.iris.shaderpack.PackRenderTargetDirectives;
 import net.coderbot.iris.shaderpack.PackShadowDirectives;
 import net.coderbot.iris.shadows.ShadowRenderTargets;
 import net.minecraft.client.renderer.texture.AbstractTexture;
-import org.lwjgl.opengl.GL33C;
-
-import java.util.Set;
-import java.util.function.IntSupplier;
-import java.util.function.Supplier;
 
 public class IrisSamplers {
 	public static final int ALBEDO_TEXTURE_UNIT = 0;

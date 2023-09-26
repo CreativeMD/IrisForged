@@ -1,7 +1,5 @@
 package net.coderbot.iris.gui.debug;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-
 import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;

@@ -1,8 +1,9 @@
 package net.coderbot.iris;
 
-import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.mojang.logging.LogUtils;
 
 public class IrisLogging {
 	public static boolean ENABLE_SPAM = false; // FabricLoader.getInstance().isDevelopmentEnvironment();

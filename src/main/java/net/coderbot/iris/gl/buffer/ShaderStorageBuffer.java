@@ -1,8 +1,10 @@
 package net.coderbot.iris.gl.buffer;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.gl.IrisRenderSystem;
 import org.lwjgl.opengl.GL43C;
+
+import com.mojang.blaze3d.platform.GlStateManager;
+
+import net.coderbot.iris.gl.IrisRenderSystem;
 
 // Do not extend GlResource, this is immutable.
 public class ShaderStorageBuffer {

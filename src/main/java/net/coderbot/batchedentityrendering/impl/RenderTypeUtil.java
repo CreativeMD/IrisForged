@@ -1,6 +1,7 @@
 package net.coderbot.batchedentityrendering.impl;
 
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import net.minecraft.client.renderer.RenderType;
 
 public class RenderTypeUtil {

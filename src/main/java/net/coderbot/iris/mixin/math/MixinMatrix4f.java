@@ -1,9 +1,10 @@
 package net.coderbot.iris.mixin.math;
 
 import org.joml.Matrix4f;
-import net.coderbot.iris.shadows.Matrix4fAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+
+import net.coderbot.iris.shadows.Matrix4fAccess;
 
 /**
  * @author FoundationGames

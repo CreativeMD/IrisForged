@@ -1,6 +1,21 @@
 package net.coderbot.iris.uniforms.custom;
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
+
+import org.joml.Matrix4f;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+
 import com.google.common.collect.ImmutableMap;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import kroppeb.stareval.function.Type;
 import net.coderbot.iris.Iris;
@@ -8,19 +23,15 @@ import net.coderbot.iris.gl.uniform.FloatSupplier;
 import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.coderbot.iris.gl.uniform.UniformType;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import net.coderbot.iris.uniforms.custom.cached.*;
-import org.joml.*;
-import net.minecraft.world.phys.Vec2;
-import net.minecraft.world.phys.Vec3;
-import org.lwjgl.BufferUtils;
-
-import java.nio.FloatBuffer;
-import java.util.Collection;
-import java.util.Map;
-import java.util.function.BooleanSupplier;
-import java.util.function.DoubleSupplier;
-import java.util.function.IntSupplier;
-import java.util.function.Supplier;
+import net.coderbot.iris.uniforms.custom.cached.BooleanCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.CachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.Float2VectorCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.Float3VectorCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.Float4MatrixCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.Float4VectorCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.FloatCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.Int2VectorCachedUniform;
+import net.coderbot.iris.uniforms.custom.cached.IntCachedUniform;
 
 public class CustomUniformFixedInputUniformsHolder {
 	final private ImmutableMap<String, CachedUniform> inputVariables;

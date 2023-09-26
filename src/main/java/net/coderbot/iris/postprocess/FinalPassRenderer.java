@@ -1,9 +1,22 @@
 package net.coderbot.iris.postprocess;
 
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.function.Supplier;
+
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.opengl.GL11C;
+import org.lwjgl.opengl.GL15C;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL30C;
+import org.lwjgl.opengl.GL43C;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import it.unimi.dsi.fastutil.ints.IntList;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.coderbot.iris.features.FeatureFlags;
@@ -14,17 +27,15 @@ import net.coderbot.iris.gl.program.ComputeProgram;
 import net.coderbot.iris.gl.program.Program;
 import net.coderbot.iris.gl.program.ProgramBuilder;
 import net.coderbot.iris.gl.program.ProgramSamplers;
-import net.coderbot.iris.gl.shader.ShaderCompileException;
-import net.coderbot.iris.gl.shader.ShaderType;
 import net.coderbot.iris.gl.program.ProgramUniforms;
 import net.coderbot.iris.gl.sampler.SamplerLimits;
+import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.coderbot.iris.gl.texture.TextureAccess;
-import net.coderbot.iris.pipeline.DeferredWorldRenderingPipeline;
 import net.coderbot.iris.pipeline.ShaderPrinter;
 import net.coderbot.iris.pipeline.WorldRenderingPipeline;
+import net.coderbot.iris.pipeline.newshader.FogMode;
 import net.coderbot.iris.pipeline.transform.PatchShaderType;
 import net.coderbot.iris.pipeline.transform.TransformPatcher;
-import net.coderbot.iris.pipeline.newshader.FogMode;
 import net.coderbot.iris.rendertarget.Blaze3dRenderTargetExt;
 import net.coderbot.iris.rendertarget.RenderTarget;
 import net.coderbot.iris.rendertarget.RenderTargets;
@@ -41,17 +52,6 @@ import net.coderbot.iris.uniforms.CommonUniforms;
 import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 import net.coderbot.iris.uniforms.custom.CustomUniforms;
 import net.minecraft.client.Minecraft;
-import org.jetbrains.annotations.Nullable;
-import org.lwjgl.opengl.GL11C;
-import org.lwjgl.opengl.GL15C;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
-import org.lwjgl.opengl.GL43C;
-
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.function.Supplier;
 
 public class FinalPassRenderer {
 	private final RenderTargets renderTargets;

@@ -1,28 +1,27 @@
 package net.coderbot.iris.gui.element;
 
-import com.google.common.collect.ImmutableList;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.coderbot.iris.gui.GuiUtil;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.ComponentPath;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.events.ContainerEventHandler;
-import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.navigation.FocusNavigationEvent;
-import net.minecraft.client.gui.navigation.ScreenRectangle;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
+
+import com.google.common.collect.ImmutableList;
+
+import net.coderbot.iris.gui.GuiUtil;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ComponentPath;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.navigation.FocusNavigationEvent;
+import net.minecraft.client.gui.navigation.ScreenRectangle;
+import net.minecraft.network.chat.Component;
 
 /**
  * Intended to make very simple rows of buttons easier to make

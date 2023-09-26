@@ -1,10 +1,10 @@
 package net.coderbot.batchedentityrendering.impl.ordering;
 
-import net.coderbot.batchedentityrendering.impl.TransparencyType;
-import net.minecraft.client.renderer.RenderType;
-
 import java.util.LinkedHashSet;
 import java.util.List;
+
+import net.coderbot.batchedentityrendering.impl.TransparencyType;
+import net.minecraft.client.renderer.RenderType;
 
 public class SimpleRenderOrderManager implements RenderOrderManager {
     private final LinkedHashSet<RenderType> renderTypes;

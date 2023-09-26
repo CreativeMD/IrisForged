@@ -1,28 +1,23 @@
 package net.coderbot.iris.uniforms;
 
-import net.coderbot.iris.gl.uniform.UniformHolder;
-import java.util.function.IntSupplier;
+import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
+
+import org.jetbrains.annotations.NotNull;
+import org.joml.Vector3f;
 
 import it.unimi.dsi.fastutil.objects.Object2IntFunction;
+import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.shaderpack.IdMap;
 import net.coderbot.iris.shaderpack.materialmap.NamespacedId;
 import net.irisshaders.iris.api.v0.item.IrisItemLightProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.joml.Vector3f;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
-import java.util.function.IntSupplier;
-
-import static net.coderbot.iris.gl.uniform.UniformUpdateFrequency.PER_FRAME;
 
 public final class IdMapUniforms {
 

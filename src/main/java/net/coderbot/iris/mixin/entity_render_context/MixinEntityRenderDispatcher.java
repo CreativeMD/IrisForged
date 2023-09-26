@@ -1,29 +1,26 @@
 package net.coderbot.iris.mixin.entity_render_context;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import it.unimi.dsi.fastutil.objects.Object2IntFunction;
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.coderbot.batchedentityrendering.impl.Groupable;
-import net.coderbot.iris.block_rendering.BlockRenderingSettings;
-import net.coderbot.iris.fantastic.WrappingMultiBufferSource;
-import net.coderbot.iris.layer.BlockEntityRenderStateShard;
-import net.coderbot.iris.layer.EntityRenderStateShard;
-import net.coderbot.iris.layer.OuterWrappedRenderType;
-import net.coderbot.iris.shaderpack.materialmap.NamespacedId;
-import net.coderbot.iris.uniforms.CapturedRenderingState;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderStateShard;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.monster.ZombieVillager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import it.unimi.dsi.fastutil.objects.Object2IntFunction;
+import net.coderbot.batchedentityrendering.impl.Groupable;
+import net.coderbot.iris.block_rendering.BlockRenderingSettings;
+import net.coderbot.iris.layer.EntityRenderStateShard;
+import net.coderbot.iris.layer.OuterWrappedRenderType;
+import net.coderbot.iris.shaderpack.materialmap.NamespacedId;
+import net.coderbot.iris.uniforms.CapturedRenderingState;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.ZombieVillager;
 
 /**
  * Wraps entity rendering functions in order to create additional render layers

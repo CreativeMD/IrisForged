@@ -1,6 +1,13 @@
 package net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp;
 
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
+import org.lwjgl.system.MemoryStack;
+import org.lwjgl.system.MemoryUtil;
+
 import com.mojang.blaze3d.vertex.PoseStack;
+
 import me.jellysquid.mods.sodium.client.model.quad.ModelQuadView;
 import net.caffeinemc.mods.sodium.api.math.MatrixHelper;
 import net.caffeinemc.mods.sodium.api.util.NormI8;
@@ -10,13 +17,6 @@ import net.caffeinemc.mods.sodium.api.vertex.format.VertexFormatRegistry;
 import net.coderbot.iris.uniforms.CapturedRenderingState;
 import net.coderbot.iris.vertices.IrisVertexFormats;
 import net.coderbot.iris.vertices.NormalHelper;
-import net.coderbot.iris.vertices.QuadView;
-import org.jetbrains.annotations.NotNull;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
-import org.joml.Vector3f;
-import org.lwjgl.system.MemoryStack;
-import org.lwjgl.system.MemoryUtil;
 
 public final class EntityVertex {
 	public static final VertexFormatDescription FORMAT = VertexFormatRegistry.instance().get(IrisVertexFormats.ENTITY);

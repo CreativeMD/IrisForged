@@ -2,7 +2,6 @@ package net.coderbot.iris.shaderpack.preprocessor;
 
 import org.anarres.cpp.DefaultPreprocessorListener;
 import org.anarres.cpp.LexerException;
-import org.anarres.cpp.Source;
 
 public class GlslCollectingListener extends DefaultPreprocessorListener {
 	public static final String VERSION_MARKER = "#warning IRIS_JCPP_GLSL_VERSION";

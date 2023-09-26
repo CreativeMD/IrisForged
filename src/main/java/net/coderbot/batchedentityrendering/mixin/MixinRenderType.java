@@ -1,10 +1,11 @@
 package net.coderbot.batchedentityrendering.mixin;
 
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+
 import net.coderbot.batchedentityrendering.impl.BlendingStateHolder;
 import net.coderbot.batchedentityrendering.impl.TransparencyType;
 import net.minecraft.client.renderer.RenderType;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(RenderType.class)
 public class MixinRenderType implements BlendingStateHolder {

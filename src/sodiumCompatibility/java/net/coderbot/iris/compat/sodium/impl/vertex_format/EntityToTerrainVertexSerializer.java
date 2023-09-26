@@ -1,13 +1,13 @@
 package net.coderbot.iris.compat.sodium.impl.vertex_format;
 
+import org.lwjgl.system.MemoryUtil;
+
 import net.caffeinemc.mods.sodium.api.util.NormI8;
 import net.caffeinemc.mods.sodium.api.vertex.format.common.ModelVertex;
 import net.caffeinemc.mods.sodium.api.vertex.serializer.VertexSerializer;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp.GlyphVertexExt;
 import net.coderbot.iris.uniforms.CapturedRenderingState;
 import net.coderbot.iris.vertices.IrisVertexFormats;
 import net.coderbot.iris.vertices.NormalHelper;
-import org.lwjgl.system.MemoryUtil;
 
 public class EntityToTerrainVertexSerializer implements VertexSerializer {
 	@Override

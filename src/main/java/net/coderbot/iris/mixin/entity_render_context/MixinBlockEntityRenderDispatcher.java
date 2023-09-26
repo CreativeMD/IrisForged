@@ -1,23 +1,23 @@
 package net.coderbot.iris.mixin.entity_render_context;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.coderbot.batchedentityrendering.impl.Groupable;
-import net.coderbot.iris.block_rendering.BlockRenderingSettings;
-import net.coderbot.iris.fantastic.WrappingMultiBufferSource;
-import net.coderbot.iris.layer.BlockEntityRenderStateShard;
-import net.coderbot.iris.layer.OuterWrappedRenderType;
-import net.coderbot.iris.uniforms.CapturedRenderingState;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import net.coderbot.batchedentityrendering.impl.Groupable;
+import net.coderbot.iris.block_rendering.BlockRenderingSettings;
+import net.coderbot.iris.layer.BlockEntityRenderStateShard;
+import net.coderbot.iris.layer.OuterWrappedRenderType;
+import net.coderbot.iris.uniforms.CapturedRenderingState;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * Wraps block entity rendering functions in order to create additional render layers

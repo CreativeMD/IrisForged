@@ -1,11 +1,12 @@
 package net.coderbot.iris.parsing;
 
-import kroppeb.stareval.function.Type;
+import java.util.function.Supplier;
+
 import org.joml.Matrix2f;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-import java.util.function.Supplier;
+import kroppeb.stareval.function.Type;
 
 public class MatrixType<T> extends Type.ObjectType {
 	final String name;

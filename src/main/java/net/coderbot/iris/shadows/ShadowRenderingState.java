@@ -1,9 +1,10 @@
 package net.coderbot.iris.shadows;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import net.coderbot.iris.pipeline.ShadowRenderer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.coderbot.iris.pipeline.ShadowRenderer;
 
 public class ShadowRenderingState {
 	public static boolean areShadowsCurrentlyBeingRendered() {

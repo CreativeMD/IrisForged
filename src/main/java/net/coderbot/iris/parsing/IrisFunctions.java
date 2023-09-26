@@ -1,15 +1,41 @@
 package net.coderbot.iris.parsing;
 
-import kroppeb.stareval.expression.Expression;
-import kroppeb.stareval.function.*;
-import kroppeb.stareval.function.TypedFunction.Parameter;
-import org.joml.*;
-
-import java.lang.Math;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+
+import org.joml.Matrix4f;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
+import org.joml.Vector4f;
+import org.joml.Vector4i;
+
+import kroppeb.stareval.expression.Expression;
+import kroppeb.stareval.function.AbstractTypedFunction;
+import kroppeb.stareval.function.B2BFunction;
+import kroppeb.stareval.function.BB2BFunction;
+import kroppeb.stareval.function.F2FFunction;
+import kroppeb.stareval.function.F2IFunction;
+import kroppeb.stareval.function.FF2BFunction;
+import kroppeb.stareval.function.FF2FFunction;
+import kroppeb.stareval.function.FFF2BFunction;
+import kroppeb.stareval.function.FFF2FFunction;
+import kroppeb.stareval.function.FunctionContext;
+import kroppeb.stareval.function.FunctionResolver;
+import kroppeb.stareval.function.FunctionReturn;
+import kroppeb.stareval.function.I2IFunction;
+import kroppeb.stareval.function.II2BFunction;
+import kroppeb.stareval.function.II2IFunction;
+import kroppeb.stareval.function.III2BFunction;
+import kroppeb.stareval.function.III2IFunction;
+import kroppeb.stareval.function.Type;
+import kroppeb.stareval.function.TypedFunction;
+import kroppeb.stareval.function.TypedFunction.Parameter;
+import kroppeb.stareval.function.V2FFunction;
+import kroppeb.stareval.function.V2IFunction;
 
 /**
  * #   sin(x)

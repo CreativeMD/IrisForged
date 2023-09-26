@@ -1,10 +1,10 @@
 package net.coderbot.iris.gui.option;
 
-import net.minecraft.client.Minecraft;
+import java.util.function.Consumer;
+
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.components.AbstractWidget;
-import java.util.function.Consumer;
 
 public class ShadowDistanceOption<T> extends OptionInstance<T> {
 	private final TooltipSupplier<T> tooltipSupplier;

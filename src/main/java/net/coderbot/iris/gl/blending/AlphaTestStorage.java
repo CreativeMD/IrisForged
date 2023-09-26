@@ -1,9 +1,5 @@
 package net.coderbot.iris.gl.blending;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.coderbot.iris.mixin.GlStateManagerAccessor;
-import net.coderbot.iris.mixin.statelisteners.BooleanStateAccessor;
-
 public class AlphaTestStorage {
 	private static boolean originalAlphaTestEnable;
 	private static AlphaTest originalAlphaTest;

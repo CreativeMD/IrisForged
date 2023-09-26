@@ -1,10 +1,10 @@
 package kroppeb.stareval.expression;
 
+import java.util.Collection;
+
 import kroppeb.stareval.function.FunctionContext;
 import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.TypedFunction;
-
-import java.util.Collection;
 
 public class CallExpression implements Expression {
 	private final TypedFunction function;

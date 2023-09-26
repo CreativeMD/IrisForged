@@ -1,9 +1,10 @@
 package net.coderbot.iris.gl.uniform;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.coderbot.iris.gl.state.ValueUpdateNotifier;
-
 import java.util.function.IntSupplier;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+
+import net.coderbot.iris.gl.state.ValueUpdateNotifier;
 
 public class IntUniform extends Uniform {
 	private int cachedValue;

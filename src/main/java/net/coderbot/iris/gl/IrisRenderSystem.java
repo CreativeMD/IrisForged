@@ -1,12 +1,9 @@
 package net.coderbot.iris.gl;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.VertexSorting;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gl.sampler.GlSampler;
-import net.coderbot.iris.gl.sampler.SamplerLimits;
-import net.coderbot.iris.mixin.GlStateManagerAccessor;
+import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+
 import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;
 import org.joml.Vector3i;
@@ -14,24 +11,22 @@ import org.lwjgl.opengl.ARBDirectStateAccess;
 import org.lwjgl.opengl.ARBDrawBuffersBlend;
 import org.lwjgl.opengl.EXTShaderImageLoadStore;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL32C;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL11C;
-import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30C;
 import org.lwjgl.opengl.GL32C;
 import org.lwjgl.opengl.GL33C;
-import org.lwjgl.opengl.GL40C;
 import org.lwjgl.opengl.GL42C;
 import org.lwjgl.opengl.GL43C;
 import org.lwjgl.opengl.GL45C;
 import org.lwjgl.opengl.NVXGPUMemoryInfo;
-import org.lwjgl.opengl.GL45C;
 import org.lwjgl.system.MemoryUtil;
 
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.VertexSorting;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gl.sampler.SamplerLimits;
+import net.coderbot.iris.mixin.GlStateManagerAccessor;
 
 /**
  * This class is responsible for abstracting calls to OpenGL and asserting that calls are run on the render thread.

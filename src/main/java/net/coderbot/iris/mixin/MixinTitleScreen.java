@@ -1,27 +1,18 @@
 package net.coderbot.iris.mixin;
 
-import com.google.common.collect.ImmutableList;
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gui.debug.DebugLoadFailedGridScreen;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
-import net.minecraft.client.GraphicsStatus;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.AlertScreen;
-import net.minecraft.client.gui.screens.ConfirmScreen;
-import net.minecraft.client.gui.screens.PopupScreen;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.TitleScreen;
-
-import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import net.coderbot.iris.Iris;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.ConfirmScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.network.chat.Component;
 
 @Mixin(TitleScreen.class)
 public class MixinTitleScreen extends Screen {

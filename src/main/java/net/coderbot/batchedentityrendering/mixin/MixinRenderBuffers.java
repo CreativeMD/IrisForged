@@ -1,6 +1,17 @@
 package net.coderbot.batchedentityrendering.mixin;
 
+import java.util.SortedMap;
+
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import com.mojang.blaze3d.vertex.BufferBuilder;
+
 import net.coderbot.batchedentityrendering.impl.DrawCallTrackingRenderBuffers;
 import net.coderbot.batchedentityrendering.impl.FullyBufferedMultiBufferSource;
 import net.coderbot.batchedentityrendering.impl.MemoryTrackingBuffer;
@@ -11,15 +22,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.OutlineBufferSource;
 import net.minecraft.client.renderer.RenderBuffers;
 import net.minecraft.client.renderer.RenderType;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.SortedMap;
 
 @Mixin(RenderBuffers.class)
 public class MixinRenderBuffers implements RenderBuffersExt, MemoryTrackingRenderBuffers, DrawCallTrackingRenderBuffers {

@@ -1,9 +1,11 @@
 package net.coderbot.iris.mixin;
 
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.gui.option.IrisVideoSettings;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.components.DebugScreenOverlay;
+import java.lang.management.BufferPoolMXBean;
+import java.lang.management.ManagementFactory;
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
+import java.util.List;
+import java.util.Objects;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -11,12 +13,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.lang.management.BufferPoolMXBean;
-import java.lang.management.ManagementFactory;
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
-import java.util.List;
-import java.util.Objects;
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.gui.option.IrisVideoSettings;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.components.DebugScreenOverlay;
 
 @Mixin(DebugScreenOverlay.class)
 public abstract class MixinDebugScreenOverlay {

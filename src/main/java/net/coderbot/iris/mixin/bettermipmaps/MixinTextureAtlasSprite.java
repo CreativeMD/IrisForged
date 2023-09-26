@@ -1,13 +1,7 @@
 package net.coderbot.iris.mixin.bettermipmaps;
 
-import com.mojang.blaze3d.platform.NativeImage;
-import net.minecraft.client.renderer.texture.SpriteContents;
-import net.coderbot.iris.helpers.ColorSRGB;
-import net.minecraft.client.renderer.texture.TextureAtlas;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.metadata.animation.FrameSize;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
+import java.util.Locale;
+
 import org.lwjgl.system.MemoryUtil;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
@@ -16,12 +10,14 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import java.util.Locale;
-import java.util.Objects;
+import com.mojang.blaze3d.platform.NativeImage;
+
+import net.coderbot.iris.helpers.ColorSRGB;
+import net.minecraft.client.renderer.texture.SpriteContents;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
 
 @Mixin(SpriteContents.class)
 public class MixinTextureAtlasSprite {

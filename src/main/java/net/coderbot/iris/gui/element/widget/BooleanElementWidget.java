@@ -1,6 +1,5 @@
 package net.coderbot.iris.gui.element.widget;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.coderbot.iris.Iris;
 import net.coderbot.iris.gui.GuiUtil;
 import net.coderbot.iris.gui.NavigationController;
@@ -10,7 +9,6 @@ import net.coderbot.iris.shaderpack.option.menu.OptionMenuBooleanOptionElement;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextColor;
 
 public class BooleanElementWidget extends BaseOptionElementWidget<OptionMenuBooleanOptionElement> {
 	private static final Component TEXT_TRUE = Component.translatable("label.iris.true").withStyle(ChatFormatting.GREEN);

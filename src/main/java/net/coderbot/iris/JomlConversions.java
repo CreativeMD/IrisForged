@@ -1,7 +1,8 @@
 package net.coderbot.iris;
 
-import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3d;
+
+import net.minecraft.world.phys.Vec3;
 
 public class JomlConversions {
 	public static Vector3d fromVec3(Vec3 vec) {

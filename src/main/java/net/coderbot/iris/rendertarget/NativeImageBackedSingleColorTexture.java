@@ -1,6 +1,7 @@
 package net.coderbot.iris.rendertarget;
 
 import com.mojang.blaze3d.platform.NativeImage;
+
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.FastColor;
 

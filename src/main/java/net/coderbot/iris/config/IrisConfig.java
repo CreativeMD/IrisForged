@@ -1,9 +1,5 @@
 package net.coderbot.iris.config;
 
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.colorspace.ColorSpace;
-import net.coderbot.iris.gui.option.IrisVideoSettings;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,6 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 import java.util.Properties;
+
+import net.coderbot.iris.Iris;
+import net.coderbot.iris.colorspace.ColorSpace;
+import net.coderbot.iris.gui.option.IrisVideoSettings;
 
 /**
  * A class dedicated to storing the config values of shaderpacks. Right now it only stores the path to the current shaderpack

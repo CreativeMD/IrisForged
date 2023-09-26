@@ -1,23 +1,5 @@
 package net.coderbot.iris;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
-import net.coderbot.iris.config.IrisConfig;
-import net.coderbot.iris.gl.shader.StandardMacros;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.SemanticVersion;
-import net.fabricmc.loader.api.Version;
-import net.fabricmc.loader.api.VersionParsingException;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.ClickEvent;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.time.DateUtils;
-import org.jetbrains.annotations.Nullable;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,6 +17,25 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.time.DateUtils;
+import org.jetbrains.annotations.Nullable;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
+import net.coderbot.iris.config.IrisConfig;
+import net.coderbot.iris.gl.shader.StandardMacros;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.SemanticVersion;
+import net.fabricmc.loader.api.VersionParsingException;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 
 public class UpdateChecker {
 	private final Version currentVersion;

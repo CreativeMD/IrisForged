@@ -1,8 +1,9 @@
 package net.coderbot.iris.shaderpack;
 
-import net.coderbot.iris.Iris;
 import org.joml.Vector2f;
 import org.joml.Vector3i;
+
+import net.coderbot.iris.Iris;
 
 public class ComputeDirectiveParser {
 	public static void setComputeWorkGroups(ComputeSource source, ConstDirectiveParser.ConstDirective directive) {

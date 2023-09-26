@@ -1,11 +1,12 @@
 package net.coderbot.iris.uniforms.custom.cached;
 
+import java.util.function.BooleanSupplier;
+
+import org.lwjgl.opengl.GL21;
+
 import kroppeb.stareval.function.FunctionReturn;
 import kroppeb.stareval.function.Type;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
-import org.lwjgl.opengl.GL21;
-
-import java.util.function.BooleanSupplier;
 
 public class BooleanCachedUniform extends CachedUniform {
 

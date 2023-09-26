@@ -6,9 +6,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.coderbot.iris.gl.shader.ShaderCompileException;
 import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,8 +26,8 @@ import io.github.douira.glsl_transformer.token_filter.TokenFilter;
 import io.github.douira.glsl_transformer.util.LRUCache;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.coderbot.iris.Iris;
-import net.coderbot.iris.gbuffer_overrides.matching.InputAvailability;
 import net.coderbot.iris.gl.blending.AlphaTest;
+import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.coderbot.iris.gl.texture.TextureType;
 import net.coderbot.iris.helpers.Tri;
 import net.coderbot.iris.pipeline.ShaderPrinter;

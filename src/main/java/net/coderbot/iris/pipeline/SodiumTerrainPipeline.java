@@ -1,8 +1,19 @@
 package net.coderbot.iris.pipeline;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.IntFunction;
+import java.util.function.Supplier;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.google.common.collect.ImmutableSet;
 import com.google.common.primitives.Ints;
-import me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader;
+
 import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType;
 import net.coderbot.iris.gl.blending.AlphaTest;
 import net.coderbot.iris.gl.blending.BlendModeOverride;
@@ -22,19 +33,8 @@ import net.coderbot.iris.shaderpack.ProgramSource;
 import net.coderbot.iris.shaderpack.loading.ProgramId;
 import net.coderbot.iris.uniforms.CommonUniforms;
 import net.coderbot.iris.uniforms.builtin.BuiltinReplacementUniforms;
-import net.minecraft.resources.ResourceLocation;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.IntFunction;
-import java.util.function.Supplier;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import net.coderbot.iris.uniforms.custom.CustomUniforms;
+import net.minecraft.resources.ResourceLocation;
 
 public class SodiumTerrainPipeline {
 	Optional<String> terrainSolidVertex;

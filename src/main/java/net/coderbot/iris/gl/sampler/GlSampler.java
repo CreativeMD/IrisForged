@@ -1,12 +1,12 @@
 package net.coderbot.iris.gl.sampler;
 
-import net.coderbot.iris.gl.GlResource;
-import net.coderbot.iris.gl.IrisRenderSystem;
-import org.lwjgl.opengl.ARBTextureSwizzle;
 import org.lwjgl.opengl.GL11C;
 import org.lwjgl.opengl.GL13C;
 import org.lwjgl.opengl.GL20C;
 import org.lwjgl.opengl.GL30C;
+
+import net.coderbot.iris.gl.GlResource;
+import net.coderbot.iris.gl.IrisRenderSystem;
 
 public class GlSampler extends GlResource {
 	public GlSampler(boolean linear, boolean mipmapped, boolean shadow, boolean hardwareShadow) {

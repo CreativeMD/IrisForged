@@ -1,10 +1,11 @@
 package net.coderbot.iris.mixin;
 
-import net.coderbot.iris.parsing.ExtendedBiome;
-import net.minecraft.world.level.biome.Biome;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+
+import net.coderbot.iris.parsing.ExtendedBiome;
+import net.minecraft.world.level.biome.Biome;
 
 @Mixin(value = Biome.class, priority = 990)
 public class MixinBiome implements ExtendedBiome {

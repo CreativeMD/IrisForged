@@ -1,10 +1,10 @@
 package net.coderbot.iris.shadows.frustum.advanced;
 
-import net.coderbot.iris.Iris;
-import net.coderbot.iris.shadows.frustum.BoxCuller;
-import net.minecraft.world.phys.AABB;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
+
+import net.coderbot.iris.shadows.frustum.BoxCuller;
+import net.minecraft.world.phys.AABB;
 
 public class ReversedAdvancedShadowCullingFrustum extends AdvancedShadowCullingFrustum {
 	public ReversedAdvancedShadowCullingFrustum(Matrix4f playerView, Matrix4f playerProjection, Vector3f shadowLightVectorFromOrigin, BoxCuller boxCuller) {

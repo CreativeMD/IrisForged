@@ -1,10 +1,11 @@
 package net.coderbot.iris.gl.texture;
 
-import net.coderbot.iris.gl.IrisRenderSystem;
-import org.lwjgl.opengl.GL30C;
-
 import java.nio.ByteBuffer;
 import java.util.Optional;
+
+import org.lwjgl.opengl.GL30C;
+
+import net.coderbot.iris.gl.IrisRenderSystem;
 
 public enum TextureType {
 	TEXTURE_1D(GL30C.GL_TEXTURE_1D),

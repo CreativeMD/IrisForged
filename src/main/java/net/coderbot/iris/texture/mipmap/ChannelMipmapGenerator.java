@@ -1,6 +1,5 @@
 package net.coderbot.iris.texture.mipmap;
 
-import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.util.FastColor;
 
 public class ChannelMipmapGenerator extends AbstractMipmapGenerator {

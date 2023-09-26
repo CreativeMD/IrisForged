@@ -1,16 +1,16 @@
 package net.coderbot.iris.gl.uniform;
 
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
+
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector3d;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-
-import java.util.function.BooleanSupplier;
-import java.util.function.DoubleSupplier;
-import java.util.function.IntSupplier;
-import java.util.function.Supplier;
 
 public interface UniformHolder {
 	UniformHolder uniform1f(UniformUpdateFrequency updateFrequency, String name, FloatSupplier value);

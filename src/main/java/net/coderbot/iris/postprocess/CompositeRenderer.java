@@ -4,16 +4,20 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.function.IntSupplier;
 import java.util.function.Supplier;
+
+import org.lwjgl.opengl.GL15C;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL30C;
+import org.lwjgl.opengl.GL43C;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import net.coderbot.iris.Iris;
 import net.coderbot.iris.features.FeatureFlags;
 import net.coderbot.iris.gl.IrisRenderSystem;
 import net.coderbot.iris.gl.blending.BlendModeOverride;
@@ -27,13 +31,12 @@ import net.coderbot.iris.gl.program.ProgramUniforms;
 import net.coderbot.iris.gl.sampler.SamplerLimits;
 import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.coderbot.iris.gl.texture.TextureAccess;
-import net.coderbot.iris.pipeline.DeferredWorldRenderingPipeline;
-import net.coderbot.iris.pipeline.WorldRenderingPipeline;
-import net.coderbot.iris.rendertarget.RenderTarget;
 import net.coderbot.iris.pipeline.ShaderPrinter;
+import net.coderbot.iris.pipeline.WorldRenderingPipeline;
+import net.coderbot.iris.pipeline.newshader.FogMode;
 import net.coderbot.iris.pipeline.transform.PatchShaderType;
 import net.coderbot.iris.pipeline.transform.TransformPatcher;
-import net.coderbot.iris.pipeline.newshader.FogMode;
+import net.coderbot.iris.rendertarget.RenderTarget;
 import net.coderbot.iris.rendertarget.RenderTargets;
 import net.coderbot.iris.samplers.IrisImages;
 import net.coderbot.iris.samplers.IrisSamplers;
@@ -48,14 +51,6 @@ import net.coderbot.iris.uniforms.CommonUniforms;
 import net.coderbot.iris.uniforms.FrameUpdateNotifier;
 import net.coderbot.iris.uniforms.custom.CustomUniforms;
 import net.minecraft.client.Minecraft;
-import org.lwjgl.opengl.GL15C;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL30C;
-import org.lwjgl.opengl.GL43C;
-
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.Supplier;
 
 public class CompositeRenderer {
 	private final RenderTargets renderTargets;

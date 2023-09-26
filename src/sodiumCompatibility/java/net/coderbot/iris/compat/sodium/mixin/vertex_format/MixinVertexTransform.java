@@ -1,11 +1,8 @@
 package net.coderbot.iris.compat.sodium.mixin.vertex_format;
 
-import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkMeshFormats;
-import net.coderbot.iris.compat.sodium.impl.vertex_format.IrisCommonVertexAttributes;
-import net.coderbot.iris.vertices.IrisVertexFormats;
-import org.lwjgl.system.MemoryUtil;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+
+import me.jellysquid.mods.sodium.client.render.chunk.vertex.format.ChunkMeshFormats;
 
 @Mixin(ChunkMeshFormats.class)
 public class MixinVertexTransform {

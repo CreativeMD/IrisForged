@@ -1,21 +1,20 @@
 package net.coderbot.iris.uniforms;
 
+import java.util.Objects;
+import java.util.stream.StreamSupport;
+
+import org.joml.Math;
+import org.joml.Vector3d;
+import org.joml.Vector4f;
+
 import net.coderbot.iris.gl.uniform.UniformHolder;
 import net.coderbot.iris.gl.uniform.UniformUpdateFrequency;
 import net.coderbot.iris.gui.option.IrisVideoSettings;
-import net.coderbot.iris.mixin.DimensionTypeAccessor;
-import org.joml.Math;
-import org.joml.Vector3d;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.Objects;
-import java.util.stream.StreamSupport;
 
 public class IrisExclusiveUniforms {
 	public static void addIrisExclusiveUniforms(UniformHolder uniforms) {

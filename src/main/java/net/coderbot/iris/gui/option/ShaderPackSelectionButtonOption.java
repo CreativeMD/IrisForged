@@ -1,11 +1,6 @@
 package net.coderbot.iris.gui.option;
 
-import net.coderbot.iris.gui.screen.ShaderPackScreen;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.OptionInstance;
-import net.minecraft.client.Options;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 
 

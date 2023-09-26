@@ -1,18 +1,37 @@
 package net.coderbot.iris.pipeline.newshader;
 
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.Set;
+import java.util.function.IntFunction;
+import java.util.function.Supplier;
+
+import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3d;
+import org.joml.Vector4f;
+import org.lwjgl.opengl.ARBClearTexture;
+import org.lwjgl.opengl.GL15C;
+import org.lwjgl.opengl.GL20C;
+import org.lwjgl.opengl.GL21C;
+import org.lwjgl.opengl.GL30C;
+import org.lwjgl.opengl.GL43C;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.blaze3d.pipeline.RenderTarget;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
-import net.coderbot.iris.Iris;
 import net.coderbot.iris.block_rendering.BlockMaterialMapping;
 import net.coderbot.iris.block_rendering.BlockRenderingSettings;
 import net.coderbot.iris.colorspace.ColorSpace;
-import net.coderbot.iris.colorspace.ColorSpaceComputeConverter;
 import net.coderbot.iris.colorspace.ColorSpaceConverter;
 import net.coderbot.iris.colorspace.ColorSpaceFragmentConverter;
 import net.coderbot.iris.features.FeatureFlags;
@@ -31,9 +50,8 @@ import net.coderbot.iris.gl.program.ProgramBuilder;
 import net.coderbot.iris.gl.program.ProgramImages;
 import net.coderbot.iris.gl.program.ProgramSamplers;
 import net.coderbot.iris.gl.sampler.SamplerHolder;
-import net.coderbot.iris.gl.shader.ShaderCompileException;
-import net.coderbot.iris.gl.state.StateUpdateNotifiers;
 import net.coderbot.iris.gl.sampler.SamplerLimits;
+import net.coderbot.iris.gl.shader.ShaderCompileException;
 import net.coderbot.iris.gl.texture.DepthBufferFormat;
 import net.coderbot.iris.gl.texture.TextureType;
 import net.coderbot.iris.gui.option.IrisVideoSettings;
@@ -93,25 +111,6 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.client.renderer.texture.DynamicTexture;
-import org.jetbrains.annotations.Nullable;
-import org.joml.Vector3d;
-import org.joml.Vector4f;
-import org.lwjgl.opengl.ARBClearTexture;
-import org.lwjgl.opengl.GL15C;
-import org.lwjgl.opengl.GL20C;
-import org.lwjgl.opengl.GL21C;
-import org.lwjgl.opengl.GL30C;
-import org.lwjgl.opengl.GL43C;
-
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.Set;
-import java.util.function.IntFunction;
-import java.util.function.Supplier;
 
 public class NewWorldRenderingPipeline implements WorldRenderingPipeline, CoreWorldRenderingPipeline, RenderTargetStateListener {
 	private final RenderTargets renderTargets;

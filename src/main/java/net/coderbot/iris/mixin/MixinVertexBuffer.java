@@ -1,12 +1,14 @@
 package net.coderbot.iris.mixin;
 
-import com.mojang.blaze3d.vertex.VertexBuffer;
-import net.coderbot.iris.fantastic.VertexBufferHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.mojang.blaze3d.vertex.VertexBuffer;
+
+import net.coderbot.iris.fantastic.VertexBufferHelper;
 
 @Mixin(VertexBuffer.class)
 public class MixinVertexBuffer implements VertexBufferHelper {

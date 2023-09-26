@@ -1,14 +1,15 @@
 package net.coderbot.iris.vertices;
 
-import com.mojang.blaze3d.vertex.VertexFormat;
-import net.coderbot.iris.uniforms.CapturedRenderingState;
-import org.joml.Vector3f;
-import net.irisshaders.iris.api.v0.IrisTextVertexSink;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import org.lwjgl.system.MemoryUtil;
-
 import java.nio.ByteBuffer;
 import java.util.function.IntFunction;
+
+import org.joml.Vector3f;
+import org.lwjgl.system.MemoryUtil;
+
+import com.mojang.blaze3d.vertex.VertexFormat;
+
+import net.irisshaders.iris.api.v0.IrisTextVertexSink;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 
 public class IrisTextVertexSinkImpl implements IrisTextVertexSink {
 	static VertexFormat format = IrisVertexFormats.ENTITY;

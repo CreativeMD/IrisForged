@@ -2,9 +2,9 @@ package net.coderbot.iris.pipeline;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+
 import net.coderbot.iris.layer.InnerWrappedRenderType;
 import net.coderbot.iris.layer.LightningRenderStateShard;
-import net.coderbot.iris.layer.OuterWrappedRenderType;
 import net.minecraft.client.renderer.RenderType;
 
 public class LightningHandler extends RenderType {

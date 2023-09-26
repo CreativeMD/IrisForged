@@ -1,6 +1,10 @@
 package net.coderbot.iris.compat.sodium.impl.vertex_format;
 
+import org.joml.Vector3f;
+import org.lwjgl.system.MemoryUtil;
+
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+
 import net.caffeinemc.mods.sodium.api.vertex.serializer.VertexSerializer;
 import net.coderbot.iris.compat.sodium.impl.vertex_format.entity_xhfp.QuadViewEntity;
 import net.coderbot.iris.uniforms.CapturedRenderingState;
@@ -8,8 +12,6 @@ import net.coderbot.iris.vertices.IrisVertexFormats;
 import net.coderbot.iris.vertices.NormI8;
 import net.coderbot.iris.vertices.NormalHelper;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import org.joml.Vector3f;
-import org.lwjgl.system.MemoryUtil;
 
 public class GlyphToTerrainVertexSerializer implements VertexSerializer {
 	private static final int OFFSET_POSITION = 0;
