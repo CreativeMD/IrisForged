@@ -1,8 +1,10 @@
 package net.coderbot.iris.shaderpack.preprocessor;
 
+import org.anarres.cpp.Feature;
 import org.anarres.cpp.LexerException;
 import org.anarres.cpp.Preprocessor;
 import org.anarres.cpp.StringLexerSource;
+import org.anarres.cpp.Token;
 
 import net.coderbot.iris.shaderpack.StringPair;
 

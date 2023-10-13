@@ -7,28 +7,28 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.coderbot.iris.Iris;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 @Mixin(Minecraft.class)
-@Environment(EnvType.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class MixinMinecraft_PipelineManagement {
     /** Should run before the Minecraft.level field is updated after disconnecting from a server or leaving a singleplayer world */
     @Inject(method = "clearLevel(Lnet/minecraft/client/gui/screens/Screen;)V", at = @At("HEAD"))
     public void iris$trackLastDimensionOnLeave(Screen arg, CallbackInfo ci) {
         Iris.lastDimension = Iris.getCurrentDimension();
     }
-    
+
     /** Should run before the Minecraft.level field is updated after receiving a login or respawn packet
      * NB: Not on leave, another inject is used for that */
     @Inject(method = "setLevel", at = @At("HEAD"))
     private void iris$trackLastDimensionOnLevelChange(@Nullable ClientLevel level, CallbackInfo ci) {
         Iris.lastDimension = Iris.getCurrentDimension();
     }
-    
+
     /** Injects before LevelRenderer receives the new level, or is notified of the level unload.
      *
      * We destroy any pipelines here to guard against potential memory leaks related to pipelines for
@@ -47,7 +47,7 @@ public class MixinMinecraft_PipelineManagement {
             Iris.logger.info("Reloading pipeline on dimension change: " + Iris.lastDimension + " => " + Iris.getCurrentDimension());
             // Destroy pipelines when changing dimensions.
             Iris.getPipelineManager().destroyPipeline();
-            
+
             // NB: We need create the pipeline immediately, so that it is ready by the time that Sodium starts trying to
             // initialize its world renderer.
             if (level != null) {

@@ -34,28 +34,28 @@ import net.minecraft.world.level.material.FluidState;
 @Mixin(targets = "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask", priority = 999)
 public class MixinChunkRebuildTask {
     private static final String RENDER = "Lnet/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk$RebuildTask;compile(FFFLnet/minecraft/client/renderer/ChunkBufferBuilderPack;)Lnet/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk$RebuildTask$CompileResults;";
-    
+
     @Unique
     private BlockSensitiveBufferBuilder lastBufferBuilder;
-    
+
     // Resolve the ID map on the main thread to avoid thread safety issues
     @Unique
     private final Object2IntMap<BlockState> blockStateIds = getBlockStateIds();
-    
+
     @Unique
     private Object2IntMap<BlockState> getBlockStateIds() {
         return BlockRenderingSettings.INSTANCE.getBlockStateIds();
     }
-    
+
     @Unique
     private short resolveBlockId(BlockState state) {
         if (blockStateIds == null) {
             return -1;
         }
-        
+
         return (short) blockStateIds.getOrDefault(state, -1);
     }
-    
+
     @Inject(method = RENDER, at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/renderer/block/BlockRenderDispatcher;renderLiquid(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/BlockAndTintGetter;Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/material/FluidState;)V"),
             locals = LocalCapture.CAPTURE_FAILHARD)
@@ -68,7 +68,7 @@ public class MixinChunkRebuildTask {
                 blockPos3.getZ() & 0xF);
         }
     }
-    
+
     @Inject(method = RENDER, at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/renderer/block/BlockRenderDispatcher;renderLiquid(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/BlockAndTintGetter;Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/material/FluidState;)V",
             shift = At.Shift.AFTER))
@@ -78,7 +78,7 @@ public class MixinChunkRebuildTask {
             lastBufferBuilder = null;
         }
     }
-    
+
     @Inject(method = RENDER, at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/renderer/block/BlockRenderDispatcher;renderBatched(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/BlockAndTintGetter;Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;ZLnet/minecraft/util/RandomSource;)V"),
             locals = LocalCapture.CAPTURE_FAILHARD)
@@ -89,7 +89,7 @@ public class MixinChunkRebuildTask {
             lastBufferBuilder.beginBlock(resolveBlockId(blockState), ExtendedDataHelper.BLOCK_RENDER_TYPE, blockPos3.getX() & 0xF, blockPos3.getY() & 0xF, blockPos3.getZ() & 0xF);
         }
     }
-    
+
     @Inject(method = RENDER, at = @At(value = "INVOKE",
             target = "Lnet/minecraft/client/renderer/block/BlockRenderDispatcher;renderBatched(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/BlockAndTintGetter;Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;ZLnet/minecraft/util/RandomSource;)V",
             shift = At.Shift.AFTER))
